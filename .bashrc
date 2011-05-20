@@ -103,6 +103,11 @@ then
 	. $HOME/.bash_completion.d/*
 fi
 
+if [ $(uname) == "Darwin" ]
+then 
+	alias gitk='/usr/bin/wish $(which gitk)'	
+fi 
+
 #aliases
 alias ls='ls --color=auto'
 #alias ls='ls -G'
@@ -114,10 +119,10 @@ alias grep='grep --color'
 PS1='\u@\h \w\$ '
 TERM="xterm"
 EDITOR=vim
-
 PATH=$PATH:$HOME/opt/bin
 #PATH=$PATH:$HOME/bin
 export WIKI=$HOME/src/pixelmuerto.github.com/wiki
+export HISTSIZE=2000
 export PATH
 alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
 alias xtermHugeWhite='xtermHuge -bg white -fg black'

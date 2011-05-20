@@ -79,7 +79,7 @@ nmap ,t :Translate<space>
 nmap ,w :sp $WIKI<CR>
 """NERDtree
 nmap ,n :NERDTreeToggle<CR>
-
+let NERDTreeShowBookmarks=1
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
