@@ -6,7 +6,7 @@
 .vim/after/plugin
 .vim/autoload/snipMate.vim
 .vim/doc/*
-.vim/ftplugin/html_snip_helper.vim
+.vim/ftplugin/*
 .vim/plugin/snipMate.vim
 .vim/plugin/supertab.vim
 .vim/plugin/python_fold.vim
@@ -19,6 +19,7 @@
 .bash_completion.d
 .vim/autoload/
 .vim/plugin/minibufexpl.vim
+.vim/samples
 .vim/plugin/vimproc.vim
 .vim/plugin/vimshell.vim
 .vim/test

@@ -39,7 +39,7 @@ do
 done
 echo "Creando directorios necesarios para vim"
 cd $dirLocal
-repos=( tpope/vim-fugitive.git vim-scripts/taglist.vim.git juanpabloaj/absolutFold.git msanders/snipmate.vim.git ervandew/supertab.git vim-scripts/xoria256.vim.git vim-scripts/mayansmoke.git pixelmuerto/vim-pixelmuerto.git hallison/vim-markdown.git Shougo/vimshell.git Shougo/vimproc.git scrooloose/nerdtree.git )
+repos=( tpope/vim-fugitive.git vim-scripts/taglist.vim.git juanpabloaj/absolutFold.git MarcWeber/vim-addon-mw-utils.git tomtom/tlib_vim.git garbas/vim-snipmate.git ervandew/supertab.git vim-scripts/xoria256.vim.git vim-scripts/mayansmoke.git pixelmuerto/vim-pixelmuerto.git hallison/vim-markdown.git Shougo/vimshell.git Shougo/vimproc.git scrooloose/nerdtree.git )
 for repo in ${repos[@]}
 do
 	#echo "http://github.com/$repo"
@@ -50,9 +50,9 @@ do
 		echo "Clonando $repoDirName"
 		r=git://github.com/$repo
 		cd ..
-		git clone $r >& /dev/null
+		echo "git clone $r"
+		git clone $r #>& /dev/null
 		echo 
-		echo "Clonado $r"
 		cd $dirLocal 
 	fi
 	if [ -d ../$repoDirName ]
