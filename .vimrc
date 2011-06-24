@@ -17,7 +17,7 @@ set wrap
 
 " statusline 
 ":set statusline=%F%m%r%h%w\ [B=%n]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-:set laststatus=1
+:set laststatus=2
 
 set statusline=%<%f\ %{fugitive#statusline()}%<%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-24(,BfNm=%n%Y%)\%P\*%=%{FileTime()}
 set rulerformat=%15(%c%V\ %p%%%)
@@ -31,10 +31,6 @@ function! FileTime()
   let msg=msg." ".strftime("(Modified %b,%d %y %H:%M:%S)",getftime(filename))
   return msg
 endfunction
-
-" miniBufExpl
-map <leader>t :TMiniBufExplorer<cr>
-map <Leader>b :MiniBufExplorer<cr>
 
 "" taglist
 "" para que funcione debe estar instalado  exuberant-ctags 
@@ -72,12 +68,16 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 "}}}1
 
 nmap ,v :tabnew ~/.vimrc<CR>
-nmap ,d :tabnew ~/.vim<CR>
+nmap ,vd :tabnew ~/.vim<CR>
+nmap ,vs :tabnew ~/.vim/snippets<CR>
 nmap ,s :so ~/.vimrc<cr>
 nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
 nmap ,w :sp $WIKI<CR>
+" fugitive : git plugin
+nmap ,gd :Gdiff<CR>
+nmap ,gc :Gcommit -am ""<Left>
 """NERDtree
 nmap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
