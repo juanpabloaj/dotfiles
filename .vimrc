@@ -23,7 +23,7 @@ set statusline=%<%f\ %{fugitive#statusline()}%<%<%h%m%r%=%-20.(line=%03l,col=%02
 set rulerformat=%15(%c%V\ %p%%%)
 "set rulerformat=%<%f%<%{FileTime()}%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-30(,BfNm=%n%Y%)\%P\*%=%{CurTime()}
 
-function! FileTime()
+function! FileTime() "{{{
   let ext=tolower(expand("%:e"))
   let fname=tolower(expand('%<'))
   let filename=fname . '.' . ext
@@ -31,6 +31,7 @@ function! FileTime()
   let msg=msg." ".strftime("(Modified %b,%d %y %H:%M:%S)",getftime(filename))
   return msg
 endfunction
+"}}}
 
 "" taglist
 "" para que funcione debe estar instalado  exuberant-ctags 
@@ -78,6 +79,7 @@ nmap ,w :sp $WIKI<CR>
 " fugitive : git plugin
 nmap ,gd :Gdiff<CR>
 nmap ,gc :Gcommit -am ""<Left>
+nmap ,gs :Gstatus<CR>
 """NERDtree
 nmap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
