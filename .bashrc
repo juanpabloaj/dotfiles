@@ -121,7 +121,8 @@ TERM="xterm"
 EDITOR=vim
 PATH=$PATH:$HOME/opt/bin
 #PATH=$PATH:$HOME/bin
-export WIKI=$HOME/src/pixelmuerto.github.com/wiki
+export SRC=$HOME/src
+export WIKI=$SRC/juanpabloaj.github.com/wiki
 export HISTSIZE=2000
 export PATH
 alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'

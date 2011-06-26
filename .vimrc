@@ -70,7 +70,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 nmap ,v :tabnew ~/.vimrc<CR>
 nmap ,vd :tabnew ~/.vim<CR>
-nmap ,vs :tabnew ~/.vim/snippets<CR>
+nmap ,vs :sp ~/.vim/snippets<CR>
 nmap ,s :so ~/.vimrc<cr>
 nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,o :TlistToggle<CR>
