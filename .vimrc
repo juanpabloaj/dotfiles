@@ -81,6 +81,8 @@ nmap ,b :tabnew $HOME/.bashrc<CR>
 nmap ,gd :Gdiff<CR>
 nmap ,gc :Gcommit -am ""<Left>
 nmap ,gs :Gstatus<CR>
+" Extradite : addon for fugitive 
+nmap ,ge :Extradite<CR>
 """NERDtree
 nmap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
