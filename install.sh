@@ -145,3 +145,18 @@ fi
 cd $dirLocal 
 echo "cd $dirLocal"
 # }}}
+# git-prompt {{{
+if [[ ! -d ../git-prompt ]]; then
+	cd $dirPadre 
+	echo "Clonando git-prompt"
+	git clone git@github.com:juanpabloaj/git-prompt.git
+	echo "cd $dirPadre/git-prompt"
+	cd git-prompt
+	make install 
+else
+	cd ../git-prompt
+	git pull
+fi	
+cd $dirLocal 
+echo "cd $dirLocal"
+# }}}
