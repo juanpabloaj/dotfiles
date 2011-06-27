@@ -71,11 +71,12 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 nmap ,v :tabnew ~/.vimrc<CR>
 nmap ,vd :tabnew ~/.vim<CR>
 nmap ,vs :sp ~/.vim/snippets<CR>
+nmap ,c :sp ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,s :so ~/.vimrc<cr>
-nmap ,c :tabnew ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
 nmap ,w :sp $WIKI<CR>
+nmap ,b :tabnew $HOME/.bashrc<CR>
 " fugitive : git plugin
 nmap ,gd :Gdiff<CR>
 nmap ,gc :Gcommit -am ""<Left>
