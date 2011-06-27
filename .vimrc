@@ -57,20 +57,10 @@ set fdm=marker
 ""auto cerrado
 "set fcl=all
 ""}}}
-"Completar con tab{{{1
-function! CleverTab()
-  let col = col('.') - 1
-  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' || strpart( getline('.'),col-1,col) =~ '\s' || !col
-    return "\<Tab>"
-  else
-    return "\<C-N>"
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
-"}}}1
 
-nmap ,v :tabnew ~/.vimrc<CR>
-nmap ,vd :tabnew ~/.vim<CR>
-nmap ,vs :sp ~/.vim/snippets<CR>
+nmap ,v :sp ~/.vimrc<CR>
+nmap ,vd :sp ~/.vim<CR>
+nmap ,vs :SnipMateOpenSnippetFiles<CR>
 nmap ,c :sp ~/.vim/colors/pixelmuerto.vim<CR>
 nmap ,s :so ~/.vimrc<cr>
 nmap ,o :TlistToggle<CR>
