@@ -4,6 +4,7 @@
 .vim/spell/*sug
 .vim/.netrwhist
 .vim/after/plugin
+.vim/after/ftplugin
 .vim/autoload/snipMate.vim
 .vim/doc/*
 .vim/ftplugin/*
