@@ -156,6 +156,7 @@ if [[ ! -d ../git-prompt ]]; then
 else
 	cd ../git-prompt
 	git pull
+	git remote add lvv git://github.com/lvv/git-prompt.git
 fi	
 cd $dirLocal 
 echo "cd $dirLocal"
