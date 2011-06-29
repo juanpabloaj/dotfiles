@@ -69,7 +69,7 @@ nmap ,w :sp $WIKI<CR>
 nmap ,b :tabnew $HOME/.bashrc<CR>
 " fugitive : git plugin
 nmap ,gd :Gdiff<CR>
-nmap ,gc :Gcommit -am ""<Left>
+nmap ,gc :Gcommit -a<CR>
 nmap ,gs :Gstatus<CR>
 nmap ,g0 :w <bar> Git diff -U0<CR>
 " Extradite : addon for fugitive 
