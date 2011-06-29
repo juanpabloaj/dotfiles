@@ -115,6 +115,10 @@ do
 	fi
 done
 # }}}
+# vim : plugins docs {{{
+echo 'vim "+helptags ~/.vim/doc" +q'
+vim "+helptags ~/.vim/doc" +q
+#}}}
 # vim spell {{{
 echo "cd $dirLocal/.vim/spell"
 cd $dirLocal/.vim/spell 
