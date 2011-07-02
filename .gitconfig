@@ -19,7 +19,7 @@
 	co = checkout
 	df = diff
 	dc = diff --cached
-	df0 = diff -U0
+	d0 = diff -U0
 	mo = merge origin 
 	fo = fetch origin
 	lo = log --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit --date=relative HEAD..origin/master
