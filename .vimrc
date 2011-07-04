@@ -72,6 +72,7 @@ nmap ,gd :Gdiff<CR>
 nmap ,gc :Gcommit -a<CR>
 nmap ,gs :Gstatus<CR>
 nmap ,gw :Gwrite<CR>
+nmap ,gr :Gread<CR>
 nmap ,g0 :w <bar> Git diff -U0<CR>
 " Extradite : addon for fugitive 
 nmap ,ge :Extradite<CR>
