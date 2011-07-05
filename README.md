@@ -1,7 +1,14 @@
 ### Install
 
-	bash install.sh
+	make install
 
 ### Clean 
 
     make clean 
+
+# vim 
+
+### Included vim plugins 
+
+
+    .gitmodules

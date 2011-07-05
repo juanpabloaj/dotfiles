@@ -1,8 +1,12 @@
 " ==========================================================
 " File Name:    .vimrc
 " Author:       juanpabloaj
-" Version:      0.1
+" Version:      0.2
 " ==========================================================
+
+" load plugins in .vim/bundle
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 syntax on
 :set background=dark
 :set backspace=eol,start,indent
