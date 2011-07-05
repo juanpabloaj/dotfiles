@@ -32,3 +32,6 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "utils/git-prompt"]
+	path = utils/git-prompt
+	url = git@github.com:juanpabloaj/git-prompt.git
