@@ -6,6 +6,9 @@ install:
 	mkdir -p .vim/autoload
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -v -s $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	cd $(PWD)/utils/git-prompt; make install
+	-cd utils/git-prompt ; git remote add lvv git://github.com/lvv/git-prompt.git
+	-cd .vim/bundle/snipmate-snippets ; git remote add honza https://github.com/honza/snipmate-snippets.git
+	-cd .vim/bundle/vim-snipmate ; git remote add garbas https://github.com/garbas/vim-snipmate.git
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 clean:
 	$(foreach f,$(vimFiles),unlink $(f);)
