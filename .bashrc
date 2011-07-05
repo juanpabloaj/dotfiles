@@ -129,5 +129,4 @@ alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
 alias xtermHugeWhite='xtermHuge -bg white -fg black'
 alias xtermWhite='xterm -bg white -fg black'
 export VIMHOME=$HOME/.vim
-export RC=$HOME/src/rc
-[[ $- == *i* ]] && . $HOME/src/git-prompt/git-prompt.sh
+[[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh
