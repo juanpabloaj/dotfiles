@@ -10,10 +10,6 @@
 [submodule ".vim/bundle/vim-extradite"]
 	path = .vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite.git
-[submodule ".vim/bundle/vim-taglist"]
-	path = .vim/bundle/vim-taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
-	ignore = untracked
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
@@ -35,3 +31,6 @@
 [submodule "utils/git-prompt"]
 	path = utils/git-prompt
 	url = git@github.com:juanpabloaj/git-prompt.git
+[submodule ".vim/bundle/vim-taglist-plus"]
+	path = .vim/bundle/vim-taglist-plus
+	url = https://github.com/int3/vim-taglist-plus.git
