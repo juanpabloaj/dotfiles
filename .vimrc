@@ -23,7 +23,7 @@ set wrap
 ":set statusline=%F%m%r%h%w\ [B=%n]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 :set laststatus=2
 
-set statusline=%<%f\ %{fugitive#statusline()}%<%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-24(,BfNm=%n%Y%)\%P\*%=%{FileTime()}
+set statusline=%<%f\ %{fugitive#statusline()}%<%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-24(,BfNm=%n%Y%)\%P\*\ %f%=%{FileTime()}
 set rulerformat=%15(%c%V\ %p%%%)
 "set rulerformat=%<%f%<%{FileTime()}%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-30(,BfNm=%n%Y%)\%P\*%=%{CurTime()}
 
@@ -78,6 +78,7 @@ nmap ,gs :Gstatus<CR>
 nmap ,gw :Gwrite<CR>
 nmap ,gr :Gread<CR>
 nmap ,g0 :w <bar> Git diff -U0<CR>
+nmap ,g1 :w <bar> :Gdiff HEAD~1<CR>
 " Extradite : addon for fugitive 
 nmap ,ge :Extradite<CR>
 """NERDtree
