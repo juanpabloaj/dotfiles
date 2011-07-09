@@ -12,6 +12,7 @@ install:
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
+	cd .vim/spell; bash spell.sh
 clean:
 	$(foreach f,$(vimFiles),unlink $(f);)
 	cd $(PWD)/utils/git-prompt; make clean

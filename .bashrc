@@ -122,11 +122,13 @@ EDITOR=vim
 PATH=$PATH:$HOME/opt/bin
 #PATH=$PATH:$HOME/bin
 export SRC=$HOME/src
-export WIKI=$SRC/juanpabloaj.github.com/wiki
+export WIKI=$SRC/blog/wiki
 export HISTSIZE=2000
 export PATH
 alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
 alias xtermHugeWhite='xtermHuge -bg white -fg black'
 alias xtermWhite='xterm -bg white -fg black'
 export VIMHOME=$HOME/.vim
+export VIMBUNDLE=$VIMHOME/bundle
+export DOT=$SRC/dotfiles
 [[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh

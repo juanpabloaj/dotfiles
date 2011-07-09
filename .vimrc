@@ -51,7 +51,7 @@ set incsearch
 "" [s ]s z= zg 
 "augroup filetypedetect
 "au BufNewFile,BufRead *.txt set spell
-au BufNewFile,BufRead *.tex set spell
+au BufNewFile,BufRead *.tex,*.md,*.markdown set spell
 "augroup END
 set spelllang=es
 ""}}}
