@@ -20,12 +20,10 @@ set wrap
 "so ~/.vim/misFunciones.vim
 
 " statusline 
-":set statusline=%F%m%r%h%w\ [B=%n]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 :set laststatus=2
 
-set statusline=%<%f\ %{fugitive#statusline()}%<%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-24(,BfNm=%n%Y%)\%P\*\ %t%=%{FileTime()}
+set statusline=%f\ %{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-12(,bf=%n%Y%)\%P\*%=%{FileTime()}
 set rulerformat=%15(%c%V\ %p%%%)
-"set rulerformat=%<%f%<%{FileTime()}%<%h%m%r%=%-20.(line=%03l,col=%02c%V,totlin=%L%)\%h%m%r%=%-30(,BfNm=%n%Y%)\%P\*%=%{CurTime()}
 
 function! FileTime() "{{{
   let ext=tolower(expand("%:e"))
