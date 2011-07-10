@@ -116,19 +116,21 @@ alias lh='ls -lh'
 alias la='ls -a'
 alias screen='$HOME/opt/bin/screen'
 alias grep='grep --color'
+# reopen last file open with vim 
+alias v='vim -c "normal '\''0"'
+alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
+alias xtermHugeWhite='xtermHuge -bg white -fg black'
+alias xtermWhite='xterm -bg white -fg black'
 PS1='\u@\h \w\$ '
 TERM="xterm"
 EDITOR=vim
 PATH=$PATH:$HOME/opt/bin
 #PATH=$PATH:$HOME/bin
 export SRC=$HOME/src
-export WIKI=$SRC/blog/wiki
-export HISTSIZE=2000
+export W=$SRC/blog/wiki
+export HISTSIZE=1000
 export PATH
-alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
-alias xtermHugeWhite='xtermHuge -bg white -fg black'
-alias xtermWhite='xterm -bg white -fg black'
 export VIMHOME=$HOME/.vim
 export VIMBUNDLE=$VIMHOME/bundle
-export DOT=$SRC/dotfiles
+export D=$SRC/dotfiles
 [[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh
