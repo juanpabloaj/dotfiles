@@ -11,7 +11,7 @@ syntax on
 :set background=dark
 :set backspace=eol,start,indent
 
-filetype plugin on
+filetype plugin indent on
 filetype on
 
 set encoding=utf-8
@@ -22,7 +22,7 @@ set wrap
 " statusline 
 :set laststatus=2
 
-set statusline=%f\ %{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-12(,bf=%n%Y%)\%P\*%=%{FileTime()}
+set statusline=%f\ %{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)\%P\*%=%{FileTime()}
 set rulerformat=%15(%c%V\ %p%%%)
 
 function! FileTime() "{{{
@@ -69,6 +69,7 @@ nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
 nmap ,w :sp $WIKI<CR>
 nmap ,b :tabnew $HOME/.bashrc<CR>
+nmap ,f :find 
 " fugitive : git plugin
 nmap ,gd :Gdiff<CR>
 nmap ,gc :Gcommit -a<CR>
