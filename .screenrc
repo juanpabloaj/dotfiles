@@ -54,10 +54,10 @@ screen -t bash 0 bash
 #bind I screen -t 'irc'   bitchx -H $IRCSERVER
 #bind M screen -t 'Email' mutt
 #bind e screen -t 'emacs' emacs21 -nw
-bind m screen -t 'moc' mocp
+#bind m screen -t 'moc' mocp
 bind v screen -t 'vim' vim
-bind i screen -t 'irssi' irssi
-bind u screen -t 'mutt' mutt
+#bind i screen -t 'irssi' irssi
+#bind u screen -t 'mutt' mutt
 bind - resize -1
 bind + resize +1
 #####################################################
