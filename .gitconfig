@@ -30,3 +30,4 @@
 	ls = ls-files
 	rh = reset --hard
 	cf = clean -fd
+	suir = submodule update --init --recursive

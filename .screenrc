@@ -13,7 +13,7 @@ caption splitonly  "%{Kk}[ %-w%{= Kk}%50>%n %t%{-}%+w ]%<"
 
 #hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< %=%D %M %d %c"
 hardstatus alwayslastline
-hardstatus string '%{= kK}[ %H ] %-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %1` %d %M %c%{-}%{= kK}   '
+hardstatus string '%{= kK}[ %H ] %-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %1` %d %M %c%{-}%{= kK} '
 
 ### some basic stuff
 ###

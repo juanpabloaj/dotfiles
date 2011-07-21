@@ -49,7 +49,7 @@ UXTerm*color15:    rgb:de/de/de
 !XTerm*cursorColor:      white
 !XTerm*font:      -*-courier-*-r-*-*-12-*-*-*-*-*-*-*
 !XTerm*font:      -*-inconsolata-*-*-*-*-10-*-*-*-*-*-*-*
-XTerm*geometry: 140x20
-UXTerm*geometry: 140x20
+XTerm*geometry: 140x40
+UXTerm*geometry: 140x40
 !para que screen no redimencione xterm 
 XTerm*ptySttySize: true
