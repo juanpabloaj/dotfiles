@@ -80,6 +80,7 @@ nmap ,g0 :w <bar> Git diff -U0<CR>
 nmap ,g1 :w <bar> :Gdiff HEAD~1<CR>
 " Extradite : addon for fugitive 
 nmap ,ge :Extradite<CR>
+let g:extradite_showhash=1
 """NERDtree
 nmap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
