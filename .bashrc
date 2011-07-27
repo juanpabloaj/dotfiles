@@ -133,4 +133,6 @@ export PATH
 export VIMHOME=$HOME/.vim
 export VIMBUNDLE=$VIMHOME/bundle
 export D=$SRC/dotfiles
+export LANG="es_ES.UTF-8"
+export LANGUAGE="es_ES"
 [[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh
