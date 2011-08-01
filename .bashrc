@@ -135,4 +135,5 @@ export VIMBUNDLE=$VIMHOME/bundle
 export D=$SRC/dotfiles
 export LANG="es_ES.UTF-8"
 export LANGUAGE="es_ES"
+export LC_ALL=C
 [[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh
