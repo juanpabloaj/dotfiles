@@ -1,8 +1,10 @@
 rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d 
 LOCAL=$(PWD)
 install: 
+	# add brew as submodule 
 	git submodule init
 	git submodule update
+	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin 
 	mkdir -p .vim/autoload
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -v -s $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	cd $(PWD)/utils/git-prompt; make install
@@ -14,7 +16,9 @@ install:
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 	cd .vim/spell; bash spell.sh
+	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
 clean:
 	$(foreach f,$(vimFiles),unlink $(f);)
 	cd $(PWD)/utils/git-prompt; make clean
 	$(foreach f,$(rcFiles), [ -L $(HOME)/$f ] && unlink $(HOME)/$f;)
+	cd $(HOME)/opt/bin ; [ -h git-map ] && unlink git-map  

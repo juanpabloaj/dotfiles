@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/vim-extradite"]
 	path = .vim/bundle/vim-extradite
 	url = git@github.com:juanpabloaj/vim-extradite.git
+[submodule "utils/git-map"]
+	path = utils/git-map
+	url = https://github.com/icefox/git-map.git
