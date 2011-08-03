@@ -1,4 +1,4 @@
-rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d 
+rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc
 LOCAL=$(PWD)
 install: 
 	# add brew as submodule 
@@ -17,8 +17,10 @@ install:
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 	cd .vim/spell; bash spell.sh
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
+	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
 clean:
 	$(foreach f,$(vimFiles),unlink $(f);)
 	cd $(PWD)/utils/git-prompt; make clean
 	$(foreach f,$(rcFiles), [ -L $(HOME)/$f ] && unlink $(HOME)/$f;)
 	cd $(HOME)/opt/bin ; [ -h git-map ] && unlink git-map  
+	cd $(HOME) ; [ -h .oh-my-zsh ] &&  unlink .oh-my-zsh 
