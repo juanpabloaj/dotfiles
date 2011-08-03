@@ -28,7 +28,11 @@ term $TERM                      # We'll use whatever is currently used  #
 vbell off
 hardstatus on
 
-#para q la funcion scroll funcione en screen
+# utf-8 
+encoding utf8 utf8
+defencoding utf8
+
+# funcion scroll funcione en screen
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;\w\007'
 termcapinfo xterm ti@:te@
 
