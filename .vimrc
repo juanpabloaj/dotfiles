@@ -63,7 +63,7 @@ set fdm=marker
 nmap ,v :sp ~/.vimrc<CR>
 nmap ,vd :sp ~/.vim<CR>
 nmap ,vs :SnipMateOpenSnippetFiles<CR>
-nmap ,c :sp ~/.vim/colors/pixelmuerto.vim<CR>
+nmap ,c :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nmap ,s :so ~/.vimrc<cr>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>

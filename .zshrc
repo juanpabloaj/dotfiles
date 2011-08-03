@@ -33,3 +33,10 @@ if [[ $(uname) == "Darwin" ]]; then
 	# brew 
 	PATH=$HOME/src/homebrew/bin:$PATH
 fi
+alias ls='ls --color=auto'
+export SRC=$HOME/src
+export W=$SRC/blog/wiki
+export VIMHOME=$HOME/.vim
+export VIMBUNDLE=$VIMHOME/bundle
+export D=$SRC/dotfiles
+export EDITOR=vim
