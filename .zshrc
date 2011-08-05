@@ -37,6 +37,6 @@ alias ls='ls --color=auto'
 export SRC=$HOME/src
 export W=$SRC/blog/wiki
 export VIMHOME=$HOME/.vim
-export VIMBUNDLE=$VIMHOME/bundle
+export B=$VIMHOME/bundle
 export D=$SRC/dotfiles
 export EDITOR=vim
