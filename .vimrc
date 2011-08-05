@@ -40,8 +40,10 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set relativenumber
-set undofile
+if v:version >= 703
+    set relativenumber
+    set undofile
+endif
 
 "set textwidth=79
 "set formatoptions=qrn1
