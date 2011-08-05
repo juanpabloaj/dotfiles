@@ -1,69 +1,79 @@
 " ==========================================================
 " File Name:    .vimrc
 " Author:       juanpabloaj
-" Version:      0.2
+" Version:      0.3
 " ==========================================================
 
 " load plugins in .vim/bundle
+filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-syntax on
-:set background=dark
-:set backspace=eol,start,indent
-
 filetype plugin indent on
-filetype on
 
+" no compatible con vi
+set nocompatible 
+
+set modelines=0
+
+syntax on
+set tabstop=4 ""numero de espacios por un tab
+set sw=4 ""numero de espacios por indent
+set softtabstop=4
+set expandtab
+
+set background=dark
+set backspace=eol,start,indent
 set encoding=utf-8
 set wrap
 
-"so ~/.vim/misFunciones.vim
+set nu
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+"set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+set undofile
 
-" statusline 
-:set laststatus=2
+"set textwidth=79
+"set formatoptions=qrn1
+"set colorcolumn=85
 
 set statusline=%f\ %{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)\%P\*%=%{FileTime()}
 set rulerformat=%15(%c%V\ %p%%%)
 
-function! FileTime() "{{{
-  let ext=tolower(expand("%:e"))
-  let fname=tolower(expand('%<'))
-  let filename=fname . '.' . ext
-  let msg=""
-  let msg=msg." ".strftime("(Modified %b,%d %y %H:%M:%S)",getftime(filename))
-  return msg
-endfunction
-"}}}
+" so ~/.vim/misFunciones.vim
 
-"" taglist
-"" para que funcione debe estar instalado  exuberant-ctags 
-"TlistToggle
-" para las tags en ~/.ctags
-let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
-let tlist_make_settings  = 'make;m:makros;t:targets'
-au BufRead,BufNewFile *.cu set filetype=c
-"Busqueda {{{
-set hls
+au FocusLost * :wa
+" Busqueda {{{
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
 set incsearch
-""}}}""correccion ortografia {{{
-"" [s ]s z= zg 
-"augroup filetypedetect
-"au BufNewFile,BufRead *.txt set spell
-au BufNewFile,BufRead *.tex,*.md,*.markdown set spell
-"augroup END
-set spelllang=es
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 ""}}}
-" Folding {{{
-""metodo de folding
-set fdm=marker
-""auto cerrado
-"set fcl=all
-""}}}
-
+" map {{{
+let mapleader = ","
+nnoremap j gj
+nnoremap k gk
 nmap ,v :sp ~/.vimrc<CR>
 nmap ,vd :sp ~/.vim<CR>
 nmap ,vs :SnipMateOpenSnippetFiles<CR>
-nmap ,c :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nmap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nmap ,s :so ~/.vimrc<cr>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
@@ -87,7 +97,33 @@ let NERDTreeShowBookmarks=1
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
+" }}}
 
+" mostrar caracteres especiales
+"set list
+"set listchars=tab:▸\ ,eol:¬
+
+"" taglist
+"" para que funcione debe estar instalado  exuberant-ctags 
+"TlistToggle
+" para las tags en ~/.ctags
+let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
+let tlist_make_settings  = 'make;m:makros;t:targets'
+au BufRead,BufNewFile *.cu set filetype=c
+""correccion ortografia {{{
+"" [s ]s z= zg 
+"augroup filetypedetect
+"au BufNewFile,BufRead *.txt set spell
+au BufNewFile,BufRead *.tex,*.md,*.markdown set spell
+"augroup END
+set spelllang=es
+""}}}
+" Folding {{{
+""metodo de folding
+set fdm=marker
+""auto cerrado
+"set fcl=all
+""}}}
 " Templates + manual snippets {{{1
 function! LoadTemplate(extension)
 	silent! :execute '0r ~/.vim/templates/'. a:extension. '.tpl'
@@ -101,12 +137,6 @@ endfunction
 :autocmd BufNewFile * silent! call LoadTemplate('%:e')
 :autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
 "}}}1
-""autoindent y smartindent
-:set ai
-":set si
-set tabstop=4 ""numero de espacios por un tab
-set sw=4 ""numero de espacios por indent
-
 "256 colores {{{
 if $TERM =~ '^xterm'
 	set t_Co=256
@@ -115,11 +145,6 @@ if $TERM =~ '^xterm'
 	"colorscheme calmar256
 endif
 ""}}}
-"numero de linea y color
-:hi LineNr ctermfg=darkgray ctermbg=black 
-:set nu
-":set cursorline 
-":hi CursorLine cterm=NONE ctermbg=236
 ""Ultima session {{{1
 ""guardar y abrir
 function! SaveSession()
@@ -241,3 +266,12 @@ endfunction
 vmap co :call CommentLines()<CR>
 
 " }}}1
+function! FileTime() "{{{
+  let ext=tolower(expand("%:e"))
+  let fname=tolower(expand('%<'))
+  let filename=fname . '.' . ext
+  let msg=""
+  let msg=msg." ".strftime("(Modified %b,%d %y %H:%M:%S)",getftime(filename))
+  return msg
+endfunction
+"}}}

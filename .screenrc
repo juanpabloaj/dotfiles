@@ -49,7 +49,7 @@ defbce "on"
 
 #default windows
 screen -t bash 0 bash
-#screen -t zsh 1 zsh
+screen -t zsh 1 zsh
 
 ###
 # Let's do some bindings.
