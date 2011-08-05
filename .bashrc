@@ -113,7 +113,7 @@ alias ls='ls --color=auto'
 #alias ls='ls -G'
 alias ll='ls -l'
 alias lh='ls -lh'
-alias la='ls -a'
+alias l='ls -al'
 alias screen='$HOME/opt/bin/screen'
 alias grep='grep --color'
 # reopen last file open with vim 
