@@ -140,7 +140,7 @@ endfunction
 :autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
 "}}}1
 "256 colores {{{
-if $TERM =~ '^xterm'
+if $TERM =~ '^xterm' || $TERM =~ '^screen'
 	set t_Co=256
 	colorscheme pixelmuerto
 	"colorscheme xoria256

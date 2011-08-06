@@ -24,7 +24,7 @@ defmonitor off                   # turn monitoring on                    #
 defscrollback 1000              # please sir, can i have some more?     #
 shell -$SHELL                   # i'll take my default shell.           #
 startup_message off             # don't want this either.               #
-term $TERM                      # We'll use whatever is currently used  #
+#term $TERM                      # We'll use whatever is currently used  #
 vbell off
 hardstatus on
 

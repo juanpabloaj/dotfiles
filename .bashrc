@@ -122,8 +122,8 @@ alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
 alias xtermHugeWhite='xtermHuge -bg white -fg black'
 alias xtermWhite='xterm -bg white -fg black'
 alias mkdate='mkdir $(date +%Y_%m_%d)'
-PS1='\u@\h \w\$ '
-TERM="xterm"
+#PS1='\u@\h \w\$ '
+#TERM="xterm"
 EDITOR=vim
 PATH=$PATH:$HOME/opt/bin
 if [[ $(uname) == "Darwin" ]]; then
