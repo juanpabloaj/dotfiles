@@ -19,7 +19,7 @@ syntax on
 set tabstop=4 ""numero de espacios por un tab
 set sw=4 ""numero de espacios por indent
 set softtabstop=4
-set expandtab
+"set expandtab
 
 set background=dark
 set backspace=eol,start,indent
@@ -102,8 +102,8 @@ inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 " }}}
 
 " mostrar caracteres especiales
-"set list
-"set listchars=tab:▸\ ,eol:¬
+set list
+set listchars=tab:▸\ ,eol:¬
 
 "" taglist
 "" para que funcione debe estar instalado  exuberant-ctags 
