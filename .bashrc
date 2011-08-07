@@ -134,8 +134,8 @@ export W=$SRC/blog/wiki
 export HISTSIZE=1000
 export PATH
 export VIMHOME=$HOME/.vim
-export B=$VIMHOME/bundle
 export D=$SRC/dotfiles
+export B=$D/.vim/bundle
 export LANG="es_ES.UTF-8"
 export LANGUAGE="es_ES"
 export LC_ALL="es_ES.UTF-8"
