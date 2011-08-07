@@ -13,6 +13,7 @@ install:
 	-cd .vim/bundle/snipmate-snippets ; git remote add honza https://github.com/honza/snipmate-snippets.git
 	-cd .vim/bundle/vim-snipmate ; git remote add garbas https://github.com/garbas/vim-snipmate.git
 	-cd .vim/bundle/vim-extradite ; git remote add adamreeve https://github.com/adamreeve/vim-extradite.git
+	-cd .vim/bundle/vim-extradite ; git remote add int3 https://github.com/int3/vim-extradite.git
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
