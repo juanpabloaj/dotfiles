@@ -15,4 +15,5 @@ export VIMHOME=$HOME/.vim
 export D=$SRC/dotfiles
 export B=$D/.vim/bundle
 export EDITOR=vim
+[ -d $HOME/opt/bin ] && PATH=$PATH:$HOME/opt/bin
 # vim: set filetype=bash:

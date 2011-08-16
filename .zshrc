@@ -26,13 +26,11 @@ plugins=(git z)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-PATH=$PATH:$HOME/opt/bin
 if [[ $(uname) == "Darwin" ]]; then
 	# ports
 	PATH=/opt/local/libexec/gnubin:$PATH
-	# brew 
-	PATH=$HOME/src/homebrew/bin:$PATH
 fi
+[ $( which brew ) ] && PATH=`brew --prefix`/bin:$PATH
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
