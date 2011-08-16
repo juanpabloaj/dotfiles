@@ -112,10 +112,17 @@ if [ -f ~/.aliases ]; then
 fi
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
-PATH=$PATH:$HOME/opt/bin
+[ -d $HOME/opt/bin ] && PATH=$PATH:$HOME/opt/bin
 if [[ $(uname) == "Darwin" ]]; then
-	PATH=$HOME/src/homebrew/bin:$PATH
+	PATH=$SRC/homebrew/bin:$PATH
 fi
+if [ $( which brew ) ] ; then
+	# z 
+	if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
+	 . `brew --prefix`/etc/profile.d/z.sh
+	fi
+fi 
+
 export HISTSIZE=1000
 export PATH
 export LANG="es_ES.UTF-8"
