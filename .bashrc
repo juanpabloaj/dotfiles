@@ -98,44 +98,26 @@ unset   rgb_restore   \
 
 eval $(dircolors  $HOME/.dircolors)
 
-if [ -d $HOME/.bash_completion.d/ ]
-then 
+if [ -d $HOME/.bash_completion.d/ ]; then 
 	. $HOME/.bash_completion.d/*
 fi
 
-if [ $(uname) == "Darwin" ]
-then 
+#aliases
+if [ $(uname) == "Darwin" ]; then 
 	alias gitk='/usr/bin/wish $(which gitk)'	
 fi 
-
-#aliases
-alias ls='ls --color=auto'
-#alias ls='ls -G'
-alias ll='ls -l'
-alias lh='ls -lh'
-alias l='ls -al'
 alias screen='$HOME/opt/bin/screen'
-alias grep='grep --color'
-# reopen last file open with vim 
-alias v='vim -c "normal '\''0"'
-alias xtermHuge='xterm -fn *-*-*-*-*-*-20-*'
-alias xtermHugeWhite='xtermHuge -bg white -fg black'
-alias xtermWhite='xterm -bg white -fg black'
-alias mkdate='mkdir $(date +%Y_%m_%d)'
+if [ -f ~/.aliases ]; then
+	. ~/.aliases
+fi
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
-EDITOR=vim
 PATH=$PATH:$HOME/opt/bin
 if [[ $(uname) == "Darwin" ]]; then
 	PATH=$HOME/src/homebrew/bin:$PATH
 fi
-export SRC=$HOME/src
-export W=$SRC/blog/wiki
 export HISTSIZE=1000
 export PATH
-export VIMHOME=$HOME/.vim
-export D=$SRC/dotfiles
-export B=$D/.vim/bundle
 export LANG="es_ES.UTF-8"
 export LANGUAGE="es_ES"
 export LC_ALL="es_ES.UTF-8"

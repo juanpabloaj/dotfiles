@@ -1,0 +1,18 @@
+alias ls='ls --color=auto'
+#alias ls='ls -G'
+alias ll='ls -l'
+alias lh='ls -lh'
+alias l='ls -al'
+alias lt='ls -altrh'
+alias grep='grep --color'
+alias mkdate='mkdir $(date +%Y_%m_%d)'
+# reopen last file open with vim 
+alias v='vim -c "normal '\''0"'
+# exports
+export SRC=$HOME/src
+export W=$SRC/blog/wiki
+export VIMHOME=$HOME/.vim
+export D=$SRC/dotfiles
+export B=$D/.vim/bundle
+export EDITOR=vim
+# vim: set filetype=bash:

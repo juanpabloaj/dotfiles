@@ -1,4 +1,4 @@
-rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc
+rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc .aliases
 LOCAL=$(PWD)
 install: 
 	# add brew as submodule 
