@@ -112,6 +112,7 @@ set listchars=tab:▸\ ,eol:¬
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
 au BufRead,BufNewFile *.cu set filetype=c
+au BufNewFile,BufRead .*aliases set filetype=sh
 ""correccion ortografia {{{
 "" [s ]s z= zg 
 "augroup filetypedetect
