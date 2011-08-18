@@ -1,7 +1,6 @@
 *.swp
 *un~
 .vim/autoload/*
-tags
 .netrwhist
 .vim/spell/*
 .bash_completion.d

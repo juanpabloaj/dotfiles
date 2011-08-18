@@ -40,6 +40,7 @@
 	tool = vimdiff
 [core]
 	editor = vim
+	excludesfile = ~/.gitexcludes
 [difftool]
 	prompt = false
 [mergetool]
