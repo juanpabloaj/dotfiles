@@ -79,7 +79,7 @@ nmap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nmap ,s :so ~/.vimrc<cr>
 nmap ,o :TlistToggle<CR>
 nmap ,t :Translate<space>
-nmap ,w :sp $WIKI<CR>
+nmap ,w :sp $W<CR>
 nmap ,b :tabnew $HOME/.bashrc<CR>
 nmap ,f :find 
 " fugitive : git plugin
