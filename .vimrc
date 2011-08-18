@@ -72,7 +72,7 @@ vnoremap <tab> %
 let mapleader = ","
 nnoremap j gj
 nnoremap k gk
-nmap ,v :sp ~/.vimrc<CR>
+nmap ,ve :sp ~/.vimrc<CR>
 nmap ,vd :sp ~/.vim<CR>
 nmap ,vs :SnipMateOpenSnippetFiles<CR>
 nmap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
