@@ -164,12 +164,6 @@ endfunction
 ""limpiar la terminal al salir de vim
 "autocmd VimLeave * !clear
 
-"""""redirigir salida de comando
-"""manual 
-":redir @a
-":set all
-":redir END
-""@ap
 """por funcion a newtab
 " TabMessage {{{1
 
@@ -186,6 +180,8 @@ endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 " }}}1
 " Translate {{{1
+" TODO make this a vim plugin 
+" TODO set language as var 
 " Traduccion, solo funcional con internet
 function! Translate(entrada)
 	let en=substitute(a:entrada," ","%20","g")
