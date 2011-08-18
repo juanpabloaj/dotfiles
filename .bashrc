@@ -114,7 +114,6 @@ fi
 #TERM="xterm"
 if [ $( which brew ) ] ; then
 	brewHome=`brew --prefix`
-	PATH=$brewHome/bin:$PATH
 	# z 
 	if [ -f $brewHome/etc/profile.d/z.sh ]; then
 	 . $brewHome/etc/profile.d/z.sh

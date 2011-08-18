@@ -30,7 +30,6 @@ if [[ $(uname) == "Darwin" ]]; then
 	# ports
 	PATH=/opt/local/libexec/gnubin:$PATH
 fi
-[ $( which brew ) ] && PATH=`brew --prefix`/bin:$PATH
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
