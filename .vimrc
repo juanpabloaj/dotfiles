@@ -55,19 +55,6 @@ set rulerformat=%15(%c%V\ %p%%%)
 " so ~/.vim/misFunciones.vim
 
 au FocusLost * :wa
-" Busqueda {{{
-nnoremap / /\v
-vnoremap / /\v
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
-""}}}
 " map {{{
 let mapleader = ","
 nnoremap j gj
@@ -100,7 +87,19 @@ let NERDTreeShowBookmarks=1
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 " }}}
-
+" Busqueda {{{
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+""}}}
 " mostrar caracteres especiales
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -116,8 +115,7 @@ au BufNewFile,BufRead .*aliases set filetype=sh
 ""correccion ortografia {{{
 "" [s ]s z= zg 
 "augroup filetypedetect
-"au BufNewFile,BufRead *.txt set spell
-au BufNewFile,BufRead *.tex,*.md,*.markdown set spell
+au BufNewFile,BufRead *.tex,*.md,*.markdown setl spell
 "augroup END
 set spelllang=es
 ""}}}
