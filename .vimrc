@@ -86,6 +86,12 @@ let NERDTreeShowBookmarks=1
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
+" marks 
+nmap <leader>mf : marks 0,1,2,3,4,5,6,7,8,9<CR>
+" showmarks
+let g:showmarks_enable=0
+nnoremap <silent> <leader>mo :ShowMarksOn<CR>
+nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
 " }}}
 " Busqueda {{{
 nnoremap / /\v
