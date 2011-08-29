@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/showmarks"]
 	path = .vim/bundle/showmarks
 	url = git@github.com:juanpabloaj/ShowMarks.git
+[submodule ".vim/bundle/mru"]
+	path = .vim/bundle/mru
+	url = git@github.com:juanpabloaj/mru.vim.git
