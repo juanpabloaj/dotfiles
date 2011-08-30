@@ -59,44 +59,67 @@ au FocusLost * :wa
 let mapleader = ","
 nnoremap j gj
 nnoremap k gk
-nmap ,ve :sp ~/.vimrc<CR>
-nmap ,vd :sp ~/.vim<CR>
-nmap ,vs :SnipMateOpenSnippetFiles<CR>
-nmap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
-nmap ,s :so ~/.vimrc<cr>
-nmap ,o :TlistToggle<CR>
-nmap ,t :Translate<space>
-nmap ,w :sp $W<CR>
-nmap ,b :tabnew $HOME/.bashrc<CR>
-nmap ,f :find 
+nnoremap ,ve :sp ~/.vimrc<CR>
+nnoremap ,vd :sp ~/.vim<CR>
+nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
+nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nnoremap ,s :so ~/.vimrc<cr>
+nnoremap ,o :TlistToggle<CR>
+nnoremap ,t :Translate<space>
+nnoremap ,w :sp $W<CR>
+nnoremap ,b :tabnew $HOME/.bashrc<CR>
+nnoremap ,f :find 
 " fugitive : git plugin
-nmap ,gd :Gdiff<CR>
-nmap ,gc :Gcommit -a<CR>
-nmap ,gs :Gstatus<CR>
-nmap ,gw :Gwrite<CR>
-nmap ,gr :Gread<CR>
-nmap ,g0 :w <bar> Git diff -U0<CR>
-nmap ,g1 :w <bar> :Gdiff HEAD~1<CR>
+nnoremap ,gd :Gdiff<CR>
+nnoremap ,gc :Gcommit -a<CR>
+nnoremap ,gs :Gstatus<CR>
+nnoremap ,gw :Gwrite<CR>
+nnoremap ,gr :Gread<CR>
+nnoremap ,g0 :w <bar> Git diff -U0<CR>
+nnoremap ,g1 :w <bar> :Gdiff HEAD~1<CR>
 " Extradite : addon for fugitive 
-nmap ,ge :Extradite<CR>
+nnoremap ,ge :Extradite<CR>
 let g:extradite_showhash=1
 """NERDtree
-nmap ,n :NERDTreeToggle<CR>
+nnoremap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 """moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
-" marks 
-nmap <leader>mf : marks 0123456789<CR>
-nmap <leader>ml : marks abcdefghijklmnopqrstuvwxyz<CR>
-nmap <leader>mu : marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>
-" showmarks
-let g:showmarks_enable=0
-nnoremap <silent> <leader>mo :ShowMarksOn<CR>
-nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
+" marks {{{ 
+	fun! ShowGlobalMarks() "{{{
+		try
+			marks ABCDEFGHIJKLMNOPQRSTUVWXYZ
+		catch /E283:/
+		endtry
+	endf 
+	nnoremap <silent> <leader>mu :call ShowGlobalMarks()<CR>
+	"}}}
+	fun! ShowNumberMarks() "{{{
+		try
+			marks 0123456789
+		catch /E283:/
+		endtry
+	endf 
+	nnoremap <silent> <leader>mf :call ShowNumberMarks()<CR>
+	"}}}
+	fun! ShowLocalMarks() "{{{
+		try
+			marks abcdefghijklmnopqrstuvwxyz
+		catch /E283:/
+		endtry
+	endf 
+	nnoremap <silent><leader>ml :call ShowLocalMarks()<CR>
+	"}}}
+	" showmarks {{{
+	let g:showmarks_enable=0
+	nnoremap <silent> <leader>mo :ShowMarksOn<CR>
+	nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
+	"}}}
+" }}}
 " MRU
 let MRU_Exclude_Files = '.*.extradite'  " For extradite
-nmap ,vm :MRU<CR>
+nnoremap ,vm :MRU<CR>
 " }}}
 " Busqueda {{{
 nnoremap / /\v
