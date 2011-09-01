@@ -63,6 +63,7 @@ nnoremap ,ve :sp ~/.vimrc<CR>
 nnoremap ,vd :sp ~/.vim<CR>
 nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
 nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nnoremap ,vg :GundoToggle<CR>
 nnoremap ,s :so ~/.vimrc<cr>
 nnoremap ,o :TlistToggle<CR>
 nnoremap ,t :Translate<space>
