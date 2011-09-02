@@ -21,7 +21,7 @@ ZSH_THEME="pixelmuerto"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git z git-flow)
+plugins=(git git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,4 +32,13 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
+fi
+if [ $( which brew ) ]; then 
+	# z 
+	if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
+	  . `brew --prefix`/etc/profile.d/z.sh
+	  function precmd () {
+		z --add "$(pwd -P)"
+	  }
+	fi
 fi

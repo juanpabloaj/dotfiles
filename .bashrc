@@ -112,14 +112,6 @@ if [ -f ~/.aliases ]; then
 fi
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
-if [ $( which brew ) ] ; then
-	brewHome=`brew --prefix`
-	# z 
-	if [ -f $brewHome/etc/profile.d/z.sh ]; then
-	 . $brewHome/etc/profile.d/z.sh
-	fi
-fi 
-
 export HISTSIZE=1000
 export PATH
 export LANG="es_ES.UTF-8"
@@ -128,3 +120,10 @@ export LC_ALL="es_ES.UTF-8"
 export MM_CHARSET="utf8"
 export LC_CTYPE="es_ES.UTF-8"
 [[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh
+if [ $( which brew ) ] ; then
+	brewHome=`brew --prefix`
+	# z 
+	if [ -f $brewHome/etc/profile.d/z.sh ]; then
+	 . $brewHome/etc/profile.d/z.sh
+	fi
+fi 
