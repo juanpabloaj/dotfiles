@@ -3,18 +3,16 @@
 " Author:       juanpabloaj
 " Version:      0.3
 " ==========================================================
-
+" preamble {{{
 " load plugins in .vim/bundle
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
-
 " no compatible con vi
 set nocompatible 
-
+" }}}
 set modelines=0
-
 syntax on
 set tabstop=4 ""numero de espacios por un tab
 set sw=4 ""numero de espacios por indent
@@ -35,7 +33,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-"set cursorline
+set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -152,7 +150,7 @@ au BufNewFile,BufRead .*aliases set filetype=sh
 "augroup filetypedetect
 au BufNewFile,BufRead *.tex,*.md,*.markdown setl spell
 "augroup END
-set spelllang=es
+set spelllang=es,en
 ""}}}
 " Folding {{{
 ""metodo de folding
