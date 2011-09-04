@@ -12,57 +12,66 @@ filetype plugin indent on
 " no compatible con vi
 set nocompatible 
 " }}}
+" basic options {{{
+set encoding=utf-8
 set modelines=0
+set autoindent
+set showmode
+set showcmd
+set hidden
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=eol,start,indent
+set nu
+set laststatus=2
+set history=100
 syntax on
 set tabstop=4 ""numero de espacios por un tab
 set sw=4 ""numero de espacios por indent
 set softtabstop=4
 "set expandtab
-
 set background=dark
-set backspace=eol,start,indent
-set encoding=utf-8
 set wrap
-
-set nu
 set scrolloff=3
-set autoindent
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-set cursorline
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
 if v:version >= 703
     set relativenumber
     set undofile
 endif
-
 "set textwidth=79
 "set formatoptions=qrn1
 "set colorcolumn=85
-
-set statusline=%f\ %{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)\%P\*%=%{FileTime()}
+" Wildmenu completion {{{
+set wildmenu
+set wildmode=list:longest
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store?                      " OSX bullshit
+" }}}
+set statusline=%f\ %{SyntasticStatuslineFlag()}%{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)\%P\*%=%{FileTime()}
 set rulerformat=%15(%c%V\ %p%%%)
-
-" so ~/.vim/misFunciones.vim
-
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
 au FocusLost * :wa
+" mostrar caracteres especiales
+set list
+set listchars=tab:▸\ ,eol:¬
+" }}}
 " map {{{
 let mapleader = ","
-nnoremap j gj
-nnoremap k gk
 nnoremap ,ve :sp ~/.vimrc<CR>
 nnoremap ,vd :sp ~/.vim<CR>
 nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
 nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nnoremap ,vg :GundoToggle<CR>
 nnoremap ,s :so ~/.vimrc<cr>
+"" taglist : debe estar instalado exuberant-ctags
 nnoremap ,o :TlistToggle<CR>
 nnoremap ,t :Translate<space>
 nnoremap ,w :sp $W<CR>
@@ -82,9 +91,12 @@ let g:extradite_showhash=1
 """NERDtree
 nnoremap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
-"""moverse entre <++> 
+" moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
+" navigation
+nnoremap j gj
+nnoremap k gk
 " marks {{{ 
 	fun! ShowGlobalMarks() "{{{
 		try
@@ -133,20 +145,18 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 ""}}}
-" mostrar caracteres especiales
-set list
-set listchars=tab:▸\ ,eol:¬
-
-"" taglist
-"" para que funcione debe estar instalado  exuberant-ctags 
-"TlistToggle
 " para las tags en ~/.ctags
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
 au BufRead,BufNewFile *.cu set filetype=c
 au BufNewFile,BufRead .*aliases set filetype=sh
-""correccion ortografia {{{
-"" [s ]s z= zg 
+" Syntastic {{{
+let g:syntastic_enable_signs = 1
+"let g:syntastic_disabled_filetypes = ['html']
+"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
+" }}}
+" spell {{{
+" [s ]s z= zg 
 "augroup filetypedetect
 au BufNewFile,BufRead *.tex,*.md,*.markdown setl spell
 "augroup END
@@ -167,7 +177,7 @@ endfunction
 function! LoadSnippets(extension)
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim' 
 endfunction
-""templates y snippets en base a la extension
+" templates y snippets en base a la extension
 :autocmd BufNewFile * silent! call LoadTemplate('%:e')
 :autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
 "}}}1
@@ -194,10 +204,8 @@ endfunction
 "}}}1
 ""limpiar la terminal al salir de vim
 "autocmd VimLeave * !clear
-
-"""por funcion a newtab
 " TabMessage {{{1
-
+" por funcion a newtab
 function! TabMessage(cmd)
 	set nonu
 	redir => message
@@ -267,7 +275,7 @@ endfunction
 " }}}2
 " }}}1
 " CsvToSql {{{1
-	"convierte un csv a sql, solo el ultimo campo numerico
+" convierte un csv a sql, solo el ultimo campo numerico
 function! CsvToSql(entrada)
 	"exe "%s/\(09[0-9][0-9]01\);/\1;0-10;/"
 	exe "%s/ //g"
@@ -277,23 +285,6 @@ function! CsvToSql(entrada)
 	exe "%s/,'\\([0-9,.]*\\));$/,\\1);/" 
 endfunction
 command! -nargs=+ -complete=command CsvToSql call CsvToSql(<q-args>)
-
-" }}}1
-" CommentLines {{{1
-" comment out highlighted lines according to file type
-" put a line like the following in your ~/.vim/filetype.vim file
-" and remember to turn on filetype detection: filetype on
-" au! BufRead,BufNewFile *.sh,*.tcl,*.php,*.pl let Comment="#"
-" if the comment character for a given filetype happens to be @
-" then use let Comment="\@" to avoid problems...
-
-function! CommentLines()
-  "let Comment="#" " shell, tcl, php, perl
-  exe ":s@^@".g:Comment."@g"
-  exe ":s@$@".g:EndComment."@g"
-endfunction
-" map visual mode keycombo 'co' to this function
-vmap co :call CommentLines()<CR>
 
 " }}}1
 function! FileTime() "{{{
