@@ -6,6 +6,7 @@ install:
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin 
 	mkdir -p .vim/autoload
+	mkdir -p .vim/tmp/undo
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -v -s $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	cd $(PWD)/utils/git-prompt; make install
 	-cd utils/git-prompt ; git remote add lvv git://github.com/lvv/git-prompt.git

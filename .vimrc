@@ -28,8 +28,8 @@ set nu
 set laststatus=2
 set history=100
 syntax on
-set tabstop=4 ""numero de espacios por un tab
-set sw=4 ""numero de espacios por indent
+set tabstop=4 "numero de espacios por un tab
+set sw=4 "numero de espacios por indent
 set softtabstop=4
 "set expandtab
 set background=dark
@@ -62,6 +62,12 @@ au FocusLost * :wa
 " mostrar caracteres especiales
 set list
 set listchars=tab:▸\ ,eol:¬
+" Backups {{{
+set undodir=~/.vim/tmp/undo//     " undo files
+"set backupdir=~/.vim/tmp/backup// " backups
+"set directory=~/.vim/tmp/swap//   " swap files
+"set backup                        " enable backups
+" }}}
 " }}}
 " map {{{
 let mapleader = ","
@@ -88,7 +94,7 @@ nnoremap ,g1 :w <bar> :Gdiff HEAD~1<CR>
 " Extradite : addon for fugitive 
 nnoremap ,ge :Extradite<CR>
 let g:extradite_showhash=1
-"""NERDtree
+" NERDtree
 nnoremap ,n :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 " moverse entre <++> 
