@@ -150,6 +150,8 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
+nnoremap n nzzzv
+nnoremap N Nzzzv
 ""}}}
 " para las tags en ~/.ctags
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
