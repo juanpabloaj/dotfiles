@@ -101,6 +101,8 @@ let NERDTreeShowBookmarks=1
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 " navigation
+nnoremap <leader><Down> :cnext<cr>zvzz
+nnoremap <leader><Up> :cprevious<cr>zvzz
 nnoremap j gj
 nnoremap k gk
 " marks {{{ 
