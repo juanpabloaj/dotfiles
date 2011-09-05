@@ -38,6 +38,7 @@ set scrolloff=3
 if v:version >= 703
     set relativenumber
     set undofile
+	set undodir=~/.vim/tmp/undo//     " undo files
 endif
 "set textwidth=79
 "set formatoptions=qrn1
@@ -63,7 +64,6 @@ au FocusLost * :wa
 set list
 set listchars=tab:▸\ ,eol:¬
 " Backups {{{
-set undodir=~/.vim/tmp/undo//     " undo files
 "set backupdir=~/.vim/tmp/backup// " backups
 "set directory=~/.vim/tmp/swap//   " swap files
 "set backup                        " enable backups
