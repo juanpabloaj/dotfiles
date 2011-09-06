@@ -8,6 +8,9 @@ alias grep='grep --color'
 alias mkdate='mkdir $(date +%Y_%m_%d)'
 # reopen last file open with vim 
 alias v='vim -c "normal '\''0"'
+if [[ -f $HOME/opt/bin/screen  ]]; then
+	alias screen='$HOME/opt/bin/screen'
+fi
 # exports
 export SRC=$HOME/src
 export W=$SRC/blog/wiki

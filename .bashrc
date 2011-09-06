@@ -106,7 +106,6 @@ fi
 if [ $(uname) == "Darwin" ]; then 
 	alias gitk='/usr/bin/wish $(which gitk)'	
 fi 
-alias screen='$HOME/opt/bin/screen'
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
