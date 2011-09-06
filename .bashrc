@@ -105,8 +105,14 @@ fi
 #aliases
 if [ $(uname) == "Darwin" ]; then 
 	alias gitk='/usr/bin/wish $(which gitk)'	
+	if [ $( which brew ) ] ; then
+		brewHome=`brew --prefix`
+		# z 
+		if [ -f $brewHome/etc/profile.d/z.sh ]; then
+		 . $brewHome/etc/profile.d/z.sh
+		fi
+	fi 
 fi 
-alias screen='$HOME/opt/bin/screen'
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
@@ -120,10 +126,3 @@ export LC_ALL="es_ES.UTF-8"
 export MM_CHARSET="utf8"
 export LC_CTYPE="es_ES.UTF-8"
 [[ $- == *i* ]] && . $SRC/dotfiles/utils/git-prompt/git-prompt.sh
-if [ $( which brew ) ] ; then
-	brewHome=`brew --prefix`
-	# z 
-	if [ -f $brewHome/etc/profile.d/z.sh ]; then
-	 . $brewHome/etc/profile.d/z.sh
-	fi
-fi 
