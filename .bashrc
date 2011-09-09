@@ -96,7 +96,7 @@ unset   rgb_restore   \
 #}
 #complete -F _compssh ssh
 
-eval $(dircolors  $HOME/.dircolors)
+eval $(dircolors -b $HOME/.dircolors)
 
 if [ -d $HOME/.bash_completion.d/ ]; then 
 	. $HOME/.bash_completion.d/*
