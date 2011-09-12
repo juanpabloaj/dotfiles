@@ -82,6 +82,7 @@ nnoremap ,o :TlistToggle<CR>
 nnoremap ,t :Translate<space>
 nnoremap ,w :sp $W<CR>
 nnoremap ,b :tabnew $HOME/.bashrc<CR>
+nnoremap ,tn :tabnew 
 nnoremap ,f :find 
 " fugitive : git plugin
 nnoremap ,gd :Gdiff<CR>
@@ -158,8 +159,9 @@ nnoremap N Nzzzv
 " para las tags en ~/.ctags
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'
-au BufRead,BufNewFile *.cu set filetype=c
-au BufNewFile,BufRead .*aliases set filetype=sh
+au BufRead,BufNewFile *.cu setl filetype=c
+au BufNewFile,BufRead .*aliases setl filetype=sh
+au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
 " Syntastic {{{
 let g:syntastic_enable_signs = 1
 let g:syntastic_disabled_filetypes = ['html']

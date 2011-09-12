@@ -105,13 +105,6 @@ fi
 #aliases
 if [ $(uname) == "Darwin" ]; then 
 	alias gitk='/usr/bin/wish $(which gitk)'	
-	if [ $( which brew ) ] ; then
-		brewHome=`brew --prefix`
-		# z 
-		if [ -f $brewHome/etc/profile.d/z.sh ]; then
-		 . $brewHome/etc/profile.d/z.sh
-		fi
-	fi 
 fi 
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
