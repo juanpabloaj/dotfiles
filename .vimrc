@@ -169,7 +169,7 @@ let g:syntastic_disabled_filetypes = ['html']
 " }}}
 " ctrlp {{{
 let g:ctrlp_working_path_mode = 1
-set wildignore+=.git/objects/* " for Linux/MacOSX
+set wildignore+=*/.git/objects/* " for Linux/MacOSX
 " }}}
 " spell {{{
 " [s ]s z= zg 
