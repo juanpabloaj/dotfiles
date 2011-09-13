@@ -167,6 +167,10 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_disabled_filetypes = ['html']
 "let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 " }}}
+" ctrlp {{{
+let g:ctrlp_working_path_mode = 1
+set wildignore+=.git/objects/* " for Linux/MacOSX
+" }}}
 " spell {{{
 " [s ]s z= zg 
 "augroup filetypedetect
