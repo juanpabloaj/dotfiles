@@ -73,31 +73,13 @@ set listchars=tab:▸\ ,eol:¬
 let mapleader = ","
 nnoremap ,ve :sp ~/.vimrc<CR>
 nnoremap ,vd :sp ~/.vim<CR>
-nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
 nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
-nnoremap ,vg :GundoToggle<CR>
 nnoremap ,s :so ~/.vimrc<cr>
-"" taglist : debe estar instalado exuberant-ctags
-nnoremap ,o :TlistToggle<CR>
 nnoremap ,t :Translate<space>
 nnoremap ,w :sp $W<CR>
 nnoremap ,b :tabnew $HOME/.bashrc<CR>
 nnoremap ,tn :tabnew 
 nnoremap ,f :find 
-" fugitive : git plugin
-nnoremap ,gd :Gdiff<CR>
-nnoremap ,gc :Gcommit -a<CR>
-nnoremap ,gs :Gstatus<CR>
-nnoremap ,gw :Gwrite<CR>
-nnoremap ,gr :Gread<CR>
-nnoremap ,g0 :w <bar> Git diff -U0<CR>
-nnoremap ,g1 :w <bar> :Gdiff HEAD~1<CR>
-" Extradite : addon for fugitive 
-nnoremap ,ge :Extradite<CR>
-let g:extradite_showhash=1
-" NERDtree
-nnoremap ,n :NERDTreeToggle<CR>
-let NERDTreeShowBookmarks=1
 " moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -131,15 +113,7 @@ nnoremap k gk
 	endf 
 	nnoremap <silent><leader>ml :call ShowLocalMarks()<CR>
 	"}}}
-	" showmarks {{{
-	let g:showmarks_enable=0
-	nnoremap <silent> <leader>mo :ShowMarksOn<CR>
-	nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
-	"}}}
 " }}}
-" MRU
-let MRU_Exclude_Files = '.*.extradite'  " For extradite
-nnoremap ,vm :MRU<CR>
 " }}}
 " Busqueda {{{
 nnoremap / /\v
@@ -162,15 +136,49 @@ let tlist_make_settings  = 'make;m:makros;t:targets'
 au BufRead,BufNewFile *.cu setl filetype=c
 au BufNewFile,BufRead .*aliases setl filetype=sh
 au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
-" Syntastic {{{
-let g:syntastic_enable_signs = 1
-let g:syntastic_disabled_filetypes = ['html']
-"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
-" }}}
-" ctrlp {{{
-let g:ctrlp_working_path_mode = 1
-set wildignore+=*/.git/objects/* " for Linux/MacOSX
-" }}}
+" plugins configuration {{{
+	nnoremap ,vg :GundoToggle<CR>
+	nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
+	" taglist {{{
+	" debe estar instalado exuberant-ctags
+	nnoremap ,o :TlistToggle<CR>
+	"}}}
+	" fugitive {{{
+	nnoremap ,gd :Gdiff<CR>
+	nnoremap ,gc :Gcommit -a<CR>
+	nnoremap ,gs :Gstatus<CR>
+	nnoremap ,gw :Gwrite<CR>
+	nnoremap ,gr :Gread<CR>
+	nnoremap ,g0 :w <bar> Git diff -U0<CR>
+	nnoremap ,g1 :w <bar> :Gdiff HEAD~1<CR>
+	" }}}
+	" Extradite : addon for fugitive {{{
+	nnoremap ,ge :Extradite<CR>
+	let g:extradite_showhash=1
+	" }}}
+	" NERDtree {{{
+	nnoremap ,n :NERDTreeToggle<CR>
+	let NERDTreeShowBookmarks=1
+	" }}}
+	" Syntastic {{{
+	let g:syntastic_enable_signs = 1
+	let g:syntastic_disabled_filetypes = ['html']
+	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
+	" }}}
+	" showmarks {{{
+	let g:showmarks_enable=0
+	nnoremap <silent> <leader>mo :ShowMarksOn<CR>
+	nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
+	"}}}
+	" MRU {{{
+	let MRU_Exclude_Files = '.*.extradite'  " For extradite
+	nnoremap ,vm :MRU<CR>
+	" }}}
+	" ctrlp {{{
+	let g:ctrlp_working_path_mode = 1
+	set wildignore+=*/.git/objects/* 
+	" }}}
+"}}}
 " spell {{{
 " [s ]s z= zg 
 "augroup filetypedetect
