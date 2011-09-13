@@ -29,3 +29,5 @@ clean:
 	$(foreach f,$(rcFiles), [ -L $(HOME)/$f ] && unlink $(HOME)/$f;)
 	cd $(HOME)/opt/bin ; [ -h git-map ] && unlink git-map  
 	cd $(HOME) ; [ -h .oh-my-zsh ] &&  unlink .oh-my-zsh 
+pull:
+	cd $(PWD)/.vim/bundle/vim-pathogen ; git map co master ; git map pull 
