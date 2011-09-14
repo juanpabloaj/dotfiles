@@ -175,6 +175,13 @@ au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
 	nnoremap ,vm :MRU<CR>
 	" }}}
 	" ctrlp {{{
+	if has('mac')
+		" problem with ncurses from 10.6
+		nnoremap OA <up>
+		"nnoremap OB <down>
+		"nnoremap OD <left> 
+		"nnoremap OC <right> 
+	endif
 	let g:ctrlp_working_path_mode = 1
 	set wildignore+=*/.git/objects/* 
 	" }}}
