@@ -12,7 +12,7 @@ if [[ -f $HOME/opt/bin/screen  ]]; then
 	alias screen='$HOME/opt/bin/screen'
 fi
 # exports
-export SRC=$HOME/src
+export S=$HOME/src
 export W=$SRC/blog/wiki
 export VIMHOME=$HOME/.vim
 export D=$SRC/dotfiles
