@@ -24,6 +24,7 @@
 	ds = diff --stat
 	dt = difftool
 	ru = remote update
+	ra = remote add
 	m = merge
 	mo = merge origin 
 	mt = mergetool 
