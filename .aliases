@@ -13,9 +13,9 @@ if [[ -f $HOME/opt/bin/screen  ]]; then
 fi
 # exports
 export S=$HOME/src
-export W=$SRC/blog/wiki
+export W=$S/blog/wiki
 export VIMHOME=$HOME/.vim
-export D=$SRC/dotfiles
+export D=$S/dotfiles
 export B=$D/.vim/bundle
 export EDITOR=vim
 [ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
