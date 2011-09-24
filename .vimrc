@@ -149,6 +149,7 @@ au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
 	nnoremap ,gs :Gstatus<CR>
 	nnoremap ,gw :Gwrite<CR>
 	nnoremap ,gr :Gread<CR>
+	nn ,gb :Gblame<CR>
 	nnoremap ,g0 :w <bar> Git diff -U0<CR>
 	nnoremap ,g1 :w <bar> :Gdiff HEAD~1<CR>
 	" }}}
