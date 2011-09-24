@@ -142,12 +142,15 @@ vnoremap <tab> %
 nnoremap n nzzzv
 nnoremap N Nzzzv
 ""}}}
-" para las tags en ~/.ctags
-let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
-let tlist_make_settings  = 'make;m:makros;t:targets'
-au BufRead,BufNewFile *.cu setl filetype=c
-au BufNewFile,BufRead .*aliases setl filetype=sh
-au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
+" para las tags en ~/.ctags {{{
+	let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
+	let tlist_make_settings  = 'make;m:makros;t:targets'
+" }}}
+" filetype {{{
+	au BufRead,BufNewFile *.cu setl filetype=c
+	au BufNewFile,BufRead .*aliases setl filetype=sh
+	au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
+" }}}
 " plugins configuration {{{
 	nnoremap ,vg :GundoToggle<CR>
 	nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
