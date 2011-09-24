@@ -60,7 +60,7 @@ set wildignore+=*.DS_Store?                      " OSX bullshit
 " statusline {{{
 	set statusline=
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
-	set statusline+=%{fugitive#statusline()}
+	set statusline+=%{FugitiveStatuslineShort()}
 	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
 	set statusline+=%3*\%P\*%=%{FileTime()}
 " }}}
@@ -355,4 +355,7 @@ fun! ToggleNumber() "{{{
 	else
 		setl nu!
 	endif
+endf "}}}
+fun! FugitiveStatuslineShort() "{{{
+	return substitute(fugitive#statusline(),"master","M","g")"
 endf "}}}
