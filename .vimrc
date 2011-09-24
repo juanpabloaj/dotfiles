@@ -1,7 +1,7 @@
 " ==========================================================
 " File Name:    .vimrc
 " Author:       juanpabloaj
-" Version:      0.3
+" Version:      0.3.1
 " ==========================================================
 " preamble {{{
 " load plugins in .vim/bundle
@@ -74,7 +74,7 @@ let mapleader = ","
 nnoremap ,ve :sp ~/.vimrc<CR>
 nnoremap ,vd :sp ~/.vim<CR>
 nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
-nn ,vl :setl cursorline!<CR>
+nn ,vcl :setl cursorline!<CR>
 nnoremap ,s :so ~/.vimrc<cr>
 nnoremap ,t :Translate<space>
 nnoremap ,w :sp $W<CR>
@@ -82,7 +82,8 @@ nnoremap ,b :tabnew $HOME/.bashrc<CR>
 nnoremap ,tn :tabnew
 nnoremap ,f :find
 nn ,vn :call ToggleNumber()<CR>
-" moverse entre <++> 
+nn ,vl :setl list!<CR>
+" moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 " navigation
