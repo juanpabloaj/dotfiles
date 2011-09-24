@@ -74,12 +74,13 @@ let mapleader = ","
 nnoremap ,ve :sp ~/.vimrc<CR>
 nnoremap ,vd :sp ~/.vim<CR>
 nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nn ,vl :setl cursorline!<CR>
 nnoremap ,s :so ~/.vimrc<cr>
 nnoremap ,t :Translate<space>
 nnoremap ,w :sp $W<CR>
 nnoremap ,b :tabnew $HOME/.bashrc<CR>
-nnoremap ,tn :tabnew 
-nnoremap ,f :find 
+nnoremap ,tn :tabnew
+nnoremap ,f :find
 " moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -214,6 +215,10 @@ if $TERM =~ '^xterm' || $TERM =~ '^screen'
 	"colorscheme calmar256
 endif
 ""}}}
+" highlight {{{
+	highlight whitespaceEOL term=reverse ctermbg=Blue guibg=Blue
+	match whitespaceEOL /\s\+$/
+" }}}
 ""Ultima session {{{1
 ""guardar y abrir
 function! SaveSession()
