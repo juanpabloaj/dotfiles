@@ -81,6 +81,7 @@ nnoremap ,w :sp $W<CR>
 nnoremap ,b :tabnew $HOME/.bashrc<CR>
 nnoremap ,tn :tabnew
 nnoremap ,f :find
+nn ,vn :call ToggleNumber()<CR>
 " moverse entre <++> 
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -326,3 +327,16 @@ function! FileTime() "{{{
   return msg
 endfunction
 "}}}
+fun! ToggleNumber() "{{{
+	if v:version >= 703
+		if &nu == 1
+			setl rnu
+		elseif &rnu == 1
+			setl nornu
+		else
+			setl nu
+		endif
+	else
+		setl nu!
+	endif
+endf "}}}
