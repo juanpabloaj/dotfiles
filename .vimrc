@@ -13,36 +13,38 @@ filetype plugin indent on
 set nocompatible 
 " }}}
 " basic options {{{
-set encoding=utf-8
-set modelines=0
-set autoindent
-set showmode
-set showcmd
-set hidden
-set visualbell
-set cursorline
-set ttyfast
-set ruler
-set backspace=eol,start,indent
-set nu
-set laststatus=2
-set history=100
-syntax on
-set tabstop=4 "numero de espacios por un tab
-set sw=4 "numero de espacios por indent
-set softtabstop=4
-"set expandtab
-set background=dark
-set wrap
-set scrolloff=3
-if v:version >= 703
-    set relativenumber
-    set undofile
-	set undodir=~/.vim/tmp/undo//     " undo files
-endif
-"set textwidth=79
-"set formatoptions=qrn1
-"set colorcolumn=85
+" basic {{{
+	set encoding=utf-8
+	set modelines=0
+	set autoindent
+	set showmode
+	set showcmd
+	set hidden
+	set visualbell
+	set cursorline
+	set ttyfast
+	set ruler
+	set backspace=eol,start,indent
+	set nu
+	set laststatus=2
+	set history=100
+	syntax on
+	set tabstop=4 "numero de espacios por un tab
+	set sw=4 "numero de espacios por indent
+	set softtabstop=4
+	"set expandtab
+	set background=dark
+	set wrap
+	set scrolloff=3
+	if v:version >= 703
+		set relativenumber
+		set undofile
+		set undodir=~/.vim/tmp/undo//     " undo files
+	endif
+	"set textwidth=79
+	"set formatoptions=qrn1
+	"set colorcolumn=85
+" }}}
 " Wildmenu completion {{{
 set wildmenu
 set wildmode=list:longest
@@ -55,7 +57,13 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
 " }}}
-set statusline=%f\ %{SyntasticStatuslineFlag()}%{fugitive#statusline()}%<%h%m%r%=%-0.(l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)\%P\*%=%{FileTime()}
+" statusline {{{
+	set statusline=
+	set statusline+=%f\ %{SyntasticStatuslineFlag()}
+	set statusline+=%{fugitive#statusline()}
+	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
+	set statusline+=%3*\%P\*%=%{FileTime()}
+" }}}
 set rulerformat=%15(%c%V\ %p%%%)
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -72,17 +80,18 @@ set listchars=tab:▸\ ,eol:¬
 " map {{{
 let mapleader = ","
 nnoremap ,ve :sp ~/.vimrc<CR>
-nnoremap ,vd :sp ~/.vim<CR>
-nnoremap ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nn ,vd :sp ~/.vim<CR>
+nn ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nn ,vcl :setl cursorline!<CR>
-nnoremap ,s :so ~/.vimrc<cr>
-nnoremap ,t :Translate<space>
-nnoremap ,w :sp $W<CR>
-nnoremap ,b :tabnew $HOME/.bashrc<CR>
-nnoremap ,tn :tabnew
-nnoremap ,f :find
+nn ,s :so ~/.vimrc<cr>
+nn ,t :Translate<space>
+nn ,w :sp $W<CR>
+nn ,b :tabnew $HOME/.bashrc<CR>
+nn ,tn :tabnew
+nn ,f :find
 nn ,vn :call ToggleNumber()<CR>
 nn ,vl :setl list!<CR>
+nn ,vp :setl paste!<CR>
 " moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -127,7 +136,7 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> :setl hlsearch!<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap n nzzzv
@@ -218,7 +227,7 @@ if $TERM =~ '^xterm' || $TERM =~ '^screen'
 endif
 ""}}}
 " highlight {{{
-	highlight whitespaceEOL term=reverse ctermbg=Blue guibg=Blue
+	highlight whitespaceEOL term=reverse ctermbg=Grey  guibg=Grey
 	match whitespaceEOL /\s\+$/
 " }}}
 ""Ultima session {{{1
@@ -319,7 +328,7 @@ endfunction
 command! -nargs=+ -complete=command CsvToSql call CsvToSql(<q-args>)
 
 " }}}1
-function! FileTime() "{{{
+fun! FileTime() "{{{
   let ext=tolower(expand("%:e"))
   let fname=tolower(expand('%<'))
   let filename=fname . '.' . ext
@@ -328,6 +337,9 @@ function! FileTime() "{{{
   return msg
 endfunction
 "}}}
+fun! HasPaste() "{{{
+	return &paste ? "paste" : ""
+endf "}}}
 fun! ToggleNumber() "{{{
 	if v:version >= 703
 		if &nu == 1
