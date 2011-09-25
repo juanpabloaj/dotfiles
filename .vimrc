@@ -89,7 +89,7 @@ nn ,w :sp $W<CR>
 nn ,b :tabnew $HOME/.bashrc<CR>
 nn ,tn :tabnew
 nn ,f :find
-nn ,vn :call ToggleNumber()<CR>
+nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn ,vl :setl list!<CR>
 nn ,vp :setl paste!<CR>
 " moverse entre <++>
@@ -344,14 +344,8 @@ fun! HasPaste() "{{{
 	return &paste ? "paste" : ""
 endf "}}}
 fun! ToggleNumber() "{{{
-	if v:version >= 703
-		if &nu == 1
-			setl rnu
-		elseif &rnu == 1
-			setl nornu
-		else
-			setl nu
-		endif
+	if exists('+relativenumber')
+		:exec &nu==&rnu? "setl nu!" : "setl rnu!"
 	else
 		setl nu!
 	endif
