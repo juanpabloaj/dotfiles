@@ -79,19 +79,19 @@ set listchars=tab:▸\ ,eol:¬
 " }}}
 " map {{{
 let mapleader = ","
-nnoremap ,ve :sp ~/.vimrc<CR>
-nn ,vd :sp ~/.vim<CR>
-nn ,vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
-nn ,vcl :setl cursorline!<CR>
-nn ,s :so ~/.vimrc<cr>
-nn ,t :Translate<space>
-nn ,w :sp $W<CR>
-nn ,b :tabnew $HOME/.bashrc<CR>
-nn ,tn :tabnew
-nn ,f :find
+nnoremap <leader>ve :sp ~/.vimrc<CR>
+nn <leader>vd :sp ~/.vim<CR>
+nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nn <leader>vcl :setl cursorline!<CR>
+nn <leader>s :so ~/.vimrc<cr>
+nn <leader>t :Translate<space>
+nn <leader>w :sp $W<CR>
+nn <leader>b :tabnew $HOME/.bashrc<CR>
+nn <leader>tn :tabnew 
+nn <leader>f :find
 nn <silent> <leader>vn :call ToggleNumber()<CR>
-nn ,vl :setl list!<CR>
-nn ,vp :setl paste!<CR>
+nn <silent> <leader>vl :setl list!<CR>
+nn <silent> <leader>vp :setl paste!<CR>
 " moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -222,7 +222,7 @@ endfunction
 :autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
 "}}}1
 "256 colores {{{
-if $TERM =~ '^xterm' || $TERM =~ '^screen'
+if $TERM =~ '^xterm' || $TERM =~ '^screen' || $TERM =~ 'rxvt'
 	set t_Co=256
 	colorscheme pixelmuerto
 	"colorscheme xoria256
