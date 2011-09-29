@@ -2,6 +2,7 @@
 " File Name:    .vimrc
 " Author:       juanpabloaj
 " Version:      0.3.1
+" Url:			http://j.mp/dotvimrc
 " ==========================================================
 " preamble {{{
 " load plugins in .vim/bundle
@@ -92,6 +93,7 @@ nn <leader>f :find
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :setl paste!<CR>
+nn <leader>s<space> :/\s\+$/<CR>
 " moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
