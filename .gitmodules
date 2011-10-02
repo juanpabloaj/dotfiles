@@ -55,18 +55,12 @@
 [submodule ".vim/bundle/showmarks"]
 	path = .vim/bundle/showmarks
 	url = git@github.com:juanpabloaj/ShowMarks.git
-[submodule ".vim/bundle/mru"]
-	path = .vim/bundle/mru
-	url = git@github.com:juanpabloaj/mru.vim.git
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/ctrlp"]
-	path = .vim/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule ".vim/bundle/unite"]
 	path = .vim/bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
