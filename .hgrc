@@ -21,3 +21,4 @@ diff.changed = white
 diff.trailingwhitespace = bold red_background
 [alias]
 d0 = diff -U0
+lg = log --template "\x1B[32m{rev}:{node|short}\x1B[0m {date|age} \x1B[34m{author|person}\x1B[0m {desc}\n" 
