@@ -196,6 +196,14 @@ nnoremap N Nzzzv
 	let g:ctrlp_working_path_mode = 1
 	set wildignore+=*/.git/objects/* 
 	" }}}
+	" unite.vim {{{
+		nn <silent> <leader>ub :<C-u>Unite buffer<CR>
+		nn <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+		nn <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
+		nn <silent> <leader>um :<C-u>Unite file_mru<CR>
+		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
+		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+	" }}}
 "}}}
 " spell {{{
 " [s ]s z= zg 
