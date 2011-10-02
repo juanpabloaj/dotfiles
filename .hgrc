@@ -19,3 +19,5 @@ diff.deleted = red
 diff.inserted = green
 diff.changed = white
 diff.trailingwhitespace = bold red_background
+[alias]
+d0 = diff -U0
