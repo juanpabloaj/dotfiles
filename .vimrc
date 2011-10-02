@@ -190,15 +190,7 @@ nnoremap N Nzzzv
 	nnoremap <silent> <leader>mo :ShowMarksOn<CR>
 	nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
 	"}}}
-	" MRU {{{
-	let MRU_Exclude_Files = '.*.extradite'  " For extradite
-	nnoremap ,vm :MRU<CR>
-	" }}}
-	" ctrlp {{{
-	let g:ctrlp_working_path_mode = 1
-	set wildignore+=*/.git/objects/* 
-	" }}}
-	" unite.vim {{{
+	" unite {{{
 		nn <silent> <leader>ub :<C-u>Unite buffer<CR>
 		nn <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 		nn <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
