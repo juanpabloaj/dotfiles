@@ -102,6 +102,8 @@ nnoremap <leader><Down> :cnext<cr>zvzz
 nnoremap <leader><Up> :cprevious<cr>zvzz
 nnoremap j gj
 nnoremap k gk
+" no ex mode ; press gQ
+nn Q <nop>
 " marks {{{ 
 	fun! ShowGlobalMarks() "{{{
 		try
