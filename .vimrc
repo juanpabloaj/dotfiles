@@ -140,7 +140,7 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :setl hlsearch!<cr>
+nnoremap <silent><leader><space> :setl hlsearch!<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap n nzzzv
@@ -182,7 +182,7 @@ nnoremap N Nzzzv
 	" }}}
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 1
-	let g:syntastic_disabled_filetypes = ['html']
+	let g:syntastic_disabled_filetypes = ['html', 'xhtml']
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 	" }}}
 	" showmarks {{{
@@ -301,3 +301,13 @@ endf "}}}
 fun! FugitiveStatuslineShort() "{{{
 	return substitute(fugitive#statusline(),"master","M","g")"
 endf "}}}
+" Markup function {{{
+	fun! MkdToHtml() "{{{
+		" markdown to html
+		silent! execute '%s/  $/<br\/>/g'
+		silent! execute '%s/\*\*\(.*\)\*\*/<b>\1<\/b>/g'
+		silent! execute '%s/\t*###\(.*\)/<H3>\1<\/H3>/g'
+	endf "}}}
+	command! -complete=command MkdToHtml call MkdToHtml()
+	nn <silent> <leader>mm :MkdToHtml<CR>
+" }}}
