@@ -92,7 +92,7 @@ nn <leader>tn :tabnew
 nn <leader>f :find
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
-nn <silent> <leader>vp :setl paste!<CR>
+nn <silent> <leader>vp :call TogglePaste()<CR>
 nn <leader>s<space> :/\s\+$/<CR>
 " moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
@@ -296,6 +296,19 @@ fun! ToggleNumber() "{{{
 		:exec &nu==&rnu? "setl nu!" : "setl rnu!"
 	else
 		setl nu!
+	endif
+endf "}}}
+fun! TogglePaste() "{{{
+	" setl paste! && remove elements for copy
+	setl paste!
+	if &paste
+		setl nolist
+		setl nonu
+		:exec exists('+relativenumber') ? 'setl nornu': ''
+	else
+		setl list
+		setl nu
+		:exec exists('+relativenumber') ? 'setl rnu': ''
 	endif
 endf "}}}
 fun! FugitiveStatuslineShort() "{{{
