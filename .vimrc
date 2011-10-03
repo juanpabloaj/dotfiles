@@ -307,6 +307,7 @@ endf "}}}
 		silent! execute '%s/  $/<br\/>/g'
 		silent! execute '%s/\*\*\(.*\)\*\*/<b>\1<\/b>/g'
 		silent! execute '%s/\t*###\(.*\)/<H3>\1<\/H3>/g'
+		sil! exe '%s/^\* \(.*\)$/<li>\1<\/li>/'
 	endf "}}}
 	command! -complete=command MkdToHtml call MkdToHtml()
 	nn <silent> <leader>mm :MkdToHtml<CR>
