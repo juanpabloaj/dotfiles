@@ -1,10 +1,10 @@
 rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc .aliases .gitexcludes
 LOCAL=$(PWD)
-install: 
-	# add brew as submodule 
+install:
+	git remote add bitbucket git@bitbucket.org:juanpablo/dotfiles.git
 	git submodule init
 	git submodule update
-	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin 
+	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
 	mkdir -p .vim/autoload
 	mkdir -p .vim/tmp/undo
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -v -s $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
@@ -23,11 +23,12 @@ install:
 	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
 	# TODO install rvm and ruby
 	# TODO if installed then update : git submodule, etc
+	# TODO a option for only relink
 clean:
 	$(foreach f,$(vimFiles),unlink $(f);)
 	cd $(PWD)/utils/git-prompt; make clean
 	$(foreach f,$(rcFiles), [ -L $(HOME)/$f ] && unlink $(HOME)/$f;)
-	cd $(HOME)/opt/bin ; [ -h git-map ] && unlink git-map  
-	cd $(HOME) ; [ -h .oh-my-zsh ] &&  unlink .oh-my-zsh 
+	cd $(HOME)/opt/bin ; [ -h git-map ] && unlink git-map
+	cd $(HOME) ; [ -h .oh-my-zsh ] &&  unlink .oh-my-zsh
 pull:
-	cd $(PWD)/.vim/bundle/vim-pathogen ; git map co master ; git map pull 
+	cd $(PWD)/.vim/bundle/vim-pathogen ; git map co master ; git map pull
