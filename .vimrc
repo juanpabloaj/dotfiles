@@ -198,6 +198,9 @@ nnoremap N Nzzzv
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 	" }}}
+	" markup {{{
+		nn <silent> <leader>mm :MkdToHtml<CR>
+	" }}}
 "}}}
 " spell {{{
 " [s ]s z= zg 
@@ -314,16 +317,3 @@ endf "}}}
 fun! FugitiveStatuslineShort() "{{{
 	return substitute(fugitive#statusline(),"master","M","g")"
 endf "}}}
-" Markup function {{{
-	fun! MkdToHtml() "{{{
-		" markdown to html
-		silent! execute '%s/  $/<br\/>/g'
-		silent! execute '%s/\*\*\(.*\)\*\*/<b>\1<\/b>/g'
-		silent! execute '%s/\t*###\(.*\)/<H3>\1<\/H3>/g'
-		sil! exe '%s/^$\n^* \(.*\)$/\<ul\>\r* \1/g'
-		sil! exe '%s/^\* \(.*\)$\n^$/* \1\r<\/ul>/'
-		sil! exe '%s/^\* \(.*\)$/<li>\1<\/li>/'
-	endf "}}}
-	command! -complete=command MkdToHtml call MkdToHtml()
-	nn <silent> <leader>mm :MkdToHtml<CR>
-" }}}

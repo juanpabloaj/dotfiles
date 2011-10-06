@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/unite"]
 	path = .vim/bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
+[submodule ".vim/bundle/markup"]
+	path = .vim/bundle/markup
+	url = git@github.com:juanpabloaj/markup.vim.git
