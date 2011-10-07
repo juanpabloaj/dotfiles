@@ -201,6 +201,9 @@ nnoremap N Nzzzv
 	" markup {{{
 		nn <silent> <leader>mm :MkdToHtml<CR>
 	" }}}
+	" neocomplcache {{{
+		let g:neocomplcache_enable_at_startup = 1
+	" }}}
 "}}}
 " spell {{{
 " [s ]s z= zg 

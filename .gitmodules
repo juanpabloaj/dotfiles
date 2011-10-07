@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/markup"]
 	path = .vim/bundle/markup
 	url = git@github.com:juanpabloaj/markup.vim.git
+[submodule ".vim/bundle/neocomplcache"]
+	path = .vim/bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git
