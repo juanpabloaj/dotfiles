@@ -58,14 +58,6 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
 " }}}
-" statusline {{{
-	set statusline=
-	set statusline+=%f\ %{SyntasticStatuslineFlag()}
-	set statusline+=%{FugitiveStatuslineShort()}
-	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
-	set statusline+=%3*\%P\*%=%{FileTime()}
-" }}}
-set rulerformat=%15(%c%V\ %p%%%)
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 au FocusLost * :wa
@@ -77,6 +69,14 @@ set listchars=tab:▸\ ,eol:¬
 "set directory=~/.vim/tmp/swap//   " swap files
 "set backup                        " enable backups
 " }}}
+" }}}
+" statusline {{{
+	set statusline=
+	set statusline+=%f\ %{SyntasticStatuslineFlag()}
+	set statusline+=%{FugitiveStatuslineShort()}
+	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
+	set statusline+=%3*\%P\*%=%{FileTime()}
+	set rulerformat=%15(%c%V\ %p%%%)
 " }}}
 " map {{{
 let mapleader = ","
@@ -131,7 +131,7 @@ nn Q <nop>
 	"}}}
 " }}}
 " }}}
-" Busqueda {{{
+" search {{{
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
