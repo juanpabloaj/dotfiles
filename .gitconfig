@@ -31,7 +31,7 @@
 	fe = fetch
 	fo = fetch origin
 	lo = log --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit --date=relative HEAD..origin/master
-	lg = log --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ci) %C(blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --graph --pretty=format:'%Cgreen%h%Creset %C(blue)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ci)' --abbrev-commit --date=relative
 	ls = ls-files
 	rh = reset --hard
 	rhom = reset --hard origin/master

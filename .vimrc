@@ -88,6 +88,7 @@ nn <leader>s :so ~/.vimrc<cr>
 nn <leader>t :Translate<space>
 nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
+nn <leader>bn :bn<CR>
 nn <leader>tn :tabnew 
 nn <leader>f :find
 nn <silent> <leader>vn :call ToggleNumber()<CR>
