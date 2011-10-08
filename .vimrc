@@ -95,6 +95,7 @@ nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :call TogglePaste()<CR>
 nn <leader>s<space> :/\s\+$/<CR>
+nn <silent><leader>? :map <buffer><CR>
 " moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
@@ -131,6 +132,10 @@ nn Q <nop>
 	nnoremap <silent><leader>ml :call ShowLocalMarks()<CR>
 	"}}}
 " }}}
+" }}}
+" abbreviate {{{
+	ia @@ jpabloaj@gmail.com
+	ia @0 jpabloaj at gmail dot com
 " }}}
 " search {{{
 nnoremap / /\v
@@ -178,7 +183,7 @@ nnoremap N Nzzzv
 	let g:extradite_showhash=1
 	" }}}
 	" NERDtree {{{
-	nnoremap ,n :NERDTreeToggle<CR>
+	nnoremap <silent><leader>n :NERDTreeToggle<CR>
 	let NERDTreeShowBookmarks=1
 	" }}}
 	" Syntastic {{{
@@ -206,6 +211,7 @@ nnoremap N Nzzzv
 	" }}}
 	" neocomplcache {{{
 		let g:neocomplcache_enable_at_startup = 1
+		nnoremap <leader>nt :NeoComplCacheToggle<CR>
 	" }}}
 "}}}
 " spell {{{
