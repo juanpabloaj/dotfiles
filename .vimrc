@@ -198,6 +198,8 @@ nnoremap N Nzzzv
 		nn <silent> <leader>um :<C-u>Unite file_mru<CR>
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+		au FileType unite inoremap <buffer><expr> s unite#do_action('split')
+		au FileType unite nnoremap <buffer><expr> s unite#do_action('split')
 	" }}}
 	" markup {{{
 		nn <silent> <leader>mm :MkdToHtml<CR>
