@@ -74,7 +74,7 @@ set listchars=tab:▸\ ,eol:¬
 	set statusline=
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
 	set statusline+=%{FugitiveStatuslineShort()}
-	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
+	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeocomplcache()}\ l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
 	set statusline+=%3*\%P\*%=%{FileTime()}
 	set rulerformat=%15(%c%V\ %p%%%)
 " }}}
@@ -211,7 +211,7 @@ nnoremap N Nzzzv
 	" }}}
 	" neocomplcache {{{
 		let g:neocomplcache_enable_at_startup = 1
-		nnoremap <leader>nt :NeoComplCacheToggle<CR>
+		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
 "}}}
 " spell {{{
@@ -299,12 +299,15 @@ fun! FileTime() "{{{
   let fname=tolower(expand('%<'))
   let filename=fname . '.' . ext
   let msg=""
-  let msg=msg." ".strftime("(Modified %b,%d %y %H:%M:%S)",getftime(filename))
+  let msg=msg." ".strftime("(Mod %b,%d %y %H:%M:%S)",getftime(filename))
   return msg
 endfunction
 "}}}
 fun! HasPaste() "{{{
 	return &paste ? "paste" : ""
+endf "}}}
+fun! HasNeocomplcache() "{{{
+	return !neocomplcache#is_locked() ? "nCC" : ""
 endf "}}}
 fun! ToggleNumber() "{{{
 	if exists('+relativenumber')
