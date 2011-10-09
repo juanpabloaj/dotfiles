@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "utils/git-prompt"]
 	path = utils/git-prompt
 	url = git@github.com:juanpabloaj/git-prompt.git
@@ -76,3 +73,6 @@
 [submodule "utils/git-remote-init"]
 	path = utils/git-remote-init
 	url = git@github.com:juanpabloaj/git-remote-init.git
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = git@github.com:juanpabloaj/supertab.git
