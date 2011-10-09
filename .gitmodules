@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/help"]
 	path = .vim/bundle/help
 	url = git@github.com:juanpabloaj/help.vim.git
+[submodule "utils/git-remote-init"]
+	path = utils/git-remote-init
+	url = git@github.com:juanpabloaj/git-remote-init.git
