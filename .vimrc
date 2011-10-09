@@ -211,6 +211,7 @@ nnoremap N Nzzzv
 	" }}}
 	" neocomplcache {{{
 		let g:neocomplcache_enable_at_startup = 1
+		let g:neocomplcache_snippets_disable_runtime_snippets = 1
 		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
 "}}}
