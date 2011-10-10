@@ -1,7 +1,6 @@
 " ==========================================================
 " File Name:    .vimrc
 " Author:       juanpabloaj
-" Version:      0.3.1
 " Url:			http://j.mp/dotvimrc
 " ==========================================================
 " preamble {{{
@@ -106,6 +105,7 @@ nnoremap j gj
 nnoremap k gk
 " no ex mode ; press gQ
 nn Q <nop>
+nn ZA :qa<CR>
 " marks {{{ 
 	fun! ShowGlobalMarks() "{{{
 		try
@@ -239,8 +239,8 @@ function! LoadSnippets(extension)
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim' 
 endfunction
 " templates y snippets en base a la extension
-:autocmd BufNewFile * silent! call LoadTemplate('%:e')
-:autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
+autocmd BufNewFile * silent! call LoadTemplate('%:e')
+autocmd BufRead,BufNewFile * silent! call LoadSnippets('%:e')
 "}}}1
 "256 colores {{{
 if $TERM =~ '^xterm' || $TERM =~ '^screen' || $TERM =~ 'rxvt'
@@ -254,8 +254,8 @@ endif
 	highlight whitespaceEOL term=reverse ctermbg=Grey  guibg=Grey
 	match whitespaceEOL /\s\+$/
 " }}}
-""Ultima session {{{1
-""guardar y abrir
+" Ultima session {{{1
+" guardar y abrir
 function! SaveSession()
 	execute 'mksession! ~/.vim/sessions/session.vim'
 endfunction
@@ -267,8 +267,12 @@ endfunction
 "autocmd VimEnter * call LoadSession()
 "autocmd VimLeave * call SaveSession()
 "}}}1
-""limpiar la terminal al salir de vim
-"autocmd VimLeave * !clear
+" autocmd {{{
+	" limpiar la terminal al salir de vim
+	"autocmd VimLeave * !clear
+	" When vimrc is edited, reload it
+	autocmd! bufwritepost .vimrc source ~/.vimrc
+" }}}
 " TabMessage {{{1
 " por funcion a newtab
 function! TabMessage(cmd)

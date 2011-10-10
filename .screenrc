@@ -61,7 +61,7 @@ screen -t zsh 1 zsh
 #bind m screen -t 'moc' mocp
 bind , screen -t zsh zsh 
 bind v screen -t 'vim' vim
-#bind i screen -t 'irssi' irssi
+bind i screen -t 'irssi' irssi
 #bind u screen -t 'mutt' mutt
 bind - resize -1
 bind + resize +1
