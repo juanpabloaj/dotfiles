@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = git@github.com:juanpabloaj/supertab.git
+[submodule ".vim/bundle/bufferWidget"]
+	path = .vim/bundle/bufferWidget
+	url = git@github.com:juanpabloaj/bufferWidget.git

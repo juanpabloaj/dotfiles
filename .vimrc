@@ -73,7 +73,7 @@ set listchars=tab:▸\ ,eol:¬
 	set statusline=
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
 	set statusline+=%{FugitiveStatuslineShort()}
-	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeocomplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%n/%{NrBufs()}\ %y%)
+	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeocomplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%{BufferWidget()}\ %y%)
 	set statusline+=%3*\%P\*%=%{FileTime()}
 	set rulerformat=%15(%c%V\ %p%%%)
 " }}}
@@ -215,6 +215,9 @@ nnoremap N Nzzzv
 		let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
 		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
+	" BufferWidget {{{
+		let g:buffer_widget_view='small'
+	" }}}
 "}}}
 " spell {{{
 " [s ]s z= zg 
@@ -337,7 +340,4 @@ fun! TogglePaste() "{{{
 endf "}}}
 fun! FugitiveStatuslineShort() "{{{
 	return substitute(fugitive#statusline(),"master","M","g")"
-endf "}}}
-fun! NrBufs() "{{{
-	return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
 endf "}}}
