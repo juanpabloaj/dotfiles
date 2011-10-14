@@ -87,8 +87,9 @@ nn <leader>s :so ~/.vimrc<cr>
 nn <leader>t :Translate<space>
 nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
-nn <leader>bn :bn<CR>
 nn <leader>tn :tabnew 
+nn gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
+nn gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
 nn <leader>f :find 
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
