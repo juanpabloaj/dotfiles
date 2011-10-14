@@ -73,7 +73,7 @@ set listchars=tab:▸\ ,eol:¬
 	set statusline=
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
 	set statusline+=%{FugitiveStatuslineShort()}
-	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeocomplcache()}\ l=%03l,c=%02c%V,tL=%L%)\%h%m%r%=%-16(,bf=%n%Y%)
+	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeocomplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%n\ %y%)
 	set statusline+=%3*\%P\*%=%{FileTime()}
 	set rulerformat=%15(%c%V\ %p%%%)
 " }}}
@@ -89,7 +89,7 @@ nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
 nn <leader>bn :bn<CR>
 nn <leader>tn :tabnew 
-nn <leader>f :find
+nn <leader>f :find 
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :call TogglePaste()<CR>
@@ -187,7 +187,7 @@ nnoremap N Nzzzv
 	let NERDTreeShowBookmarks=1
 	" }}}
 	" Syntastic {{{
-	let g:syntastic_enable_signs = 1
+	let g:syntastic_enable_signs = 0
 	let g:syntastic_disabled_filetypes = ['html', 'xhtml']
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 	" }}}
@@ -211,7 +211,8 @@ nnoremap N Nzzzv
 	" }}}
 	" neocomplcache {{{
 		let g:neocomplcache_enable_at_startup = 1
-		let g:neocomplcache_snippets_disable_runtime_snippets = 1
+		"let g:neocomplcache_snippets_disable_runtime_snippets = 1
+		let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
 		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
 "}}}

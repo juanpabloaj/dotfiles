@@ -33,3 +33,5 @@ fi
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
+# bye zsh: correct ‘lg’ to ‘log’ [nyae]?
+unsetopt correct_all

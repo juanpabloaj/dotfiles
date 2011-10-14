@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-def main():
+def main():#{{{
 	<++>
-if __name__ == "__main__":
+#}}}
+if __name__ == "__main__":#{{{
 	main()
+#}}}
