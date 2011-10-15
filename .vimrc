@@ -57,6 +57,7 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
 " }}}
+set completeopt=longest,menuone,preview
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 au FocusLost * :wa
@@ -92,6 +93,7 @@ nn <leader>tn :tabnew
 nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
 nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
 nn <leader>f :find 
+nn <leader>e :call LastEvernote()<CR>
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :call TogglePaste()<CR>
@@ -134,6 +136,9 @@ nn ZA :qa<CR>
 	nnoremap <silent><leader>ml :call ShowLocalMarks()<CR>
 	"}}}
 " }}}
+	" replace {{{
+		vn <leader>s :s//<left>
+	" }}}
 " }}}
 " abbreviate {{{
 	ia @@ jpabloaj@gmail.com
@@ -341,5 +346,20 @@ fun! TogglePaste() "{{{
 	endif
 endf "}}}
 fun! FugitiveStatuslineShort() "{{{
-	return substitute(fugitive#statusline(),"master","M","g")"
+	return substitute(fugitive#statusline(),"master","M","g")
 endf "}}}
+fun! LastEvernote() "{{{
+	" a better solution is with evernote api
+	let evernoteDir=expand("$HOME")."/Library/Application*Support/Evernote/data"
+	let dataDir=system("ls -trlh ".evernoteDir."| tail -n 1| awk '{print $NF}'")
+	let contentDir=evernoteDir."/".dataDir."/content"
+	let contentDir=substitute(contentDir,"\n","",'g')
+	let note=system("ls -trlh ".contentDir." | tail -n 1| awk '{print $NF}'")
+	let note=substitute(note,"\n","",'g')
+	sil! exec 'sp '.contentDir.'/'.note.'/content.html'
+	sil! exec '%s/<br.*\/>/<br\/>\r/g'
+	sil! exec '%s/<\//\r<\//g'
+	sil! exec 'g/^\s*$/d'
+	normal gg
+endf
+"}}}
