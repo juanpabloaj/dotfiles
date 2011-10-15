@@ -93,7 +93,7 @@ nn <leader>tn :tabnew
 nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
 nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
 nn <leader>f :find 
-nn <leader>e :call LastEvernote()<CR>
+nn <silent><leader>e :call LastEvernote()<CR>
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :call TogglePaste()<CR>
@@ -357,9 +357,12 @@ fun! LastEvernote() "{{{
 	let note=system("ls -trlh ".contentDir." | tail -n 1| awk '{print $NF}'")
 	let note=substitute(note,"\n","",'g')
 	sil! exec 'sp '.contentDir.'/'.note.'/content.html'
+	sil! exec '1s/>/>\r/g'
 	sil! exec '%s/<br.*\/>/<br\/>\r/g'
 	sil! exec '%s/<\//\r<\//g'
 	sil! exec 'g/^\s*$/d'
 	normal gg
+	sil! exec '1,4fo'
+	sil! exec '$-1,$fo'
 endf
 "}}}
