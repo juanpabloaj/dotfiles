@@ -74,13 +74,14 @@ set listchars=tab:▸\ ,eol:¬
 	set statusline=
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
 	set statusline+=%{FugitiveStatuslineShort()}
-	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeocomplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%{BufferWidget()}\ %y%)
+	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeoComplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%{BufferWidget()}\ %y%)
 	set statusline+=%3*\%P\*%=%{FileTime()}
 	set rulerformat=%15(%c%V\ %p%%%)
 " }}}
 " map {{{
 let mapleader = ","
 nnoremap <silent><leader>ve :sp ~/.vimrc<CR>
+nn <silent><leader>vS :vs ~/.vimrc<CR>
 nn <silent><leader>vE :tabnew ~/.vimrc<CR>
 nn <leader>vd :sp ~/.vim<CR>
 nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
@@ -142,7 +143,8 @@ nn ZA :qa<CR>
 " }}}
 " abbreviate {{{
 	ia @@ jpabloaj@gmail.com
-	ia @0 jpabloaj at gmail dot com
+	ia @0 juanpablo <jpabloaj@gmail.com>
+	ia @1 jpabloaj at gmail dot com
 " }}}
 " search {{{
 nnoremap / /\v
@@ -173,7 +175,7 @@ nnoremap N Nzzzv
 	nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
 	" taglist {{{
 	" debe estar instalado exuberant-ctags
-	nnoremap ,o :TlistToggle<CR>
+	nnoremap ,l :TlistToggle<CR>
 	"}}}
 	" fugitive {{{
 	nnoremap ,gd :Gdiff<CR>
@@ -223,7 +225,7 @@ nnoremap N Nzzzv
 		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
 	" BufferWidget {{{
-		let g:buffer_widget_view='small'
+		let g:buffer_widget_view='bars'
 	" }}}
 "}}}
 " spell {{{
@@ -322,7 +324,7 @@ endfunction
 fun! HasPaste() "{{{
 	return &paste ? "paste" : ""
 endf "}}}
-fun! HasNeocomplcache() "{{{
+fun! HasNeoComplcache() "{{{
 	return !neocomplcache#is_locked() ? "nCC" : ""
 endf "}}}
 fun! ToggleNumber() "{{{
