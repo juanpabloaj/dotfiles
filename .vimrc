@@ -75,7 +75,7 @@ set listchars=tab:▸\ ,eol:¬
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
 	set statusline+=%{FugitiveStatuslineShort()}
 	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeoComplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%{BufferWidget()}\ %y%)
-	set statusline+=%3*\%P\*%=%{FileTime()}
+	set statusline+=%3*%P%=%{FileTime()}
 	set rulerformat=%15(%c%V\ %p%%%)
 " }}}
 " map {{{
