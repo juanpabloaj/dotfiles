@@ -285,6 +285,11 @@ endfunction
 	"autocmd VimLeave * !clear
 	" When vimrc is edited, reload it
 	autocmd! bufwritepost .vimrc source ~/.vimrc
+	" Restore cursor position
+	autocmd BufReadPost *
+	  \ if line("'\"") > 1 && line("'\"") <= line("$") |
+	  \   exe "normal! g`\"" |
+	  \ endif
 " }}}
 " TabMessage {{{1
 " por funcion a newtab
