@@ -33,3 +33,4 @@ clean:
 	cd $(HOME) ; [ -h .oh-my-zsh ] &&  unlink .oh-my-zsh
 pull:
 	cd $(PWD)/.vim/bundle/vim-pathogen ; git map co master ; git map pull
+	cd $(PWD)/utils/git-prompt  ; git map co master ; git map pull
