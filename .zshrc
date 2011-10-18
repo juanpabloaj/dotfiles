@@ -26,12 +26,9 @@ plugins=(git git-flow)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-if [[ $(uname) == "Darwin" ]]; then
-	# ports
-	PATH=/opt/local/libexec/gnubin:$PATH
-fi
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
+zstyle ':completion:*' special-dirs true
 # bye zsh: correct ‘lg’ to ‘log’ [nyae]?
 unsetopt correct_all

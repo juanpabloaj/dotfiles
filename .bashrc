@@ -103,16 +103,12 @@ if [ -d $HOME/.bash_completion.d/ ]; then
 fi
 
 #aliases
-if [ $(uname) == "Darwin" ]; then 
-	alias gitk='/usr/bin/wish $(which gitk)'	
-fi 
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
 export HISTSIZE=1000
-export PATH
 export LANG="es_ES.UTF-8"
 export LANGUAGE="es_ES"
 export LC_ALL="es_ES.UTF-8"

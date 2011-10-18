@@ -44,6 +44,7 @@ set nocompatible
 	"set textwidth=79
 	"set formatoptions=qrn1
 	"set colorcolumn=85
+	set title
 " }}}
 " Wildmenu completion {{{
 set wildmenu
@@ -64,10 +65,12 @@ au FocusLost * :wa
 " mostrar caracteres especiales
 set list
 set listchars=tab:▸\ ,eol:¬
+runtime macros/matchit.vim
+set shortmess=atI
 " Backups {{{
-"set backupdir=~/.vim/tmp/backup// " backups
-"set directory=~/.vim/tmp/swap//   " swap files
-"set backup                        " enable backups
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
 " }}}
 " }}}
 " statusline {{{
@@ -104,10 +107,12 @@ nn <silent><leader>? :map <buffer><CR>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 " navigation
-nnoremap <leader><Down> :cnext<cr>zvzz
-nnoremap <leader><Up> :cprevious<cr>zvzz
-nnoremap j gj
-nnoremap k gk
+nn <leader><Down> :cnext<cr>zvzz
+nn <leader><Up> :cprevious<cr>zvzz
+nn j gj
+nn k gk
+nn H ^
+nn L $
 " no ex mode ; press gQ
 nn Q <nop>
 nn ZA :qa<CR>
@@ -247,7 +252,6 @@ function! LoadTemplate(extension)
 	silent! normal Gddgg
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
 endfunction
-
 function! LoadSnippets(extension)
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim' 
 endfunction
@@ -317,6 +321,46 @@ function! Translate(entrada)
 endfunction
 command! -nargs=+ -complete=command Translate call Translate(<q-args>)
 " }}}1
+" Hg {{{
+" Inspirated in http://bitbucket.org/sjl/dotfiles <Steve Losh>
+	function! s:HgDiff() " {{{
+		diffthis
+		let fn = expand('%:p')
+		let ft = &ft
+		wincmd v
+		edit __hgdiff_orig__
+		setlocal buftype=nofile
+		normal ggdG
+		execute "silent r!hg cat --rev . " . fn
+		normal ggdd
+		execute "setlocal ft=" . ft
+		diffthis
+		diffupdate
+		autocmd! BufWinLeave __hgdiff_orig__ bdelete __hgdiff_orig__ | diffoff | so ~/.vimrc
+	endf
+	command! -nargs=0 HgDiff call s:HgDiff()
+	nnoremap <leader>hd :HgDiff<cr>
+	" }}}
+	function! s:HgBlame() " {{{
+		let fn = expand('%:p')
+		wincmd v
+		wincmd h
+		edit __hgblame__
+		vertical resize 28
+		setlocal scrollbind winfixwidth nolist nowrap nonumber buftype=nofile ft=none
+		normal ggdG
+		execute "silent r!hg blame -undq " . fn
+		normal ggdd
+		execute ':%s/\v:.*$//'
+		wincmd l
+		setlocal scrollbind
+		syncbind
+		autocmd! BufWinLeave __hgblame__ bdelete __hgblame__ | so ~/.vimrc
+	endf
+	command! -nargs=0 HgBlame call s:HgBlame()
+	nnoremap <leader>hb :HgBlame<cr>
+	" }}}
+" }}}
 fun! FileTime() "{{{
   let ext=tolower(expand("%:e"))
   let fname=tolower(expand('%<'))
@@ -371,5 +415,6 @@ fun! LastEvernote() "{{{
 	normal gg
 	sil! exec '1,4fo'
 	sil! exec '$-1,$fo'
+	setl spell
 endf
 "}}}

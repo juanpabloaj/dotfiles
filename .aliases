@@ -19,8 +19,14 @@ export VIMHOME=$HOME/.vim
 export D=$S/dotfiles
 export B=$D/.vim/bundle
 export EDITOR=vim
+if [[ $(uname) == "Darwin" ]]; then
+	# ports
+	PATH=/opt/local/libexec/gnubin:$PATH
+	alias gitk='/usr/bin/wish $(which gitk)'	
+fi
 [ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
 [ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
 if [[ "$(uname)" =~ "CYGWIN" ]]; then
 	export GIT_SSL_NO_VERIFY=true
 fi
+export PATH

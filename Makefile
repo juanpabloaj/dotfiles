@@ -12,6 +12,8 @@ install:
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
 	mkdir -p .vim/autoload
 	mkdir -p .vim/tmp/undo
+	mkdir -p .vim/tmp/backup
+	mkdir -p .vim/tmp/swap
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -v -s $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	cd $(PWD)/utils/git-prompt; make install
 	mkdir -p .bash_completion.d
