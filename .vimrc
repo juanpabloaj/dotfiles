@@ -27,7 +27,7 @@ set nocompatible
 	set backspace=eol,start,indent
 	set nu
 	set laststatus=2
-	set history=100
+	set history=1000
 	syntax on
 	set tabstop=4 "numero de espacios por un tab
 	set sw=4 "numero de espacios por indent
@@ -161,8 +161,8 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <silent><leader><space> :setl hlsearch!<cr>
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 nnoremap n nzzzv
 nnoremap N Nzzzv
 ""}}}
@@ -199,6 +199,34 @@ nnoremap N Nzzzv
 	" NERDtree {{{
 	nnoremap <silent><leader>n :NERDTreeToggle<CR>
 	let NERDTreeShowBookmarks=1
+	" }}}
+	" snipmate {{{
+		let g:commentChar = {
+			\ 'vim': '"',
+			\ 'c': '//',
+			\ 'cpp': '//',
+			\ 'sh': '#',
+			\ 'python': '#'
+			\}
+		" url https://github.com/garbas/vim-snipmate/issues/49
+		fun! AddFolding(text)
+			return g:commentChar[&ft]." {{{\n".a:text."\n".g:commentChar[&ft]." }}}"
+		endf
+		fun! SnippetsWithFolding(scopes, trigger, result)
+		" hacky: temporarely remove this function to prevent infinite recursion:
+		call remove(g:snipMateSources, 'with_folding')
+		" get list of snippets:
+		let result = snipMate#GetSnippets(a:scopes, substitute(a:trigger,'_\(\*\)\?$','\1',''))
+		let g:snipMateSources['with_folding'] = funcref#Function('SnippetsWithFolding')
+		" add folding:
+		for k in keys(result)
+		  let a:result[k.'_'] = map(result[k],'AddFolding(v:val)')
+		endfor
+		endf
+		" force setting default:
+		runtime plugin/snipMate.vim
+		" add our own source
+		let g:snipMateSources['with_folding'] = funcref#Function('SnippetsWithFolding')
 	" }}}
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 0
