@@ -80,12 +80,30 @@ set backup                        " enable backups
 	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeoComplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%{BufferWidget()}\ %y%)
 	set statusline+=%3*%P%=%{FileTime()}
 	set rulerformat=%15(%c%V\ %p%%%)
+	fun! FileTime() "{{{
+	  let ext=tolower(expand("%:e"))
+	  let fname=tolower(expand('%<'))
+	  let filename=fname . '.' . ext
+	  let msg=""
+	  let msg=msg." ".strftime("(Mod %b,%d %y %H:%M:%S)",getftime(filename))
+	  return msg
+	endfunction
+	"}}}
+	fun! HasPaste() "{{{
+		return &paste ? "paste" : ""
+	endf "}}}
+	fun! HasNeoComplcache() "{{{
+		return !neocomplcache#is_locked() ? "nCC" : ""
+	endf "}}}
+	fun! FugitiveStatuslineShort() "{{{
+		return substitute(fugitive#statusline(),"master","M","g")
+	endf "}}}
 " }}}
 " map {{{
 let mapleader = ","
-nnoremap <silent><leader>ve :sp ~/.vimrc<CR>
-nn <silent><leader>vS :vs ~/.vimrc<CR>
-nn <silent><leader>vE :tabnew ~/.vimrc<CR>
+nnoremap <silent><leader>ve :sp $D/.vimrc<CR>
+nn <silent><leader>vS :vs $D/.vimrc<CR>
+nn <silent><leader>vE :tabnew $D/.vimrc<CR>
 nn <leader>vd :sp ~/.vim<CR>
 nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nn <leader>vcl :setl cursorline!<CR>
@@ -97,6 +115,7 @@ nn <leader>tn :tabnew
 nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
 nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
 nn <leader>f :find 
+nn <leader>! :!<up><CR>
 nn <silent><leader>e :call LastEvernote()<CR>
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
@@ -177,10 +196,9 @@ nnoremap N Nzzzv
 " }}}
 " plugins configuration {{{
 	nnoremap ,vg :GundoToggle<CR>
-	nnoremap ,vs :SnipMateOpenSnippetFiles<CR>
 	" taglist {{{
 	" debe estar instalado exuberant-ctags
-	nnoremap ,l :TlistToggle<CR>
+	nn <silent><Leader>l :TlistToggle<CR>
 	"}}}
 	" fugitive {{{
 	nnoremap ,gd :Gdiff<CR>
@@ -201,6 +219,7 @@ nnoremap N Nzzzv
 	let NERDTreeShowBookmarks=1
 	" }}}
 	" snipmate {{{
+		nn <silent><Leader>vs :SnipMateOpenSnippetFiles<CR>
 		let g:commentChar = {
 			\ 'vim': '"',
 			\ 'c': '//',
@@ -389,28 +408,6 @@ command! -nargs=+ -complete=command Translate call Translate(<q-args>)
 	nnoremap <leader>hb :HgBlame<cr>
 	" }}}
 " }}}
-fun! FileTime() "{{{
-  let ext=tolower(expand("%:e"))
-  let fname=tolower(expand('%<'))
-  let filename=fname . '.' . ext
-  let msg=""
-  let msg=msg." ".strftime("(Mod %b,%d %y %H:%M:%S)",getftime(filename))
-  return msg
-endfunction
-"}}}
-fun! HasPaste() "{{{
-	return &paste ? "paste" : ""
-endf "}}}
-fun! HasNeoComplcache() "{{{
-	return !neocomplcache#is_locked() ? "nCC" : ""
-endf "}}}
-fun! ToggleNumber() "{{{
-	if exists('+relativenumber')
-		:exec &nu==&rnu? "setl nu!" : "setl rnu!"
-	else
-		setl nu!
-	endif
-endf "}}}
 fun! TogglePaste() "{{{
 	" setl paste! && remove elements for copy
 	setl paste!
@@ -424,8 +421,12 @@ fun! TogglePaste() "{{{
 		:exec exists('+relativenumber') ? 'setl rnu': ''
 	endif
 endf "}}}
-fun! FugitiveStatuslineShort() "{{{
-	return substitute(fugitive#statusline(),"master","M","g")
+fun! ToggleNumber() "{{{
+	if exists('+relativenumber')
+		:exec &nu==&rnu? "setl nu!" : "setl rnu!"
+	else
+		setl nu!
+	endif
 endf "}}}
 fun! LastEvernote() "{{{
 	" a better solution is with evernote api
