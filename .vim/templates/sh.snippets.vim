@@ -1,1 +1,1 @@
-nmap ,m :w <BAR> !bash %<CR>
+nn ,m :w <BAR> !bash %<CR>

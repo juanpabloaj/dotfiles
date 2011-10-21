@@ -1,2 +1,2 @@
 " guardar y ejecutar
-nmap ,m :w <bar> !ruby %<cr>
+nn ,m :w <bar> !ruby %<cr>

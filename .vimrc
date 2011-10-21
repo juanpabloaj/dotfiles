@@ -112,10 +112,11 @@ nn <leader>t :Translate<space>
 nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
 nn <leader>tn :tabnew 
+nn <silent><leader>tc :tabclose<CR>
 nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
 nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
 nn <leader>f :find 
-nn <leader>! :!<up><CR>
+nn <leader>! :w<CR>:!<up><CR>
 nn <silent><leader>e :call LastEvernote()<CR>
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
@@ -202,13 +203,14 @@ nnoremap N Nzzzv
 	"}}}
 	" fugitive {{{
 	nnoremap ,gd :Gdiff<CR>
-	nnoremap ,gc :Gcommit -a<CR>
-	nnoremap ,gs :Gstatus<CR>
-	nnoremap ,gw :Gwrite<CR>
-	nnoremap ,gr :Gread<CR>
-	nn ,gb :Gblame<CR>
-	nnoremap ,g0 :w <bar> Git diff -U0<CR>
-	nnoremap ,g1 :w <bar> :Gdiff HEAD~1<CR>
+	nn <leader>gc :Gcommit -a<CR>
+	nn <leader>gs :Gstatus<CR>
+	nn <leader>gw :Gwrite<CR>
+	nn <leader>gr :Gread<CR>
+	nn <leader>gb :Gblame<CR>
+	nn <leader>gp :!git push<CR>
+	nn <leader>g0 :w <bar> Git diff -U0<CR>
+	nn <leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap ,ge :Extradite<CR>
@@ -254,8 +256,8 @@ nnoremap N Nzzzv
 	" }}}
 	" showmarks {{{
 	let g:showmarks_enable=0
-	nnoremap <silent> <leader>mo :ShowMarksOn<CR>
-	nnoremap <silent> <leader>mt :ShowMarksToggle<CR>
+	nn <silent> <leader>mo :ShowMarksOn<CR>
+	nn <silent> <leader>mt :ShowMarksToggle<CR>
 	"}}}
 	" unite {{{
 		nn <silent> <leader>ub :<C-u>Unite buffer<CR>

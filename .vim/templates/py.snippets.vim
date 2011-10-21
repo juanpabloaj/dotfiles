@@ -1,2 +1,2 @@
 " guardar y ejecutar
-nmap ,m :w <bar> !python %<cr>
+nn ,m :w <bar> !python %<cr>
