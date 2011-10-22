@@ -202,15 +202,14 @@ nnoremap N Nzzzv
 	nn <silent><Leader>l :TlistToggle<CR>
 	"}}}
 	" fugitive {{{
-	nnoremap ,gd :Gdiff<CR>
-	nn <leader>gc :Gcommit -a<CR>
-	nn <leader>gs :Gstatus<CR>
-	nn <leader>gw :Gwrite<CR>
-	nn <leader>gr :Gread<CR>
-	nn <leader>gb :Gblame<CR>
-	nn <leader>gp :!git push<CR>
-	nn <leader>g0 :w <bar> Git diff -U0<CR>
-	nn <leader>g1 :w <bar> :Gdiff HEAD~1<CR>
+	nnoremap <silent><leader>gd :Gdiff<CR>
+	nn <silent><leader>gc :Gcommit -a<CR>
+	nn <silent><leader>gs :Gstatus<CR>
+	nn <silent><leader>gw :Gwrite<CR>
+	nn <silent><leader>gr :Gread<CR>
+	nn <silent><leader>gb :Gblame<CR>
+	nn <silent><leader>g0 :w <bar> Git diff -U0<CR>
+	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap ,ge :Extradite<CR>
