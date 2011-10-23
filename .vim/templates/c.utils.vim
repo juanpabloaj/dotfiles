@@ -1,2 +1,2 @@
-set fdm=syntax
+setlocal fdm=syntax
 nn ,m :w <bar> make<CR>
