@@ -212,7 +212,7 @@ nnoremap N Nzzzv
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	" }}}
 	" Extradite : addon for fugitive {{{
-	nnoremap ,ge :Extradite<CR>
+	nnoremap <silent><leader>ge :Extradite<CR>
 	let g:extradite_showhash=1
 	" }}}
 	" NERDtree {{{
@@ -230,7 +230,7 @@ nnoremap N Nzzzv
 			\}
 		" url https://github.com/garbas/vim-snipmate/issues/49
 		fun! AddFolding(text)
-			return g:commentChar[&ft]." {{{\n".a:text."\n".g:commentChar[&ft]." }}}"
+			return substitute(a:text,'\n'," ".g:commentChar[&ft]." {{{\n",1)."\n".g:commentChar[&ft]." }}}"
 		endf
 		fun! SnippetsWithFolding(scopes, trigger, result)
 		" hacky: temporarely remove this function to prevent infinite recursion:
