@@ -115,7 +115,8 @@ nn <leader>tn :tabnew
 nn <silent><leader>tc :tabclose<CR>
 nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
 nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
-nn <leader>f :find 
+nn <silent><leader>f :find 
+nn <silent><leader>r :registers<CR>
 nn <leader>! :w<CR>:!<up><CR>
 nn <silent><leader>e :call LastEvernote()<CR>
 nn <silent> <leader>vn :call ToggleNumber()<CR>
@@ -176,7 +177,7 @@ nnoremap / /\v
 vnoremap / /\v
 set ignorecase
 set smartcase
-"set gdefault
+set gdefault
 set incsearch
 set showmatch
 set hlsearch
@@ -232,6 +233,7 @@ nnoremap N Nzzzv
 		fun! AddFolding(text)
 			return substitute(a:text,'\n'," ".g:commentChar[&ft]." {{{\n",1)."\n".g:commentChar[&ft]." }}}"
 		endf
+		" TODO function AddDocumentation; char @
 		fun! SnippetsWithFolding(scopes, trigger, result)
 		" hacky: temporarely remove this function to prevent infinite recursion:
 		call remove(g:snipMateSources, 'with_folding')
@@ -342,6 +344,17 @@ endfunction
 	  \ if line("'\"") > 1 && line("'\"") <= line("$") |
 	  \   exe "normal! g`\"" |
 	  \ endif
+	if exists('+relativenumber')
+		autocmd WinLeave *
+			\ if &rnu==1 |
+			\ exe "setl norelativenumber" |
+			\ exe "setl nu" |
+			\ endif
+		autocmd WinEnter *
+			\ if &rnu==0 |
+			\ exe "setl rnu" |
+			\ endif
+	endif
 " }}}
 " TabMessage {{{1
 " por funcion a newtab
