@@ -275,8 +275,8 @@ nnoremap N Nzzzv
 	" }}}
 	" neocomplcache {{{
 		let g:neocomplcache_enable_at_startup = 1
-		"let g:neocomplcache_snippets_disable_runtime_snippets = 1
-		let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
+		let g:neocomplcache_snippets_disable_runtime_snippets = 1
+		"let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
 		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
 	" BufferWidget {{{
