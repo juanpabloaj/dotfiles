@@ -211,6 +211,7 @@ nnoremap N Nzzzv
 	nn <silent><leader>gb :Gblame<CR>
 	nn <silent><leader>g0 :w <bar> Git diff -U0<CR>
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
+	nn <silent><Leader>gD <c-w>h:bd<cr>:setl nocursorbind<cr>
 	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap <silent><leader>ge :Extradite<CR>
@@ -222,16 +223,9 @@ nnoremap N Nzzzv
 	" }}}
 	" snipmate {{{
 		nn <silent><Leader>vs :SnipMateOpenSnippetFiles<CR>
-		let g:commentChar = {
-			\ 'vim': '"',
-			\ 'c': '//',
-			\ 'cpp': '//',
-			\ 'sh': '#',
-			\ 'python': '#'
-			\}
-		" url https://github.com/garbas/vim-snipmate/issues/49
+		" &cms : commentstring
 		fun! AddFolding(text)
-			return substitute(a:text,'\n'," ".g:commentChar[&ft]." {{{\n",1)."\n".g:commentChar[&ft]." }}}"
+			return substitute(a:text,'\n'," ".substitute(&cms,'%s',"",'g')." {{{\n",1)."\n".substitute(&cms,'%s',"",'g')." }}}"
 		endf
 		" TODO function AddDocumentation; char @
 		fun! SnippetsWithFolding(scopes, trigger, result)
@@ -284,22 +278,28 @@ nnoremap N Nzzzv
 	" }}}
 	" Ack {{{
 		" you have to install ack
-		nn <leader>a :Ack! <cword><CR>
+		nn <leader>a :Ack! --nobinary <cword><CR>
 	" }}}
+	" surround {{{
+		" surround example, zf es more simple
+		"autocmd FileType * let b:comChar = g:commentChar[&ft] |
+		"\ let b:surround_{char2nr('z')}=b:comChar."{{{ \r ".b:comChar."}}}" |
+		"\ let b:surround_{char2nr('Z')}="\" \<++\> {{{ \r \"}}}" |
+	"}}}
 "}}}
 " spell {{{
-" [s ]s z= zg 
+" [s ]s z= zg
 "augroup filetypedetect
 au BufNewFile,BufRead *.tex,*.md,*.markdown setl spell
 "augroup END
 set spelllang=es,en
 ""}}}
 " Folding {{{
-""metodo de folding
-set fdm=marker
-""auto cerrado
+" metodo de folding
+setl fdm=marker
+" auto cerrado
 "set fcl=all
-""}}}
+"}}}
 " Templates + manual snippets {{{1
 function! LoadTemplate(extension)
 	silent! :execute '0r ~/.vim/templates/'. a:extension. '.tpl'
