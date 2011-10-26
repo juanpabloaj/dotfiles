@@ -286,6 +286,16 @@ nnoremap N Nzzzv
 		"\ let b:surround_{char2nr('z')}=b:comChar."{{{ \r ".b:comChar."}}}" |
 		"\ let b:surround_{char2nr('Z')}="\" \<++\> {{{ \r \"}}}" |
 	"}}}
+	" rainbow {{{
+		nn <silent><leader>R :RainbowParenthesesToggle<cr>
+		func! s:rainbow_load()
+			RainbowParenthesesLoadRound
+			RainbowParenthesesLoadSquare
+		endfunc
+		au VimEnter * RainbowParenthesesToggle
+		"au FileType *.py RainbowParenthesesLoadRound
+		au FileType * au Syntax * cal s:rainbow_load()
+	" }}}
 "}}}
 " spell {{{
 " [s ]s z= zg
@@ -296,7 +306,7 @@ set spelllang=es,en
 ""}}}
 " Folding {{{
 " metodo de folding
-setl fdm=marker
+set fdm=marker
 " auto cerrado
 "set fcl=all
 "}}}
