@@ -282,6 +282,10 @@ nnoremap N Nzzzv
 	" BufferWidget {{{
 		let g:buffer_widget_view='bars'
 	" }}}
+	" Ack {{{
+		" you have to install ack
+		nn <leader>a :Ack! <cword><CR>
+	" }}}
 "}}}
 " spell {{{
 " [s ]s z= zg 

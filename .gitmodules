@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/bufferWidget"]
 	path = .vim/bundle/bufferWidget
 	url = git@github.com:juanpabloaj/bufferWidget.git
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
