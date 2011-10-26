@@ -22,7 +22,8 @@ export EDITOR=vim
 if [[ $(uname) == "Darwin" ]]; then
 	# ports
 	PATH=/opt/local/libexec/gnubin:$PATH
-	alias gitk='/usr/bin/wish $(which gitk)'	
+	alias gitk='/usr/bin/wish $(which gitk)'
+	alias top='top -o cpu'
 fi
 [ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
 [ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH

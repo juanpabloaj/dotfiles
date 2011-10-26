@@ -359,6 +359,8 @@ endfunction
 			\ exe "setl rnu" |
 			\ endif
 	endif
+	autocmd InsertEnter * hi statusline ctermfg=159
+	autocmd InsertLeave * hi statusline ctermfg=250
 " }}}
 " TabMessage {{{1
 " por funcion a newtab
