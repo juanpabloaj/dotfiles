@@ -122,7 +122,7 @@ nn <silent><leader>e :call LastEvernote()<CR>
 nn <silent> <leader>vn :call ToggleNumber()<CR>
 nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :call TogglePaste()<CR>
-nn <leader>s<space> :/\s\+$/<CR>
+nn <leader>s<space> :%s/\s\+$//c<CR>
 nn <silent><leader>? :map <buffer><CR>
 " moverse entre <++>
 nnoremap <c-j> /<++><cr>c/+>/e<cr>
