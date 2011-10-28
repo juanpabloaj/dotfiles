@@ -1,0 +1,24 @@
+\documentclass[letter]{article}%(fold)
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2cm}{2cm}
+\usepackage[spanish]{babel}
+\usepackage{multirow}
+\usepackage{ucs}
+\usepackage{appendix}
+\usepackage{cancel}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setcounter{page}{1}%(end)
+\title{<++>}%(fold)
+\author{Juan Pablo Abarzúa Jaramillo}%(end)
+\begin{document}%(fold)
+\maketitle
+%\begin{abstract}%(fold)
+%\end{abstract}%(end)
+<++>
+\end{document}%(end)
