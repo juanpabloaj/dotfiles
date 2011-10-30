@@ -106,8 +106,9 @@ nn <silent><leader>vS :vs $D/.vimrc<CR>
 nn <silent><leader>vE :tabnew $D/.vimrc<CR>
 nn <leader>vd :sp ~/.vim<CR>
 nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
+nn <leader>vt :exec "sp $D/.vim/templates/".&ft.".snippets.vim"<CR>
 nn <leader>vcl :setl cursorline!<CR>
-nn <leader>s :so ~/.vimrc<cr>
+nn <silent><leader>s :so ~/.vimrc<cr>
 nn <leader>t :Translate<space>
 nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
@@ -333,7 +334,7 @@ endif
 ""}}}
 " highlight {{{
 	highlight whitespaceEOL term=reverse ctermbg=Grey  guibg=Grey
-	match whitespaceEOL /\s\+$/
+	match whitespaceEOL /\s\+\(\%#\)\@!$/
 " }}}
 " Ultima session {{{1
 " guardar y abrir
