@@ -2,13 +2,11 @@
 
 	make install
 
-### Clean 
+### Clean
 
-    make clean 
+    make clean
 
-# vim 
-
-### Included vim plugins 
-
+## vim
+### Included vim plugins
 
     .gitmodules
