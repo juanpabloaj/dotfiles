@@ -108,8 +108,9 @@ nn <leader>vd :sp ~/.vim<CR>
 nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nn <leader>vt :exec "sp $D/.vim/templates/".&ft.".snippets.vim"<CR>
 nn <leader>vcl :setl cursorline!<CR>
-nn <silent><leader>s :so ~/.vimrc<cr>
+nn <silent><leader>s :so ~/.vimrc<bar>so $D/.vim/templates/%:e.snippets.vim<cr>
 nn <leader>t :Translate<space>
+nn <silent><leader>j :setl more!<bar>jumps<bar>setl more!<cr>
 nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
 nn <leader>tn :tabnew 
@@ -247,7 +248,7 @@ nnoremap N Nzzzv
 	" }}}
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 0
-	let g:syntastic_disabled_filetypes = ['html', 'xhtml']
+	let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'tex']
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 	" }}}
 	" showmarks {{{
