@@ -101,6 +101,10 @@ set backup                        " enable backups
 " }}}
 " map {{{
 let mapleader = ","
+ino <leader><leader> <esc>
+" spanish keyboards
+nn ñ :
+vn ñ :
 nnoremap <silent><leader>ve :sp $D/.vimrc<CR>
 nn <silent><leader>vS :vs $D/.vimrc<CR>
 nn <silent><leader>vE :tabnew $D/.vimrc<CR>
