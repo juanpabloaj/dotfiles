@@ -102,6 +102,7 @@ set backup                        " enable backups
 " map {{{
 let mapleader = ","
 ino <leader><leader> <esc>
+vn <leader><leader> <esc>
 " spanish keyboards
 nn ñ :
 vn ñ :
@@ -139,7 +140,11 @@ nn <leader><Up> :cprevious<cr>zvzz
 nn j gj
 nn k gk
 nn H ^
-nn L $
+nn L g_
+vno j gj
+vno k gk
+vno H ^
+vno L g_
 " no ex mode ; press gQ
 nn Q <nop>
 nn ZA :qa<CR>
