@@ -113,7 +113,7 @@ nn <leader>vd :sp ~/.vim<CR>
 nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nn <leader>vt :exec "sp $D/.vim/templates/".&ft.".snippets.vim"<CR>
 nn <leader>vcl :setl cursorline!<CR>
-nn <silent><leader>s :so ~/.vimrc<bar>so $D/.vim/templates/%:e.snippets.vim<cr>
+nn <silent><leader>s :so ~/.vimrc<CR>
 nn <leader>t :Translate<space>
 nn <silent><leader>j :setl more!<bar>jumps<bar>setl more!<cr>
 nn <leader>w :sp $W<CR>
@@ -328,7 +328,7 @@ function! LoadTemplate(extension)
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
 endfunction
 function! LoadSnippets(extension)
-	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim' 
+	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
 endfunction
 " templates y snippets en base a la extension
 autocmd BufNewFile * silent! call LoadTemplate('%:e')
@@ -363,6 +363,7 @@ endfunction
 	" limpiar la terminal al salir de vim
 	"autocmd VimLeave * !clear
 	" When vimrc is edited, reload it
+	autocmd! BufEnter *.py,.vimrc,*.sh,*.c* :match ColorColumn /\%>80v.\+/
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 	" Restore cursor position
 	autocmd BufReadPost *
@@ -398,8 +399,8 @@ endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 " }}}1
 " Translate {{{1
-" TODO make this a vim plugin 
-" TODO set language as var 
+" TODO make this a vim plugin
+" TODO set language as var
 " Traduccion, solo funcional con internet
 function! Translate(entrada)
 	let en=substitute(a:entrada," ","%20","g")
