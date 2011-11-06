@@ -1,6 +1,6 @@
 " ==========================================================
-" File Name:    .vimrc
-" Author:       juanpabloaj
+" File Name:	.vimrc
+" Author:		juanpabloaj
 " Url:			http://j.mp/dotvimrc
 " ==========================================================
 " preamble {{{
@@ -58,7 +58,7 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
 " }}}
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone",preview
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 au FocusLost * :wa
@@ -101,9 +101,9 @@ set backup                        " enable backups
 " }}}
 " map {{{
 let mapleader = ","
-ino <leader><leader> <esc>
-vn <leader><leader> <esc>
 " spanish keyboards
+ino ç <esc>
+vn ç <esc>
 nn ñ :
 vn ñ :
 nnoremap <silent><leader>ve :sp $D/.vimrc<CR>
@@ -343,8 +343,9 @@ if $TERM =~ '^xterm' || $TERM =~ '^screen' || $TERM =~ 'rxvt'
 endif
 ""}}}
 " highlight {{{
-	highlight whitespaceEOL term=reverse ctermbg=Grey  guibg=Grey
+	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 	match whitespaceEOL /\s\+\(\%#\)\@!$/
+	match whitespaceEOL /  /
 " }}}
 " Ultima session {{{1
 " guardar y abrir
