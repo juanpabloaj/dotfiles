@@ -177,6 +177,7 @@ nn ZA :qa<CR>
 	" replace {{{
 		vn <leader>s :s//<left>
 	" }}}
+au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 " }}}
 " abbreviate {{{
 	ia @@ jpabloaj@gmail.com
@@ -345,7 +346,7 @@ endif
 " highlight {{{
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 	match whitespaceEOL /\s\+\(\%#\)\@!$/
-	match whitespaceEOL /  /
+	"match whitespaceEOL /  /
 " }}}
 " Ultima session {{{1
 " guardar y abrir
