@@ -131,8 +131,8 @@ nn <silent> <leader>vl :setl list!<CR>
 nn <silent> <leader>vp :call TogglePaste()<CR>
 nn <leader>s<space> :%s/\s\+$//c<CR>
 nn <silent><leader>? :map <buffer><CR>
-" moverse entre <++>
-nnoremap <c-j> /<++><cr>c/+>/e<cr>
+" moverse entre <++>; si hay fold abrir
+nnoremap <c-j> /<++><cr>zvc/+>/e<cr>
 inoremap <c-j> <ESC>/<++><cr>c/+>/e<cr>
 " navigation
 nn <leader><Down> :cnext<cr>zvzz
