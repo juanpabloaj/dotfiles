@@ -365,8 +365,11 @@ endfunction
 	" limpiar la terminal al salir de vim
 	"autocmd VimLeave * !clear
 	" When vimrc is edited, reload it
-	autocmd! BufEnter *.py,.vimrc,*.sh,*.c* :match ColorColumn /\%>80v.\+/
 	autocmd! bufwritepost .vimrc source ~/.vimrc
+	augroup longLines
+		au!
+		autocmd! filetype zsh,sh,python,vim,c,cpp :match ColorColumn /\%>80v.\+/
+	augroup END
 	" Restore cursor position
 	autocmd BufReadPost *
 	  \ if line("'\"") > 1 && line("'\"") <= line("$") |
