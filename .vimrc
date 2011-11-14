@@ -345,7 +345,7 @@ endif
 ""}}}
 " highlight {{{
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
-	match whitespaceEOL /\s\+\(\%#\)\@!$/
+	au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 	"match whitespaceEOL /  /
 " }}}
 " Ultima session {{{1
@@ -368,7 +368,7 @@ endfunction
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 	augroup longLines
 		au!
-		autocmd! filetype zsh,sh,python,vim,c,cpp :match ColorColumn /\%>80v.\+/
+		au! filetype zsh,sh,python,vim,c,cpp syn match ColorColumn /\%>80v.\+/ containedin=ALL
 	augroup END
 	" Restore cursor position
 	autocmd BufReadPost *
