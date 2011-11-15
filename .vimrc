@@ -223,7 +223,8 @@ nnoremap N Nzzzv
 	nn <silent><leader>gb :Gblame<CR>
 	nn <silent><leader>g0 :w <bar> Git diff -U0<CR>
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
-	nn <silent><Leader>gD <c-w>h:bd<cr>:setl nocursorbind<cr>
+	nn <silent><Leader>gD <c-w>h:bd<cr>
+		\ :exec exists('+cursorbind')?"setl nocursorbind":""<cr>
 	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap <silent><leader>ge :Extradite<CR>
@@ -346,7 +347,8 @@ endif
 " highlight {{{
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 	au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
-	"match whitespaceEOL /  /
+	" don't show whitespaceEOL in unite ft
+	au! Filetype unite hi whitespaceEOL ctermbg=bg
 " }}}
 " Ultima session {{{1
 " guardar y abrir
@@ -365,6 +367,7 @@ endfunction
 	" limpiar la terminal al salir de vim
 	"autocmd VimLeave * !clear
 	" When vimrc is edited, reload it
+	au! CmdwinEnter * nn <silent><buffer> q :q<CR>
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 	augroup longLines
 		au!
