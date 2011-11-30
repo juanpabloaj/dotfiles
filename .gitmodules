@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle/rainbow
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/simplenote"]
+	path = .vim/bundle/simplenote
+	url = git@github.com:juanpabloaj/simplenote.vim.git

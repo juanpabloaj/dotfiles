@@ -10,7 +10,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 " no compatible con vi
-set nocompatible 
+set nocompatible
 " }}}
 " basic options {{{
 " basic {{{
@@ -32,7 +32,7 @@ set nocompatible
 	set tabstop=4 "numero de espacios por un tab
 	set sw=4 "numero de espacios por indent
 	set softtabstop=4
-	"set expandtab
+	set expandtab
 	set background=dark
 	set wrap
 	set scrolloff=3
@@ -299,6 +299,13 @@ nnoremap N Nzzzv
 		"\ let b:surround_{char2nr('z')}=b:comChar."{{{ \r ".b:comChar."}}}" |
 		"\ let b:surround_{char2nr('Z')}="\" \<++\> {{{ \r \"}}}" |
 	"}}}
+	" simplenote {{{
+		source ~/.simplenoterc
+		for i in ['l','t','u','d','n']
+			exe "nn <silent><leader>s".i." :Simplenote -".i."<CR>"
+		endfor
+		let g:SimplenoteUseMarkdown=1
+	" }}}
 	" rainbow {{{
 		nn <silent><leader>R :RainbowParenthesesToggle<cr>
 		func! s:rainbow_load()
@@ -313,7 +320,7 @@ nnoremap N Nzzzv
 " spell {{{
 " [s ]s z= zg
 "augroup filetypedetect
-au BufNewFile,BufRead *.tex,*.md,*.markdown setl spell
+au FileType tex,mkd,markdown setl spell
 "augroup END
 set spelllang=es,en
 ""}}}
