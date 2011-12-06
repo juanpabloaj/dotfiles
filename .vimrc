@@ -32,7 +32,7 @@ set nocompatible
 	set tabstop=4 "numero de espacios por un tab
 	set sw=4 "numero de espacios por indent
 	set softtabstop=4
-	set expandtab
+	"set expandtab
 	set background=dark
 	set wrap
 	set scrolloff=3
@@ -224,7 +224,6 @@ nnoremap N Nzzzv
 	nn <silent><leader>g0 :w <bar> Git diff -U0<CR>
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	nn <silent><Leader>gD <c-w>h:bd<cr>
-		\ :exec exists('+cursorbind')?"setl nocursorbind":""<cr>
 	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap <silent><leader>ge :Extradite<CR>
