@@ -175,7 +175,7 @@ nn ZA :qa<CR>
 	"}}}
 " }}}
 	" replace {{{
-		vn <leader>s :s//<left>
+		vno <leader>s :s//<left>
 	" }}}
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 " }}}
