@@ -66,8 +66,8 @@ else
  rgb_usr='${rgb_green}'
 fi
 
-#[ -n "$PS1" ] && PS1='${rgb_usr}`whoami`${rgb_std} \W ${rgb_usr}\\\$${rgb_restore} '
-[ -n "$PS1" ] && PS1="${rgb_usr}`whoami`${rgb_host}@\h: \W ${rgb_usr}\\\$${rgb_restore} "
+[ -n "$PS1" ] && PS1="${rgb_usr}`whoami`${rgb_host}@\h: \W \
+	${rgb_usr}\\\$${rgb_restore} "
 
 unset   rgb_restore   \
  rgb_black     \
@@ -88,17 +88,18 @@ unset   rgb_restore   \
  rgb_white     \
  rgb_std       \
  rgb_usr
-# funcion de autocompletado para ssh 
+# funcion de autocompletado para ssh
 #_compssh ()
 #{
 #cur=${COMP_WORDS[COMP_CWORD]};
-#COMPREPLY=($(compgen -W "$(cat ~/.ssh/config | grep host | sed '/hostna/d;s/host //')" -- $cur))
+#COMPREPLY=($(compgen -W "$(cat ~/.ssh/config | grep host \
+#	| sed '/hostna/d;s/host //')" -- $cur))
 #}
 #complete -F _compssh ssh
 
 eval $(dircolors -b $HOME/.dircolors)
 
-if [ -d $HOME/.bash_completion.d/ ]; then 
+if [ -d $HOME/.bash_completion.d/ ]; then
 	. $HOME/.bash_completion.d/*
 fi
 
@@ -106,6 +107,7 @@ fi
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
+alias g='git'
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
 export HISTSIZE=1000
