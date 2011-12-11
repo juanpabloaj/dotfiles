@@ -258,7 +258,6 @@ nnoremap N Nzzzv
 	" }}}
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 0
-	let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'tex']
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 	" }}}
 	" showmarks {{{
