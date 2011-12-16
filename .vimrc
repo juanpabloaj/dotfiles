@@ -32,7 +32,7 @@ set nocompatible
 	set tabstop=4 "numero de espacios por un tab
 	set sw=4 "numero de espacios por indent
 	set softtabstop=4
-	"set expandtab
+	set expandtab
 	set background=dark
 	set wrap
 	set scrolloff=3
@@ -376,8 +376,13 @@ endfunction
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 	augroup longLines
 		au!
-		au! filetype zsh,sh,python,vim,c,cpp syn match ColorColumn /\%>80v.\+/ containedin=ALL
+		au! filetype zsh,sh,python,vim,c,cpp
+			\ syn match ColorColumn /\%>80v.\+/ containedin=ALL
 	augroup END
+	" never mix tabs and spaces
+	au FileType vim,python if search('^\t') >0 |
+		\ exe "setl noexpandtab" |
+		\ endif
 	" Restore cursor position
 	autocmd BufReadPost *
 	  \ if line("'\"") > 1 && line("'\"") <= line("$") |
