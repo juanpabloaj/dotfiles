@@ -9,7 +9,10 @@ alias mkdate='mkdir $(date +%Y_%m_%d)'
 # reopen last file open with vim
 alias v='vim -c "normal '\''0"'
 alias dvtm='TERM=rxvt-256color ; dvtm -m ^q'
-mkcd() { mkdir -p "$1" && cd "$1"; }
+mkcd() {
+    [[ -d "$1" ]] ||  mkdir -p "$1"
+    cd "$1";
+}
 if [[ -f $HOME/opt/bin/screen  ]]; then
 	alias screen='$HOME/opt/bin/screen'
 fi
