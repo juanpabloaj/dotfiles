@@ -147,7 +147,8 @@ vno H ^
 vno L g_
 " no ex mode ; press gQ
 nn Q <nop>
-nn ZA :qa<CR>
+nn <silent>ZA :qa<CR>
+nn <silent>ZD :bd<CR>
 " marks {{{ 
 	fun! ShowGlobalMarks() "{{{
 		try
