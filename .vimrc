@@ -226,6 +226,11 @@ nnoremap N Nzzzv
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	nn <silent><Leader>gD <c-w>h:bd<cr>
 	" }}}
+	" vimshell {{{
+        let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
+        let g:vimshell_prompt = '$ '
+		nn <silent><leader>ç :sp <bar> VimShell<cr>
+	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap <silent><leader>ge :Extradite<CR>
 	let g:extradite_showhash=1
@@ -354,7 +359,7 @@ endif
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 	au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 	" don't show whitespaceEOL in unite ft
-	au! Filetype unite hi whitespaceEOL ctermbg=bg
+	au! Filetype unite,vimshell hi whitespaceEOL ctermbg=bg
 " }}}
 " Ultima session {{{1
 " guardar y abrir
