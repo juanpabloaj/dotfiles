@@ -1,5 +1,12 @@
 rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc .aliases .gitexcludes
 LOCAL=$(PWD)
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+	VIMPROCMAKE = make_gcc.mak
+endif
+ifeq ($(UNAME), Darwin)
+	VIMPROCMAKE = make_mac.mak
+endif
 relink:
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -vfs $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
@@ -34,3 +41,5 @@ clean:
 pull:
 	cd $(PWD)/.vim/bundle/vim-pathogen ; git map co master ; git map pull
 	cd $(PWD)/utils/git-prompt  ; git map co master ; git map pull
+vimproc:
+	cd $(PWD)/.vim/bundle/vimproc ; make -f $(VIMPROCMAKE) clean && make -f $(VIMPROCMAKE)
