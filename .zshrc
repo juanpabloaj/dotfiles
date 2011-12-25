@@ -29,6 +29,7 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
+alias rake='noglob rake'
 zstyle ':completion:*' special-dirs true
 # bye zsh: correct ‘lg’ to ‘log’ [nyae]?
 unsetopt correct_all

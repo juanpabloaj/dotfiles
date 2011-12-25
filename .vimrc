@@ -227,8 +227,8 @@ nnoremap N Nzzzv
 	nn <silent><Leader>gD <c-w>h:bd<cr>
 	" }}}
 	" vimshell {{{
-        let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
-        let g:vimshell_prompt = '$ '
+		let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
+		let g:vimshell_prompt = '$ '
 		nn <silent><leader>ç :sp <bar> VimShell<cr>
 	" }}}
 	" Extradite : addon for fugitive {{{
