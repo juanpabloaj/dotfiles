@@ -359,7 +359,7 @@ endif
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 	au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 	" don't show whitespaceEOL in unite ft
-	au! Filetype unite,vimshell hi whitespaceEOL ctermbg=bg
+	au! Filetype unite,vimshell,tlibInputList hi whitespaceEOL ctermbg=bg
 " }}}
 " Ultima session {{{1
 " guardar y abrir

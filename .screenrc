@@ -8,7 +8,7 @@ caption splitonly  "%{Kk}[ %-w%{= Kk}%50>%n %t%{-}%+w ]%<"
 #hardstatus alwayslastline  "%{Kc} $LOGNAME@%H %{Kg}| %l | %C %A - %M-%d-%Y | %{Km} %?[%1`]%?"
 #hardstatus string '%{wk}[ %h ] [ %t ] '
 
-#agregar algun backtick 
+#agregar algun backtick
 #backtick 1 60 60 $HOME/bin/sbacktick
 
 #hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< %=%D %M %d %c"
@@ -28,7 +28,7 @@ term $TERM                      # We'll use whatever is currently used  #
 vbell off
 hardstatus on
 
-# utf-8 
+# utf-8
 encoding utf8 utf8
 defencoding utf8
 
@@ -48,7 +48,9 @@ defbce "on"
 #pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 #default windows
-screen -t bash 0 bash
+term rxvt-256color
+screen -t dvtm 0 dvtm -m ^q
+term $TERM
 screen -t zsh 1 zsh
 
 ###
