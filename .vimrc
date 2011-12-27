@@ -304,7 +304,7 @@ nnoremap N Nzzzv
 		"\ let b:surround_{char2nr('Z')}="\" \<++\> {{{ \r \"}}}" |
 	"}}}
 	" simplenote {{{
-		if exists('~/.simplenoterc')
+		if filereadable(expand('~').'/.simplenoterc')
 			source ~/.simplenoterc
 		endif
 		for i in ['l','t','u','d','n']
