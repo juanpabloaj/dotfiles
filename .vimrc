@@ -384,7 +384,7 @@ endfunction
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 	augroup longLines
 		au!
-		au! filetype zsh,sh,python,vim,c,cpp
+		au! filetype zsh,sh,vim,c,cpp
 			\ syn match ColorColumn /\%>80v.\+/ containedin=ALL
 	augroup END
 	" never mix tabs and spaces
