@@ -21,7 +21,7 @@ hardstatus string '%{= kK}[ %H ] %-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %
 activity "%"                    # tell me when stuff happens!           #
 crlf off                        # no thanks.                            #
 defmonitor off                   # turn monitoring on                    #
-defscrollback 1000              # please sir, can i have some more?     #
+defscrollback 2000              # please sir, can i have some more?     #
 shell -$SHELL                   # i'll take my default shell.           #
 startup_message off             # don't want this either.               #
 term $TERM                      # We'll use whatever is currently used  #
