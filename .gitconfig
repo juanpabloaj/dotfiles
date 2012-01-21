@@ -36,6 +36,7 @@
 	ls = ls-files
 	rh = reset --hard
 	rhom = reset --hard origin/master
+    rv = remote -v
 	cf = clean -fd
 	suir = submodule update --init --recursive
 [diff]
