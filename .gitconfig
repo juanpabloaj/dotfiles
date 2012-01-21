@@ -13,31 +13,31 @@
 [push]
 	default = current
 [alias]
-	st = status
-	ci = commit
-	br = branch
 	ba = branch -a
+	br = branch
+	cf = clean -fd
+	ci = commit
 	co = checkout
-	df = diff
-	dc = diff --cached
 	d0 = diff -U0
+	dc = diff --cached
+	df = diff
 	ds = diff --stat
 	dt = difftool
-	ru = remote update
-	ra = remote add
+	fe = fetch
+	fo = fetch origin
+	l = log --graph --pretty=format:'%Cgreen%h%Creset %C(blue)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ci)' --abbrev-commit --date=relative -n
+	lg = log --graph --pretty=format:'%Cgreen%h%Creset %C(blue)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ci)' --abbrev-commit --date=relative
+	lo = log --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit --date=relative HEAD..origin/master
+	ls = ls-files
 	m = merge
 	mo = merge origin
 	mt = mergetool
-	fe = fetch
-	fo = fetch origin
-	lo = log --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit --date=relative HEAD..origin/master
-	lg = log --graph --pretty=format:'%Cgreen%h%Creset %C(blue)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ci)' --abbrev-commit --date=relative
-	l = log --graph --pretty=format:'%Cgreen%h%Creset %C(blue)%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %ci)' --abbrev-commit --date=relative -n
-	ls = ls-files
+	ra = remote add
 	rh = reset --hard
 	rhom = reset --hard origin/master
-    rv = remote -v
-	cf = clean -fd
+	ru = remote update
+	rv = remote -v
+	st = status
 	suir = submodule update --init --recursive
 [diff]
 	tool = vimdiff
