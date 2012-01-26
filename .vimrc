@@ -107,6 +107,8 @@ vn ç <esc>
 nn ñ :
 vn ñ :
 nnoremap <silent><leader>ve :sp $D/.vimrc<CR>
+" <c-a> is for screen or tmux
+nn <silent><c-A> <c-a>
 nn <silent><leader>vS :vs $D/.vimrc<CR>
 nn <silent><leader>vE :tabnew $D/.vimrc<CR>
 nn <leader>vd :sp ~/.vim<CR>
@@ -384,7 +386,7 @@ endfunction
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 	augroup longLines
 		au!
-		au! filetype zsh,sh,vim,c,cpp
+		au! filetype zsh,sh,vim
 			\ syn match ColorColumn /\%>80v.\+/ containedin=ALL
 	augroup END
 	" never mix tabs and spaces
