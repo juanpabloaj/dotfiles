@@ -25,9 +25,6 @@
 [submodule "utils/git-prompt"]
 	path = utils/git-prompt
 	url = git@github.com:juanpabloaj/git-prompt.git
-[submodule ".vim/bundle/vim-taglist-plus"]
-	path = .vim/bundle/vim-taglist-plus
-	url = https://github.com/int3/vim-taglist-plus.git
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
@@ -100,3 +97,6 @@
 [submodule ".vim/bundle/vimshell"]
 	path = .vim/bundle/vimshell
 	url = https://github.com/Shougo/vimshell.git
+[submodule ".vim/bundle/vim-taglist-plus"]
+	path = .vim/bundle/vim-taglist-plus
+	url = git@github.com:juanpabloaj/vim-taglist-plus.git
