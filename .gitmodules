@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/vim-taglist-plus"]
 	path = .vim/bundle/vim-taglist-plus
 	url = git@github.com:juanpabloaj/vim-taglist-plus.git
+[submodule ".vim/bundle/vim-stylus"]
+	path = .vim/bundle/vim-stylus
+	url = https://github.com/wavded/vim-stylus.git
