@@ -179,6 +179,7 @@ nn <silent>ZD :bd<CR>
 " }}}
 	" replace {{{
 		vno <leader>s :s//<left>
+        nn <Leader>S :%s/<c-r>=expand("<cword>")<cr>//c<left><left>
 	" }}}
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 " }}}
@@ -217,6 +218,10 @@ nnoremap N Nzzzv
 	" debe estar instalado exuberant-ctags
 	nn <silent><Leader>l :TlistToggle<CR>
 	"}}}
+	" object indent {{{
+        " sort indent block
+		nmap <Leader>ss vii!sort<cr>
+	" }}}
 	" fugitive {{{
 	nnoremap <silent><leader>gd :Gdiff<CR>
 	nn <silent><leader>gc :Gcommit -a<CR>

@@ -10,8 +10,10 @@
 
 [status]
     color = auto
+
 [push]
 	default = current
+
 [alias]
 	ba = branch -a
 	br = branch
@@ -39,14 +41,19 @@
 	rv = remote -v
 	st = status
 	suir = submodule update --init --recursive
+
 [diff]
 	tool = vimdiff
+
 [merge]
 	tool = vimdiff
+
 [core]
 	editor = vim
 	excludesfile = ~/.gitexcludes
+
 [difftool]
 	prompt = false
+
 [mergetool]
 	prompt = false
