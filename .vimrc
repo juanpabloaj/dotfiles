@@ -45,6 +45,7 @@ set nocompatible
 	"set formatoptions=qrn1
 	"set colorcolumn=85
 	set title
+    set tildeop " ~2w
 " }}}
 " Wildmenu completion {{{
 set wildmenu
