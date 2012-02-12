@@ -141,12 +141,8 @@ nn <leader><Down> :cnext<cr>zvzz
 nn <leader><Up> :cprevious<cr>zvzz
 nn j gj
 nn k gk
-nn H ^
-nn L g_
 vno j gj
 vno k gk
-vno H ^
-vno L g_
 " no ex mode ; press gQ
 nn Q <nop>
 nn <silent>ZA :qa<CR>
