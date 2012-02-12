@@ -213,7 +213,7 @@ nnoremap N Nzzzv
 	au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
 " }}}
 " plugins configuration {{{
-	nnoremap ,vg :GundoToggle<CR>
+	nnoremap <Leader>vg :GundoToggle<CR>
 	" taglist {{{
 	" debe estar instalado exuberant-ctags
 	nn <silent><Leader>l :TlistToggle<CR>
