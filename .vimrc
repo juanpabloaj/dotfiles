@@ -401,6 +401,8 @@ endfunction
 	  \   exe "normal! g`\"" |
 	  \ endif
 	if exists('+relativenumber')
+		autocmd InsertEnter * setl nu
+		autocmd InsertLeave * setl rnu
 		autocmd WinLeave *
 			\ if &rnu==1 |
 			\ exe "setl norelativenumber" |
