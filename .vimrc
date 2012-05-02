@@ -306,6 +306,8 @@ nnoremap N Nzzzv
 		"autocmd FileType * let b:comChar = g:commentChar[&ft] |
 		"\ let b:surround_{char2nr('z')}=b:comChar."{{{ \r ".b:comChar."}}}" |
 		"\ let b:surround_{char2nr('Z')}="\" \<++\> {{{ \r \"}}}" |
+        " in latex word to bf ysiw* " complete line with yss*
+		autocmd FileType tex let g:surround_42 = "{\\bf \r}"
 	"}}}
 	" simplenote {{{
 		if filereadable(expand('~').'/.simplenoterc')
