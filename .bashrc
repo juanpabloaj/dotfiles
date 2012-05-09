@@ -113,7 +113,7 @@ alias g='git'
 export HISTSIZE=1000
 export LANG="es_ES.UTF-8"
 export LANGUAGE="es_ES"
-export LC_ALL="es_ES.UTF-8"
+#export LC_ALL="es_ES.UTF-8"
 export MM_CHARSET="utf8"
 export LC_CTYPE="es_ES.UTF-8"
 [[ $- == *i* ]] && . $S/dotfiles/utils/git-prompt/git-prompt.sh
