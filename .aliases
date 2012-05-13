@@ -24,6 +24,7 @@ export VIMHOME=$HOME/.vim
 export D=$S/dotfiles
 export B=$D/.vim/bundle
 export EDITOR=vim
+export PAGER=less
 if [[ $(uname) == "Darwin" ]]; then
 	# ports
 	PATH=/opt/local/libexec/gnubin:$PATH
