@@ -211,10 +211,23 @@ nnoremap N Nzzzv
 " }}}
 " plugins configuration {{{
 	nnoremap <Leader>vg :GundoToggle<CR>
-	" taglist {{{
-	" debe estar instalado exuberant-ctags
-	nn <silent><Leader>l :TlistToggle<CR>
-	"}}}
+	" tagbar {{{
+		nn <silent><Leader>l :TagbarToggle<CR>
+        let tagbar_width = 30
+		let tagbar_compact = 1
+        "let tabbar_left = 1
+		let g:tagbar_type_tex = {
+	    \ 'ctagstype' : 'latex',
+	    \ 'kinds'     : [
+	        \ 's:sections',
+	        \ 'g:graphics',
+	        \ 'l:labels',
+	        \ 'r:refs:1',
+	        \ 'p:pagerefs:1'
+	    \ ],
+	    \ 'sort'    : 0
+		\ }	
+	" }}}
 	" object indent {{{
         " sort indent block
 		nmap <Leader>ss vii!sort<cr>
