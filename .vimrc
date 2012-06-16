@@ -175,6 +175,7 @@ nn <silent>ZD :bd<CR>
 	"}}}
 " }}}
 	" replace {{{
+        " en vno con yiw <c-r>0
 		vno <leader>s :s//<left>
         nn <Leader>S :%s/<c-r>=expand("<cword>")<cr>//c<left><left>
 	" }}}
@@ -242,6 +243,8 @@ nnoremap N Nzzzv
 	nn <silent><leader>g0 :w <bar> Git diff -U0<CR>
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	nn <silent><Leader>gD <c-w>h:bd<cr>
+	nn <silent><Leader>gp :Git push
+	nn <silent><Leader>gP :Git push<CR>
 	" }}}
 	" vimshell {{{
 		let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
@@ -417,8 +420,8 @@ endfunction
 	  \   exe "normal! g`\"" |
 	  \ endif
 	if exists('+relativenumber')
-		autocmd InsertEnter * setl nu
-		autocmd InsertLeave * setl rnu
+        "autocmd InsertEnter * setl nu
+        "autocmd InsertLeave * setl rnu
 		autocmd WinLeave *
 			\ if &rnu==1 |
 			\ exe "setl norelativenumber" |
