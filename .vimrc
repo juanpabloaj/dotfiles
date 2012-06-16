@@ -107,7 +107,7 @@ ino ç <esc>
 vn ç <esc>
 nn ñ :
 vn ñ :
-nnoremap <silent><leader>ve :sp $D/.vimrc<CR>
+nnoremap <silent><leader>ve :call NotEmptySplit() <bar>e $D/.vimrc<CR>
 " <c-a> is for screen or tmux
 nn <silent><c-A> <c-a>
 nn <silent><leader>vS :vs $D/.vimrc<CR>
@@ -249,8 +249,8 @@ nnoremap N Nzzzv
 	" vimshell {{{
 		let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
 		let g:vimshell_prompt = '$ '
-		nn <silent><leader>Ç :exec !BufferIsEmpty() ? "sp": "" <bar> VimShell<cr>
-		nn <silent><leader>ç :exec !BufferIsEmpty() ? "sp": "" <bar> VimShellBufferDir<cr>
+		nn <silent><leader>Ç :call NotEmptySplit() <bar> VimShell<cr>
+		nn <silent><leader>ç :call NotEmptySplit() <bar> VimShellBufferDir<cr>
         " alias en ~/.vimshrc
 		" autocmd FileType vimshell call vimshell#altercmd#define('g', 'git')
 	" }}}
@@ -554,5 +554,4 @@ fun! NotEmptySplit() "{{{
 	    exec 'sp'
 	endif
 endf
-command! -nargs=0 -complete=command NotEmptySplit call NotEmptySplit()
 "}}}
