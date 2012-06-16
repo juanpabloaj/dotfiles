@@ -249,8 +249,10 @@ nnoremap N Nzzzv
 	" vimshell {{{
 		let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
 		let g:vimshell_prompt = '$ '
-		nn <silent><leader>Ç :sp <bar> VimShell<cr>
-		nn <silent><leader>ç :sp <bar> VimShellBufferDir<cr>
+		nn <silent><leader>Ç :exec !BufferIsEmpty() ? "sp": "" <bar> VimShell<cr>
+		nn <silent><leader>ç :exec !BufferIsEmpty() ? "sp": "" <bar> VimShellBufferDir<cr>
+        " alias en ~/.vimshrc
+		" autocmd FileType vimshell call vimshell#altercmd#define('g', 'git')
 	" }}}
 	" Extradite : addon for fugitive {{{
 	nnoremap <silent><leader>ge :Extradite<CR>
@@ -539,4 +541,18 @@ fun! LastEvernote() "{{{
 	sil! exec '$-1,$fo'
 	setl spell
 endf
+"}}}
+fun! BufferIsEmpty() "{{{
+	if line('$') == 1 && getline(1) == ''
+		return 1
+	else
+		return 0
+	endif
+endf "}}}
+fun! NotEmptySplit() "{{{
+	if !BufferIsEmpty()
+	    exec 'sp'
+	endif
+endf
+command! -nargs=0 -complete=command NotEmptySplit call NotEmptySplit()
 "}}}
