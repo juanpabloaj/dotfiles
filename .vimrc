@@ -180,6 +180,9 @@ nn <silent>ZD :bd<CR>
 		vno <leader>s :s//<left>
         nn <Leader>S :%s/<c-r>=expand("<cword>")<cr>//c<left><left>
 	" }}}
+" quick close in no modifiable files
+nn <silent>q :exec !&modifiable ? ':q' : ''<CR>
+nn <silent><leader>tl :grep --exclude=*~ TODO % <CR> :copen <CR>
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 " }}}
 " abbreviate {{{
