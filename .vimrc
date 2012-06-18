@@ -245,7 +245,7 @@ nnoremap N Nzzzv
 	nn <silent><leader>gw :Gwrite<CR>
 	nn <silent><leader>gr :Gread<CR>
 	nn <silent><leader>gb :Gblame<CR>
-	nn <silent><leader>g0 :w <bar> Git diff -U0<CR>
+	nn <silent><leader>g0 :w <bar> Gsplit! diff -U0<CR>
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	nn <silent><Leader>gD <c-w>h:bd<cr>
 	nn <silent><Leader>gp :Git push
