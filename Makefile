@@ -1,4 +1,4 @@
-rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc .aliases .gitexcludes
+rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .ctags .bash_completion.d .zshrc .aliases .gitexcludes .vimshrc
 LOCAL=$(PWD)
 UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)

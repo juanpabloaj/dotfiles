@@ -44,6 +44,7 @@ set nocompatible
 	"set textwidth=79
 	"set formatoptions=qrn1
 	"set colorcolumn=85
+	set winwidth=79
 	set title
     set tildeop " ~2w
 " }}}
