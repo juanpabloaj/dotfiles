@@ -44,7 +44,7 @@ set nocompatible
 	"set textwidth=79
 	"set formatoptions=qrn1
 	"set colorcolumn=85
-	set winwidth=79
+	set winwidth=48
 	set title
     set tildeop " ~2w
 " }}}
@@ -120,7 +120,7 @@ nn <leader>vcl :setl cursorline!<CR>
 nn <silent><leader>s :so ~/.vimrc<CR>
 nn <leader>t :Translate<space>
 nn <silent><leader>j :setl more!<bar>jumps<bar>setl more!<cr>
-nn <leader>w :sp $W<CR>
+nn <leader>w :vsplit $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
 nn <leader>tn :tabnew 
 nn <silent><leader>tc :tabclose<CR>
@@ -181,9 +181,9 @@ nn <silent>ZD :bd<CR>
         nn <Leader>S :%s/<c-r>=expand("<cword>")<cr>//c<left><left>
 	" }}}
 " quick close in no modifiable files
-nn <silent>q :exec !&modifiable ? ':q' : ''<CR>
+nn <silent>q :exec !&modifiable ? ':q' : ''<CR>q
 " show todolist item
-nn <silent><leader>tl :vimgrep TODO % <CR> :copen <CR>
+nn <silent><leader>tl :vimgrep TODO % <CR> :copen <CR> :set nowrap <CR>
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 " }}}
 " abbreviate {{{
@@ -245,11 +245,12 @@ nnoremap N Nzzzv
 	nn <silent><leader>gw :Gwrite<CR>
 	nn <silent><leader>gr :Gread<CR>
 	nn <silent><leader>gb :Gblame<CR>
-	nn <silent><leader>g0 :w <bar> Gsplit! diff -U0<CR>
+	nn <silent><leader>g0 :w <bar> Gsplit! diff -U0 <bar>
+        \ exe BufferIsEmpty() ? "q <bar> redraw <bar> echomsg 'git: No changes'" : ''<CR> 
 	nn <silent><leader>g1 :w <bar> :Gdiff HEAD~1<CR>
 	nn <silent><Leader>gD <c-w>h:bd<cr>
 	nn <silent><Leader>gp :Git push
-	nn <silent><Leader>gP :Git push<CR>
+	nn <silent><Leader>gP :Git push<CR><CR>
 	" }}}
 	" vimshell {{{
 		let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
