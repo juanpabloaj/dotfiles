@@ -112,3 +112,9 @@
 [submodule ".vim/bundle/repeat"]
 	path = .vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/unite-ssh"]
+	path = .vim/bundle/unite-ssh
+	url = git://github.com/Shougo/unite-ssh.git
+[submodule ".vim/bundle/vimfiler"]
+	path = .vim/bundle/vimfiler
+	url = git://github.com/Shougo/vimfiler.git

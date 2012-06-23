@@ -120,7 +120,7 @@ nn <leader>vcl :setl cursorline!<CR>
 nn <silent><leader>s :so ~/.vimrc<CR>
 nn <leader>t :Translate<space>
 nn <silent><leader>j :setl more!<bar>jumps<bar>setl more!<cr>
-nn <leader>w :vsplit $W<CR>
+nn <leader>w :sp $W<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
 nn <leader>tn :tabnew 
 nn <silent><leader>tc :tabclose<CR>
@@ -374,7 +374,10 @@ function! LoadTemplate(extension)
 	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
 endfunction
 function! LoadSnippets(extension)
-	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
+    let file = '~/.vim/templates/'. a:extension. '.snippets.vim'
+	if filereadable(file)
+	    silent! :execute 'source '.file
+	endif
 endfunction
 " templates y snippets en base a la extension
 autocmd BufNewFile * silent! call LoadTemplate('%:e')
