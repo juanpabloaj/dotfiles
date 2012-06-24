@@ -183,7 +183,7 @@ nn <silent>ZD :bd<CR>
 " quick close in no modifiable files
 nn <silent>q :exec !&modifiable ? ':q' : ''<CR>q
 " show todolist item
-nn <silent><leader>tl :vimgrep TODO % <CR> :copen <CR> :set nowrap <CR>
+nn <silent><leader>tl :vimgrep TODO\C % <CR> :copen <CR> :set nowrap <CR>
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 " }}}
 " abbreviate {{{
