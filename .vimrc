@@ -310,6 +310,9 @@ nnoremap N Nzzzv
 		au FileType unite inoremap <buffer><expr> s unite#do_action('split')
 		au FileType unite nnoremap <buffer><expr> s unite#do_action('split')
 	" }}}
+	" vimfiler {{{
+        let g:vimfiler_as_default_explorer = 1
+	" }}}
 	" markup {{{
 		nn <silent> <leader>mm :MkdToHtml<CR>
 	" }}}
@@ -369,14 +372,14 @@ set fdm=marker
 "}}}
 " Templates + manual snippets {{{1
 function! LoadTemplate(extension)
-	silent! :execute '0r ~/.vim/templates/'. a:extension. '.tpl'
+	silent! execute '0r ~/.vim/templates/'. a:extension. '.tpl'
 	silent! normal Gddgg
-	silent! :execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
+	silent! execute 'source ~/.vim/templates/'. a:extension. '.snippets.vim'
 endfunction
 function! LoadSnippets(extension)
-    let file = '~/.vim/templates/'. a:extension. '.snippets.vim'
-	if filereadable(file)
-	    silent! :execute 'source '.file
+    let filename = expand("~/.vim/templates/"). expand(a:extension) .".snippets.vim"
+	if filereadable(filename)
+	    silent! execute 'source '.filename
 	endif
 endfunction
 " templates y snippets en base a la extension
