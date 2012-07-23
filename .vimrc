@@ -146,7 +146,9 @@ nn k gk
 vno j gj
 vno k gk
 " no ex mode ; press gQ
-nn Q <nop>
+nn Q gq
+" format the paragraph
+nn <leader>Q gqvap
 nn <silent>ZA :qa<CR>
 nn <silent>ZD :bd<CR>
 " marks {{{ 
@@ -294,6 +296,9 @@ nnoremap N Nzzzv
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 0
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
+	let g:syntastic_mode_map = { 'mode': 'active',
+							\ 'active_filetypes': [],
+							\ 'passive_filetypes': ['tex'] }
 	" }}}
 	" showmarks {{{
 	let g:showmarks_enable=0
@@ -312,6 +317,10 @@ nnoremap N Nzzzv
 	" }}}
 	" vimfiler {{{
         let g:vimfiler_as_default_explorer = 1
+        nn <silent>vf :VimFiler -split -horizontal <c-r>=expand("%:p:h")<cr><CR>
+        nn <silent>vF :VimFiler -split -horizontal ~<CR>
+		let g:vimfiler_execute_file_list = {}
+		let g:vimfiler_execute_file_list['mkd'] = 'vim'
 	" }}}
 	" markup {{{
 		nn <silent> <leader>mm :MkdToHtml<CR>
@@ -422,7 +431,7 @@ endfunction
 	augroup longLines
 		au!
 		au! filetype zsh,sh,vim
-			\ syn match ColorColumn /\%>80v.\+/ containedin=ALL
+			\ syn match ColorColumn /\%>80v.\+/
 	augroup END
 	" never mix tabs and spaces
 	au FileType vim,python if search('^\t') >0 |
@@ -433,19 +442,6 @@ endfunction
 	  \ if line("'\"") > 1 && line("'\"") <= line("$") |
 	  \   exe "normal! g`\"" |
 	  \ endif
-	if exists('+relativenumber')
-        "autocmd InsertEnter * setl nu
-        "autocmd InsertLeave * setl rnu
-		autocmd WinLeave *
-			\ if &rnu==1 |
-			\ exe "setl norelativenumber" |
-			\ exe "setl nu" |
-			\ endif
-		autocmd WinEnter *
-			\ if &rnu==0 |
-			\ exe "setl rnu" |
-			\ endif
-	endif
 	autocmd InsertEnter * hi statusline ctermfg=255
 	autocmd InsertLeave * hi statusline ctermfg=250
 " }}}
