@@ -2,15 +2,17 @@
 echo "tmux launcher"
 echo
 echo "    p ) tmux split-window 'ipython' "
+echo "    q ) quit launcher"
 echo "    s ) tmux split-window 'vim +VimShell' "
 echo "    S ) tmux new-window 'vim +VimShell' "
-echo "    q ) quit launcher"
+echo "    z ) tmux split-window 'zsh'"
 echo "    * ) tmux new-window 'vim' "
 read -n 1 input
 case $input in
-    p ) tmux split-window 'ipython' ;;
-    s ) tmux split-window 'vim +VimShell' ;;
+    p ) tmux split-window -p 100 'ipython' ;;
+    s ) tmux split-window -p 100 'vim +VimShell' ;;
     S ) tmux new-window 'vim +VimShell' ;;
     q ) ;;
+    z ) tmux split-window -p 100 'zsh' ;;
     * ) tmux new-window "vim" ;;
 esac
