@@ -120,7 +120,7 @@ nn <leader>vcl :setl cursorline!<CR>
 nn <silent><leader>s :so ~/.vimrc<CR>
 nn <leader>t :Translate<space>
 nn <silent><leader>j :setl more!<bar>jumps<bar>setl more!<cr>
-nn <leader>w :sp $W<CR>
+nn <leader>w : exec line('$') == 1 ? 'e $W' : 'sp $W'<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
 nn <leader>tn :tabnew 
 nn <silent><leader>tc :tabclose<CR>
@@ -298,7 +298,7 @@ nnoremap N Nzzzv
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 	let g:syntastic_mode_map = { 'mode': 'active',
 							\ 'active_filetypes': [],
-							\ 'passive_filetypes': ['tex'] }
+							\ 'passive_filetypes': ['tex','html'] }
 	" }}}
 	" showmarks {{{
 	let g:showmarks_enable=0
@@ -444,6 +444,7 @@ endfunction
 	  \ endif
 	autocmd InsertEnter * hi statusline ctermfg=255
 	autocmd InsertLeave * hi statusline ctermfg=250
+	autocmd BufNewFile,BufRead *.json set ft=javascript
 " }}}
 " TabMessage {{{1
 " por funcion a newtab
