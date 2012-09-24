@@ -36,8 +36,8 @@ set nocompatible
 	set background=dark
 	set wrap
 	set scrolloff=3
+	set number
 	if v:version >= 703
-		set relativenumber
 		set undofile
 		set undodir=~/.vim/tmp/undo//     " undo files
 	endif
@@ -313,7 +313,7 @@ nnoremap N Nzzzv
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 		" unite-ssh
-        nn <leader>us :Unite ssh://
+        nn <leader>us :VimFiler ssh://
 		au FileType unite inoremap <buffer><expr> s unite#do_action('split')
 		au FileType unite nnoremap <buffer><expr> s unite#do_action('split')
 	" }}}
