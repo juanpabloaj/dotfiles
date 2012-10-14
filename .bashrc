@@ -116,6 +116,7 @@ export LANGUAGE="es_ES"
 #export LC_ALL="es_ES.UTF-8"
 export MM_CHARSET="utf8"
 export LC_CTYPE="es_ES.UTF-8"
+#export LC_ALL=C
 
 export PYTHONPATH=$HOME/opt/lib/python2.7/site-packages:$PYTHONPATH
 
