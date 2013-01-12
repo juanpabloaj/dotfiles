@@ -5,3 +5,5 @@ nn ,m :w <bar> :exec filereadable('Makefile')? "make" : "!python %"<CR>
 " with s. self.
 "ia <buffer>s self
 "ia <buffer>p print
+" after header #!..
+normal G
