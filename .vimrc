@@ -194,7 +194,7 @@ au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 	ia @1 jpabloaj at gmail dot com
 " }}}
 " search {{{
-nnoremap / /\v
+nnoremap / :set hls<cr>/\v
 vnoremap / /\v
 set ignorecase
 set smartcase
