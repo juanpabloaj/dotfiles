@@ -121,3 +121,4 @@ export LC_CTYPE="es_ES.UTF-8"
 export PYTHONPATH=$HOME/opt/lib/python2.7/site-packages:$PYTHONPATH
 
 [[ $- == *i* ]] && . $S/dotfiles/utils/git-prompt/git-prompt.sh
+[[ -e ~/opt/nvm/nvm.sh ]] && . ~/opt/nvm/nvm.sh
