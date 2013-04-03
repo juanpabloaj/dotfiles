@@ -6,7 +6,7 @@
 " preamble {{{
 " load plugins in .vim/bundle
 filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 filetype plugin indent on
 " no compatible con vi
