@@ -319,8 +319,8 @@ nnoremap N Nzzzv
 	" }}}
 	" vimfiler {{{
         let g:vimfiler_as_default_explorer = 1
-        nn <silent>vf :VimFiler -split -horizontal <c-r>=expand("%:p:h")<cr><CR>
-        nn <silent>vF :VimFiler -split -horizontal ~<CR>
+        nn <Leader>vf :VimFiler -split -horizontal <c-r>=expand("%:p:h")<cr><CR>
+        nn <Leader>vF :VimFiler -split -horizontal ~<CR>
 		let g:vimfiler_execute_file_list = {}
 		let g:vimfiler_execute_file_list['mkd'] = 'vim'
 	" }}}

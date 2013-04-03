@@ -115,3 +115,12 @@
 [submodule ".vim/bundle/vimfiler"]
 	path = .vim/bundle/vimfiler
 	url = git://github.com/Shougo/vimfiler.git
+[submodule ".vim/bundle/coffee-script"]
+	path = .vim/bundle/coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/jade"]
+	path = .vim/bundle/jade
+	url = git://github.com/digitaltoad/vim-jade.git
+[submodule ".vim/bundle/javascript"]
+	path = .vim/bundle/javascript
+	url = git://github.com/pangloss/vim-javascript.git

@@ -107,6 +107,10 @@ fi
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
 fi
+
+# functions
+function cdfile() { cd $(dirname `which $@`); }
+
 alias g='git'
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
