@@ -111,6 +111,9 @@ fi
 # functions
 function cdfile() { cd $(dirname `which $@`); }
 
+# vi mode
+set -o vi
+
 alias g='git'
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
