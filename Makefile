@@ -7,6 +7,9 @@ endif
 ifeq ($(UNAME), Darwin)
 	VIMPROCMAKE = make_mac.mak
 endif
+ifeq ($(UNAME), CYGWIN_NT-6.1)
+	VIMPROCMAKE = make_cygwin.mak
+endif
 relink:
 	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -vfs $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
