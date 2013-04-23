@@ -367,6 +367,9 @@ nnoremap N Nzzzv
 		"au FileType *.py RainbowParenthesesLoadRound
 		au FileType * au Syntax * cal s:rainbow_load()
 	" }}}
+    " dispatch {{{
+		nmap <Leader>d :Dispatch 
+    " }}}
 "}}}
 " spell {{{
 " [s ]s z= zg
