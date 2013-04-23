@@ -18,6 +18,8 @@
 	ba = branch -a
 	br = branch
 	cf = clean -fd
+    ; borrar los que menciona gitignore
+	cx = clean -xf
 	ci = commit
 	cim = commit -m
 	ciam = commit -am
