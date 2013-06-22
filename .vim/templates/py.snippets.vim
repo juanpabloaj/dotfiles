@@ -7,7 +7,7 @@ fun! Make() "{{{
 endf "}}}
 call Make()
 " guardar y ejecutar
-nn ,m :update<CR>:call Make()<CR>:Make<CR>
+nn ,m :update<CR>:call Make()<CR>:Make<CR><space>
 " abbreviate
 " don't use <space> use 
 " with s. self.
