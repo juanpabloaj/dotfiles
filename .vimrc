@@ -368,7 +368,8 @@ nnoremap N Nzzzv
 		au FileType * au Syntax * cal s:rainbow_load()
 	" }}}
     " dispatch {{{
-		nmap <Leader>d :Dispatch 
+		nmap <Leader>d :Dispatch<CR>
+		nmap <Leader>D :Dispatch 
     " }}}
 "}}}
 " spell {{{
@@ -450,6 +451,10 @@ endfunction
 	autocmd InsertEnter * hi statusline ctermfg=255
 	autocmd InsertLeave * hi statusline ctermfg=250
 	autocmd BufNewFile,BufRead *.json set ft=javascript
+	au FileType qf call AdjustWindowHeight(3, 10)
+	function! AdjustWindowHeight(minheight, maxheight)
+	    exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+	endfunction
 " }}}
 " TabMessage {{{1
 " por funcion a newtab
