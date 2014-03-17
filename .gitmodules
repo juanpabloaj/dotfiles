@@ -130,3 +130,6 @@
 [submodule ".vim/bundle/fish"]
 	path = .vim/bundle/fish
 	url = git@github.com:juanpabloaj/vim-fish.git
+[submodule ".vim/bundle/coveragepy"]
+	path = .vim/bundle/coveragepy
+	url = git@github.com:alfredodeza/coveragepy.vim.git
