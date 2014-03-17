@@ -115,6 +115,7 @@ function cdfile() { cd $(dirname `which $@`); }
 set -o vi
 
 alias g='git'
+complete -o bashdefault -o default -o nospace -F _git g
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
 export HISTSIZE=1000
