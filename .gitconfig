@@ -45,6 +45,7 @@
 	rv = remote -v
 	st = status
 	suir = submodule update --init --recursive
+    sl = stash list
 
 [diff]
 	tool = vimdiff
