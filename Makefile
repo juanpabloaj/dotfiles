@@ -42,7 +42,8 @@ clean:
 	cd $(HOME)/opt/bin ; [ -h git-map ] && unlink git-map
 	cd $(HOME) ; [ -h .oh-my-zsh ] &&  unlink .oh-my-zsh
 pull:
-	cd $(PWD)/.vim/bundle/vim-pathogen ; git map co master ; git map pull
-	cd $(PWD)/utils/git-prompt  ; git map co master ; git map pull
+	git submodule foreach git pull
+fetch:
+	git submodule foreach git fetch
 vimproc:
 	cd $(PWD)/.vim/bundle/vimproc ; make -f $(VIMPROCMAKE) clean && make -f $(VIMPROCMAKE)
