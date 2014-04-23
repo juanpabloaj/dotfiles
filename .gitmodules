@@ -133,3 +133,6 @@
 [submodule ".vim/bundle/coveragepy"]
 	path = .vim/bundle/coveragepy
 	url = git@github.com:alfredodeza/coveragepy.vim.git
+[submodule ".vim/bundle/neomru"]
+	path = .vim/bundle/neomru
+	url = git@github.com:Shougo/neomru.vim.git
