@@ -27,6 +27,7 @@
 	d0 = diff -U0
 	dc = diff --cached
 	dc0 = diff --cached -U0
+	ds0 = diff --staged -U0
 	df = diff
 	ds = diff --stat
 	dt = difftool
