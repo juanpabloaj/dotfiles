@@ -308,6 +308,7 @@ nnoremap N Nzzzv
 	" unite {{{
 		nn <silent> <leader>ub :<C-u>Unite buffer<CR>
 		nn <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+		nn <silent> <leader>uF :<C-u>Unite file_rec<CR>
 		nn <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
 		nn <silent> <leader>um :<C-u>Unite file_mru<CR>
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
