@@ -22,6 +22,7 @@
 	cx = clean -xf
 	ci = commit
 	cim = commit -m
+	cia = commit -a
 	ciam = commit -am
 	co = checkout
 	d0 = diff -U0
