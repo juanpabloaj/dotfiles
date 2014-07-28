@@ -136,3 +136,6 @@
 [submodule ".vim/bundle/neomru"]
 	path = .vim/bundle/neomru
 	url = git@github.com:Shougo/neomru.vim.git
+[submodule ".vim/bundle/flake8"]
+	path = .vim/bundle/flake8
+	url = git@github.com:nvie/vim-flake8.git
