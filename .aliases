@@ -38,6 +38,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	alias top='top -o cpu'
 fi
 [ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
+[ -d $HOME/opt/src/homebrew/opt/gnu-sed/libexec/gnubin ] && PATH=$HOME/opt/src/homebrew/opt/gnu-sed/libexec/gnubin:$PATH
 [ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
