@@ -139,3 +139,6 @@
 [submodule ".vim/bundle/flake8"]
 	path = .vim/bundle/flake8
 	url = git@github.com:nvie/vim-flake8.git
+[submodule ".vim/bundle/vim-istanbul"]
+	path = .vim/bundle/vim-istanbul
+	url = git@github.com:juanpabloaj/vim-istanbul.git
