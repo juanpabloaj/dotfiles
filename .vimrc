@@ -118,7 +118,6 @@ nn <leader>vc :sp ~/.vim/bundle/vim-pixelmuerto/colors/pixelmuerto.vim<CR>
 nn <leader>vt :exec "sp $D/.vim/templates/".&ft.".snippets.vim"<CR>
 nn <leader>vcl :setl cursorline!<CR>
 nn <silent><leader>s :so ~/.vimrc<CR>
-nn <leader>t :Translate<space>
 nn <silent><leader>j :setl more!<bar>jumps<bar>setl more!<cr>
 nn <leader>w : exec line('$') == 1 ? 'e $W' : 'sp $W'<CR>
 nn <leader>b :tabnew $HOME/.bashrc<CR>
@@ -483,18 +482,6 @@ function! TabMessage(cmd)
 	set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
-" }}}1
-" Translate {{{1
-" TODO make this a vim plugin
-" TODO set language as var
-" Traduccion, solo funcional con internet
-function! Translate(entrada)
-	let en=substitute(a:entrada," ","%20","g")
-	let en = substitute(en, "[ ]*$","","")
-	let  palabra= system('curl -e www.google.com "http://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q='.en.'&langpair=en%7Ces"')
-	echo  split(strpart(palabra,stridx(palabra,"Text") + 7 ),'\"')[0]
-endfunction
-command! -nargs=+ -complete=command Translate call Translate(<q-args>)
 " }}}1
 " Hg {{{
 " Inspirated in http://bitbucket.org/sjl/dotfiles <Steve Losh>
