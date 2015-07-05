@@ -215,7 +215,6 @@ nnoremap N Nzzzv
 	au BufRead,BufNewFile *.cu setl filetype=c
 	au BufNewFile,BufRead .*aliases setl filetype=sh
 	au BufNewFile,BufRead *.zsh-theme setl filetype=zsh
-	au BufNewFile,BufRead *.html set filetype=htmldjango
 " }}}
 " plugins configuration {{{
 	nnoremap <Leader>vg :GundoToggle<CR>
