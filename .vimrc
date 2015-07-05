@@ -339,7 +339,7 @@ nnoremap N Nzzzv
 	" }}}
 	" Ack {{{
 		" you have to install ack
-		nn <leader>a :Ack! --nobinary <cword><CR>
+		nn <leader>a :Ack! <cword><CR>
 	" }}}
 	" surround {{{
 		" surround example, zf es more simple
