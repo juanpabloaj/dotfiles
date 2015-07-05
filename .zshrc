@@ -33,3 +33,6 @@ alias rake='noglob rake'
 zstyle ':completion:*' special-dirs true
 # bye zsh: correct ‘lg’ to ‘log’ [nyae]?
 unsetopt correct_all
+
+# added by travis gem
+[ -f /Users/pablo/.travis/travis.sh ] && source /Users/pablo/.travis/travis.sh
