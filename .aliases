@@ -12,6 +12,7 @@ alias v='vim -c "normal '\''0"'
 alias dvtm='TERM=rxvt-256color ; dvtm -m ^q'
 
 alias c='pygmentize'
+alias ptpython='ptpython --vi'
 
 alias treepy='tree -I *.pyc'
 
