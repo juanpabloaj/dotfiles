@@ -293,7 +293,7 @@ nnoremap N Nzzzv
 		let g:snipMateSources['with_folding'] = funcref#Function('SnippetsWithFolding')
 	" }}}
 	" Syntastic {{{
-	let g:syntastic_enable_signs = 0
+	let g:syntastic_enable_signs = 1
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
 	let g:syntastic_mode_map = { 'mode': 'active',
 							\ 'active_filetypes': [],
