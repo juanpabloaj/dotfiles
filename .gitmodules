@@ -142,3 +142,6 @@
 [submodule ".vim/bundle/vim-istanbul"]
 	path = .vim/bundle/vim-istanbul
 	url = git@github.com:juanpabloaj/vim-istanbul.git
+[submodule ".vim/bundle/vim-atom-dark"]
+	path = .vim/bundle/vim-atom-dark
+	url = git@github.com:gosukiwi/vim-atom-dark.git
