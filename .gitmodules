@@ -145,3 +145,6 @@
 [submodule ".vim/bundle/vim-atom-dark"]
 	path = .vim/bundle/vim-atom-dark
 	url = git@github.com:gosukiwi/vim-atom-dark.git
+[submodule ".vim/bundle/dockerfile"]
+	path = .vim/bundle/dockerfile
+	url = git@github.com:ekalinin/Dockerfile.vim.git
