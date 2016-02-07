@@ -158,4 +158,6 @@ export PAGER=less
 eval $(dircolors -b $HOME/.dircolors)
 
 [[ $- == *i* ]] && . $S/dotfiles/utils/git-prompt/git-prompt.sh
-[[ -e ~/opt/nvm/nvm.sh ]] && . ~/opt/nvm/nvm.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
