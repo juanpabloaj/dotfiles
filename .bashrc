@@ -124,6 +124,9 @@ export LC_CTYPE="es_ES.UTF-8"
 
 [ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
 
+# virtualenvwrapper
+[ -d $HOME/.envs ] && export WORKON_HOME=~/.envs
+
 # brew
 [ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
 
@@ -133,6 +136,8 @@ if [[ $(uname) == "Darwin" ]]; then
     [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnubin ] && PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 
     MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
+
+    source $(brew --prefix)/bin/virtualenvwrapper.sh
 fi
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
