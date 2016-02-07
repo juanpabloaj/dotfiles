@@ -97,8 +97,6 @@ unset   rgb_restore   \
 #}
 #complete -F _compssh ssh
 
-eval $(dircolors -b $HOME/.dircolors)
-
 if [ -d $HOME/.bash_completion.d/ ]; then
 	. $HOME/.bash_completion.d/*
 fi
@@ -114,8 +112,6 @@ function cdfile() { cd $(dirname `which $@`); }
 # vi mode
 set -o vi
 
-alias g='git'
-complete -o bashdefault -o default -o nospace -F _git g
 #PS1='\u@\h \w\$ '
 #TERM="xterm"
 export HISTSIZE=1000
@@ -126,7 +122,35 @@ export MM_CHARSET="utf8"
 export LC_CTYPE="es_ES.UTF-8"
 #export LC_ALL=C
 
-export PYTHONPATH=$HOME/opt/lib/python2.7/site-packages:$PYTHONPATH
+[ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
+
+# brew
+[ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
+
+if [[ $(uname) == "Darwin" ]]; then
+    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+    PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+    [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnubin ] && PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+
+    MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
+# Load RVM function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+if [[ "$(uname)" =~ "CYGWIN" ]]; then
+	export GIT_SSL_NO_VERIFY=true
+fi
+export PATH
+
+# exports
+export S=$HOME/src
+export W=$S/blog/wiki
+export VIMHOME=$HOME/.vim
+export D=$S/dotfiles
+export B=$D/.vim/bundle
+export EDITOR=vim
+export PAGER=less
+
+eval $(dircolors -b $HOME/.dircolors)
 
 [[ $- == *i* ]] && . $S/dotfiles/utils/git-prompt/git-prompt.sh
 [[ -e ~/opt/nvm/nvm.sh ]] && . ~/opt/nvm/nvm.sh

@@ -16,6 +16,9 @@ alias ptpython='ptpython --vi'
 
 alias treepy='tree -I *.pyc'
 
+alias g='git'
+complete -o bashdefault -o default -o nospace -F _git g
+
 mkcd() {
     [[ -d "$1" ]] ||  mkdir -p "$1"
     cd "$1";
@@ -23,27 +26,3 @@ mkcd() {
 if [[ -f $HOME/opt/bin/screen  ]]; then
 	alias screen='$HOME/opt/bin/screen'
 fi
-# exports
-export S=$HOME/src
-export W=$S/blog/wiki
-export VIMHOME=$HOME/.vim
-export D=$S/dotfiles
-export B=$D/.vim/bundle
-export EDITOR=vim
-export PAGER=less
-if [[ $(uname) == "Darwin" ]]; then
-	# ports
-	PATH=/opt/local/libexec/gnubin:$PATH
-    PATH=$PATH:/opt/local/bin:/opt/local/sbin
-	alias gitk='/usr/bin/wish $(which gitk)'
-	alias top='top -o cpu'
-fi
-[ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
-[ -d $HOME/opt/src/homebrew/opt/gnu-sed/libexec/gnubin ] && PATH=$HOME/opt/src/homebrew/opt/gnu-sed/libexec/gnubin:$PATH
-[ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
-# Load RVM function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-if [[ "$(uname)" =~ "CYGWIN" ]]; then
-	export GIT_SSL_NO_VERIFY=true
-fi
-export PATH
