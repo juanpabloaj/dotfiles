@@ -452,6 +452,7 @@ endfunction
 	autocmd InsertLeave * hi statusline ctermfg=250
 	autocmd BufNewFile,BufRead *.json set ft=javascript
 	autocmd FileType javascript setlocal sw=2 ts=2 sts=2
+	autocmd FileType cpp setlocal sw=2 ts=2 sts=2
 	autocmd FileType jade setlocal sw=2 ts=2 sts=2
 	au FileType qf call AdjustWindowHeight(3, 10)
 	function! AdjustWindowHeight(minheight, maxheight)
