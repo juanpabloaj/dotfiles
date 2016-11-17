@@ -105,6 +105,7 @@ set backup                        " enable backups
 let mapleader = ","
 " spanish keyboards
 ino ç <esc>
+ino ¬ \
 vn ç <esc>
 nn ñ :
 vn ñ :
