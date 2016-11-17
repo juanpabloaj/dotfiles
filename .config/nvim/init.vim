@@ -1,0 +1,161 @@
+syntax on
+set showcmd
+set showmatch
+set showmode
+set ruler
+set number
+set backspace=eol,start,indent
+set laststatus=2
+set formatoptions+=o
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+set noerrorbells
+set modeline
+set esckeys
+set linespace=0
+set wildmenu
+set wildmode=list:longest
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store?                      " OSX bullshit
+set completeopt=longest,menuone",preview
+
+set spelllang=es,en
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/vimshell.vim'
+
+Plug 'majutsushi/tagbar'
+Plug 'vim-syntastic/syntastic'
+Plug 'luochen1990/rainbow'
+
+Plug 'lervag/vimtex'
+
+Plug 'sheerun/vim-polyglot'
+
+" Group dependencies, vim-snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" colorscheme
+Plug 'sickill/vim-monokai'
+Plug 'joshdick/onedark.vim'
+Plug 'freeo/vim-kalisi'
+Plug 'juanpabloaj/vim-pixelmuerto'
+Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'whatyouhide/vim-gotham'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'sjl/badwolf'
+
+call plug#end()
+
+let g:seoul256_background=233
+colorscheme seoul256 | set background=dark
+colorscheme gruvbox | set background=dark
+
+autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
+
+let mapleader = ","
+nnoremap <silent><leader>ve :sp ~/.config/nvim/init.vim<CR>
+
+" spanish keyboards
+ino ç <esc>
+ino ¬ \
+vn ç <esc>
+nn ñ :
+vn ñ :
+
+" <c-a> is for screen or tmux
+nn <silent><c-A> <c-a>
+
+nn <leader>tn :tabnew 
+nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
+nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
+
+nn <silent><leader>r :registers<CR>
+nn <leader>s<space> :%s/\s\+$//c<CR>
+
+highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
+au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
+
+" plugins configuration
+
+let g:deoplete#enable_at_startup = 1
+
+" unite
+
+nn <silent> <leader>ub :<C-u>Unite buffer<CR>
+nn <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nn <silent> <leader>uF :<C-u>Unite file_rec<CR>
+nn <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
+nn <silent> <leader>um :<C-u>Unite file_mru<CR>
+nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
+nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+autocmd FileType unite call s:unite_my_settings()
+fun! s:unite_my_settings()
+	inoremap <buffer><expr> s unite#do_action('split')
+	nnoremap <buffer><expr> s unite#do_action('split')
+	inoremap <buffer><expr> v unite#do_action('vsplit')
+	nnoremap <buffer><expr> v unite#do_action('vsplit')
+	hi whitespaceEOL ctermbg=bg
+endf
+
+"vimshell
+let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
+let g:vimshell_prompt = '$ '
+nn <silent><leader>Ç :VimShell<cr>
+nn <silent><leader>ç :VimShellBufferDir<cr>
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" fugitive
+nnoremap <silent><leader>gd :Gvdiff<CR>
+nn <silent><leader>gc :Gcommit -a<CR>
+nn <silent><leader>gs :Gstatus<CR>
+nn <silent><leader>gw :Gwrite<CR>
+nn <silent><leader>gr :Gread<CR>
+nn <silent><leader>gb :Gblame<CR>
+
+" rainbow
+let g:rainbow_active = 1
+
+" Syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_mode_map = {
+  \ 'mode': 'active', 'active_filetypes': [],
+  \ 'passive_filetypes': ['tex','html']}
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+" FileType settings
+
+autocmd FileType markdown call s:markdown_settings()
+fun! s:markdown_settings()
+  setlocal tabstop=4
+  setl shiftwidth=4
+  setl softtabstop=4
+  setl spell
+endf
