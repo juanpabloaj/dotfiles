@@ -1,3 +1,5 @@
+# to use vim 7.3
+alias vim='/usr/bin/vim'
 alias ls='ls --color=auto'
 #alias ls='ls -G'
 alias ll='ls -l'
@@ -10,6 +12,8 @@ alias tmux='tmux -2'
 # reopen last file open with vim
 alias v='vim -c "normal '\''0"'
 alias dvtm='TERM=rxvt-256color ; dvtm -m ^q'
+
+alias nvim='TERM=screen-256color ; nvim'
 
 alias c='pygmentize'
 alias ptpython='ptpython --vi'
