@@ -12,6 +12,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+set fdm=syntax
+
 set noerrorbells
 set modeline
 set esckeys
@@ -42,6 +44,7 @@ Plug 'Shougo/vimshell.vim'
 
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdcommenter'
 Plug 'luochen1990/rainbow'
 
 Plug 'lervag/vimtex'
@@ -93,6 +96,22 @@ nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
 
 nn <silent><leader>r :registers<CR>
 nn <leader>s<space> :%s/\s\+$//c<CR>
+"
+" search {{{
+nnoremap / :set hls<cr>/\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <silent><leader><space> :setl hlsearch!<cr>
+"nnoremap <tab> %
+"vnoremap <tab> %
+nnoremap n nzzzv
+nnoremap N Nzzzv
+""}}}
 
 highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
@@ -113,9 +132,9 @@ nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_m
 
 autocmd FileType unite call s:unite_my_settings()
 fun! s:unite_my_settings()
-	inoremap <buffer><expr> s unite#do_action('split')
+	"inoremap <buffer><expr> s unite#do_action('split')
 	nnoremap <buffer><expr> s unite#do_action('split')
-	inoremap <buffer><expr> v unite#do_action('vsplit')
+	"inoremap <buffer><expr> v unite#do_action('vsplit')
 	nnoremap <buffer><expr> v unite#do_action('vsplit')
 	hi whitespaceEOL ctermbg=bg
 endf
@@ -149,9 +168,22 @@ let g:syntastic_mode_map = {
   \ 'passive_filetypes': ['tex','html']}
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+let g:syntastic_cpp_cpplint_args = '--filter=-whitespace/braces'
+
+let g:syntastic_cpp_checkers = ['cpplint', 'gcc']
+
+let g:syntastic_aggregate_errors = 1
+
+" Tagbar
+nn <silent><Leader>l :TagbarToggle<CR>
 
 " FileType settings
 
+autocmd FileType make call s:make_settings()
+fun! s:make_settings()
+  setl noexpandtab
+endf
 autocmd FileType markdown call s:markdown_settings()
 fun! s:markdown_settings()
   setlocal tabstop=4
