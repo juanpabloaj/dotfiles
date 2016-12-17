@@ -30,7 +30,7 @@ export LESS_TERMCAP_mb=$'\E[01;31m'             # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'        # begin bold
 export LESS_TERMCAP_me=$'\E[0m'                 # end mode
 export LESS_TERMCAP_se=$'\E[0m'                 # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'          # begin standout-mode - info box
+export LESS_TERMCAP_so=$'\E[30;45m'          # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'                 # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'       # begin underline
 
@@ -66,8 +66,7 @@ else
  rgb_usr='${rgb_green}'
 fi
 
-[ -n "$PS1" ] && PS1="${rgb_usr}`whoami`${rgb_host}@\h: \W \
-	${rgb_usr}\\\$${rgb_restore} "
+[ -n "$PS1" ] && PS1="${rgb_usr}`whoami`${rgb_host}@\h: \W ${rgb_usr}\\\$${rgb_restore} "
 
 unset   rgb_restore   \
  rgb_black     \
@@ -88,6 +87,7 @@ unset   rgb_restore   \
  rgb_white     \
  rgb_std       \
  rgb_usr
+
 # funcion de autocompletado para ssh
 #_compssh ()
 #{
