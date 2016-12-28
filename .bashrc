@@ -88,18 +88,11 @@ unset   rgb_restore   \
  rgb_std       \
  rgb_usr
 
-# funcion de autocompletado para ssh
-#_compssh ()
-#{
-#cur=${COMP_WORDS[COMP_CWORD]};
-#COMPREPLY=($(compgen -W "$(cat ~/.ssh/config | grep host \
-#	| sed '/hostna/d;s/host //')" -- $cur))
-#}
-#complete -F _compssh ssh
-
 if [ -d $HOME/.bash_completion.d/ ]; then
 	. $HOME/.bash_completion.d/*
 fi
+
+[ -f $HOME/opt/src/homebrew/etc/bash_completion ] && . $HOME/opt/src/homebrew/etc/bash_completion
 
 #aliases
 if [ -f ~/.aliases ]; then
