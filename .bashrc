@@ -124,7 +124,7 @@ export LC_CTYPE="es_ES.UTF-8"
 [ -d $HOME/opt/src/homebrew/bin ] && PATH=$HOME/opt/src/homebrew/bin:$PATH
 
 if [[ $(uname) == "Darwin" ]]; then
-    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+    # export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
     PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     [ -d $(brew --prefix)/opt/gnu-sed/libexec/gnubin ] && PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 
@@ -148,9 +148,20 @@ export B=$D/.vim/bundle
 export EDITOR=vim
 export PAGER=less
 
+export LESS=" -R "
+
 eval $(dircolors -b $HOME/.dircolors)
 
 [[ $- == *i* ]] && . $S/dotfiles/utils/git-prompt/git-prompt.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# pyenv
+export PYENV_ROOT=$HOME/opt/src/homebrew/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+
+[ -f $HOME/.bashrc_local ] && . $HOME/.bashrc_local
