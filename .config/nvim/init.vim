@@ -86,6 +86,9 @@ ino ¬ \
 vn ç <esc>
 nn ñ :
 vn ñ :
+"
+" no ex mode ; press gQ
+nn Q gq
 
 " <c-a> is for screen or tmux
 nn <silent><c-A> <c-a>
