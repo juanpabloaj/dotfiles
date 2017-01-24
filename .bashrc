@@ -131,6 +131,8 @@ if [[ $(uname) == "Darwin" ]]; then
     MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
 
     source $(brew --prefix)/bin/virtualenvwrapper.sh
+
+    export RSTUDIO_WHICH_R=$(brew --prefix)/bin/R
 fi
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
