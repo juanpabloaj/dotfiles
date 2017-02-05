@@ -38,7 +38,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'       # begin underline
 # ##### PROMPT SECTION ##### ####################################
 ############################## ##################################
 
-# color_name='\[\033[ color_code m\]Ô
+# color_name='\[\033[ color_code m\]
 
 rgb_restore='\[\033[00m\]'
 rgb_black='\[\033[00;30m\]'
@@ -165,5 +165,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PYENV_ROOT=$HOME/opt/src/homebrew/var/pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+export PATH=$HOME/.local/bin:$PATH
 
 [ -f $HOME/.bashrc_local ] && . $HOME/.bashrc_local
