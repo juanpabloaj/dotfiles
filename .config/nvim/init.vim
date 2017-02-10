@@ -28,6 +28,7 @@ set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
+set wildignore+=*.beam                           " elixir files
 set completeopt=longest,menuone",preview
 
 set spelllang=es,en
@@ -56,6 +57,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" elixir
+Plug 'elixir-lang/vim-elixir'
 
 " colorscheme
 Plug 'sickill/vim-monokai'
