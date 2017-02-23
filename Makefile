@@ -45,5 +45,11 @@ pull:
 	git submodule foreach git pull
 fetch:
 	git submodule foreach git fetch
+
+neovim:
+	@echo "Copiando archivos de configuracion a "$(HOME)/.config
+	ln -s $(PWD)/.config/nvim $(HOME)/.config
+	pip3 install neovim
+
 vimproc:
 	cd $(PWD)/.vim/bundle/vimproc ; make -f $(VIMPROCMAKE) clean && make -f $(VIMPROCMAKE)
