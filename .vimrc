@@ -348,6 +348,13 @@ nnoremap N Nzzzv
 		nn <silent> <leader>um :<C-u>Unite file_mru<CR>
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+		autocmd FileType unite call s:unite_my_settings()
+		fun! s:unite_my_settings()
+			nnoremap <buffer><expr> s unite#do_action('split')
+			nnoremap <buffer><expr> v unite#do_action('vsplit')
+			hi whitespaceEOL ctermbg=bg
+		endf
 		" unite-ssh
         nn <leader>us :VimFiler ssh://
 		au FileType unite inoremap <buffer><expr> s unite#do_action('split')
