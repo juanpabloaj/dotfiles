@@ -6,8 +6,6 @@
 " preamble {{{
 " load plugins in .vim/bundle
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
 filetype plugin indent on
 " no compatible con vi
 set nocompatible
@@ -75,6 +73,40 @@ set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 " }}}
 " }}}
+
+call plug#begin('~/.vim/plugged')
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'tpope/vim-fugitive'
+
+    Plug 'Shougo/unite.vim'
+    Plug 'Shougo/neomru.vim'
+    Plug 'Shougo/neocomplete.vim'
+	Plug 'juanpabloaj/bufferWidget'
+
+    Plug 'majutsushi/tagbar'
+    Plug 'vim-syntastic/syntastic'
+    Plug 'luochen1990/rainbow'
+
+    " On-demand loading
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+    " elixir
+    Plug 'elixir-lang/vim-elixir'
+
+    " colorscheme
+    Plug 'sickill/vim-monokai'
+    Plug 'joshdick/onedark.vim'
+    Plug 'freeo/vim-kalisi'
+    Plug 'juanpabloaj/vim-pixelmuerto'
+    Plug 'nanotech/jellybeans.vim'
+    Plug 'junegunn/seoul256.vim'
+    Plug 'whatyouhide/vim-gotham'
+    Plug 'morhetz/gruvbox'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'sjl/badwolf'
+call plug#end()
+
 " statusline {{{
 	set statusline=
 	set statusline+=%f\ %{SyntasticStatuslineFlag()}
@@ -95,7 +127,8 @@ set backup                        " enable backups
 		return &paste ? "paste" : ""
 	endf "}}}
 	fun! HasNeoComplcache() "{{{
-		return !neocomplcache#is_locked() ? "nCC" : ""
+		" return !neocomplcache#is_locked() ? "nCC" : ""
+		return ""
 	endf "}}}
 	fun! FugitiveStatuslineShort() "{{{
 		return substitute(fugitive#statusline(),"master","M","g")
@@ -291,7 +324,7 @@ nnoremap N Nzzzv
 		" force setting default:
 		runtime plugin/snipMate.vim
 		" add our own source
-		let g:snipMateSources['with_folding'] = funcref#Function('SnippetsWithFolding')
+		" let g:snipMateSources['with_folding'] = funcref#Function('SnippetsWithFolding')
 	" }}}
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 1
@@ -336,6 +369,9 @@ nnoremap N Nzzzv
 		let g:neocomplcache_snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
 		nnoremap <silent><leader>nt :NeoComplCacheToggle<CR>
 	" }}}
+    " neocomplete {{{
+        let g:neocomplete#enable_at_startup = 1
+    " }}}
 	" BufferWidget {{{
 		let g:buffer_widget_view='bars'
 	" }}}
@@ -363,10 +399,10 @@ nnoremap N Nzzzv
 	" rainbow {{{
 		nn <silent><leader>R :RainbowParenthesesToggle<cr>
 		func! s:rainbow_load()
-			RainbowParenthesesLoadRound
-			RainbowParenthesesLoadSquare
+			" RainbowParenthesesLoadRound
+			" RainbowParenthesesLoadSquare
 		endfunc
-		au VimEnter * RainbowParenthesesToggle
+		" au VimEnter * RainbowParenthesesToggle
 		"au FileType *.py RainbowParenthesesLoadRound
 		au FileType * au Syntax * cal s:rainbow_load()
 	" }}}
@@ -411,6 +447,8 @@ if $TERM =~ '^xterm' || $TERM =~ '^screen' || $TERM =~ 'rxvt'
 	"colorscheme xoria256
 	"colorscheme calmar256
 endif
+
+colorscheme gruvbox | set background=dark
 ""}}}
 " highlight {{{
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
