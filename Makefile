@@ -16,7 +16,7 @@ relink:
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
 	cd utils/git-remote-init ; ln -v -s -f $(PWD)/utils/git-remote-init/bin/* $(HOME)/opt/bin/
 	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
-install:
+install: vimplug
 	git submodule init
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
