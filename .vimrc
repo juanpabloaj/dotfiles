@@ -79,6 +79,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'tpope/vim-fugitive'
 
+	if v:version >= 800
+		Plug 'skywind3000/asyncrun.vim'
+	endif
+
     Plug 'Shougo/unite.vim'
     Plug 'Shougo/neomru.vim'
     Plug 'Shougo/neocomplete.vim'
@@ -461,7 +465,7 @@ colorscheme gruvbox | set background=dark
 	highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 	au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 	" don't show whitespaceEOL in unite ft
-	au Filetype unite,vimshell,tlibInputList hi whitespaceEOL ctermbg=bg
+	au Filetype unite,vimshell,tlibInputList,qf hi whitespaceEOL ctermbg=bg
 " }}}
 " Ultima session {{{1
 " guardar y abrir
@@ -477,6 +481,11 @@ endfunction
 "autocmd VimLeave * call SaveSession()
 "}}}1
 " autocmd {{{
+	
+	augroup vimrc
+		autocmd QuickFixCmdPost * botright copen 8
+	augroup END
+
 	" limpiar la terminal al salir de vim
 	"autocmd VimLeave * !clear
 	" When vimrc is edited, reload it
