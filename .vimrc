@@ -99,6 +99,9 @@ call plug#begin('~/.vim/plugged')
     " elixir
     Plug 'elixir-lang/vim-elixir'
 
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+
     " colorscheme
     Plug 'sickill/vim-monokai'
     Plug 'joshdick/onedark.vim'
