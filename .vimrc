@@ -78,6 +78,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-dispatch'
 
 	if v:version >= 800
 		Plug 'skywind3000/asyncrun.vim'
