@@ -1,4 +1,5 @@
-rcFiles =  .vim .vimrc .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .bash_profile .ctags .bash_completion.d .zshrc .aliases .gitexcludes .vimshrc .tmux.conf
+vimFiles = .vim .vimrc
+rcFiles = .gitconfig .hgrc .screenrc .Xresources .dircolors .bashrc .bash_profile .ctags .bash_completion.d .zshrc .aliases .gitexcludes .vimshrc .tmux.conf
 LOCAL=$(PWD)
 UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)
@@ -11,20 +12,18 @@ ifeq ($(UNAME), CYGWIN_NT-6.1)
 	VIMPROCMAKE = make_cygwin.mak
 endif
 relink:
-	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -vfs $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
 	cd utils/git-remote-init ; ln -v -s -f $(PWD)/utils/git-remote-init/bin/* $(HOME)/opt/bin/
 	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
-install: vimplug
+
+linkVimFiles:
+	@$(foreach f,$(vimFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
+
+install: vimdirs linkVimFiles vimplug
 	git submodule init
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
-	mkdir -p .vim/autoload
-	mkdir -p .vim/tmp/undo
-	mkdir -p .vim/tmp/backup
-	mkdir -p .vim/tmp/swap
-	@[ -f $(PWD)/.vim/autoload/pathogen.vim ] || ln -v -s $(PWD)/.vim/bundle/vim-pathogen/autoload/pathogen.vim $(PWD)/.vim/autoload/
 	cd $(PWD)/utils/git-prompt; make install
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
@@ -57,3 +56,9 @@ vimproc:
 vimplug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vimdirs:
+	mkdir -p .vim/autoload
+	mkdir -p .vim/tmp/undo
+	mkdir -p .vim/tmp/backup
+	mkdir -p .vim/tmp/swap
