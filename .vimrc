@@ -91,6 +91,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'majutsushi/tagbar'
     Plug 'vim-syntastic/syntastic'
+    Plug 'scrooloose/nerdcommenter'
     Plug 'luochen1990/rainbow'
 
     " On-demand loading
@@ -115,33 +116,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'sjl/badwolf'
 call plug#end()
 
-" statusline {{{
-	set statusline=
-	set statusline+=%f\ %{SyntasticStatuslineFlag()}
-	set statusline+=%{FugitiveStatuslineShort()}
-	set statusline+=%<%h%m%r%=%-0.(%{HasPaste()}\ %2*%{HasNeoComplcache()}\ L%03l/%L\ C%02c%V%)\%h%m%r%=%-16(\ B%{BufferWidget()}\ %y%)
-	set statusline+=%3*%P%=%{FileTime()}
-	set rulerformat=%15(%c%V\ %p%%%)
-	fun! FileTime() "{{{
-	  let ext=tolower(expand("%:e"))
-	  let fname=tolower(expand('%<'))
-	  let filename=fname . '.' . ext
-	  let msg=""
-	  let msg=msg." ".strftime("(Mod %b,%d %y %H:%M:%S)",getftime(filename))
-	  return msg
-	endfunction
-	"}}}
-	fun! HasPaste() "{{{
-		return &paste ? "paste" : ""
-	endf "}}}
-	fun! HasNeoComplcache() "{{{
-		" return !neocomplcache#is_locked() ? "nCC" : ""
-		return ""
-	endf "}}}
-	fun! FugitiveStatuslineShort() "{{{
-		return substitute(fugitive#statusline(),"master","M","g")
-	endf "}}}
-" }}}
 " map {{{
 let mapleader = ","
 " spanish keyboards
