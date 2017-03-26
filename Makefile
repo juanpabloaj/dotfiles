@@ -24,7 +24,6 @@ install: vimdirs linkVimFiles vimplug
 	git submodule init
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
-	cd $(PWD)/utils/git-prompt; make install
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )

@@ -154,7 +154,9 @@ export LESS=" -R "
 
 eval $(dircolors -b $HOME/.dircolors)
 
-[[ $- == *i* ]] && . $S/dotfiles/utils/git-prompt/git-prompt.sh
+# git-bash-prompt
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
