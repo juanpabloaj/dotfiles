@@ -62,3 +62,9 @@ vimdirs:
 	mkdir -p .vim/tmp/undo
 	mkdir -p .vim/tmp/backup
 	mkdir -p .vim/tmp/swap
+
+pyenv:
+	curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+gitBashPrompt:
+	cd ~ && git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
