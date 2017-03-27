@@ -24,8 +24,6 @@ install: vimdirs linkVimFiles vimplug
 	git submodule init
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
-	mkdir -p .bash_completion.d
-	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 	cd .vim/spell; bash spell.sh
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
@@ -74,3 +72,8 @@ gitCompile:
 	cd ~/opt/src && tar xfz git-*.tar.gz
 	cd ~/opt/src/git-* && make configure && ./configure --prefix=$(HOME)/opt
 	cd ~/opt/src/git-* && make && make install
+
+gitBashCompletion:
+	mkdir -p .bash_completion.d
+	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+	ln -s $(PWD)/.bash_completion.d ~/.bash_completion.d
