@@ -67,3 +67,10 @@ pyenv:
 
 gitBashPrompt:
 	cd ~ && git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+
+gitCompile:
+	mkdir -p ~/opt/src
+	cd ~/opt/src && wget https://www.kernel.org/pub/software/scm/git/git-2.9.3.tar.gz
+	cd ~/opt/src && tar xfz git-*.tar.gz
+	cd ~/opt/src/git-* && make configure && ./configure --prefix=$(HOME)/opt
+	cd ~/opt/src/git-* && make && make install
