@@ -79,6 +79,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-surround'
 
 	if v:version >= 800
 		Plug 'skywind3000/asyncrun.vim'
@@ -339,7 +340,6 @@ nnoremap N Nzzzv
 		endf
 		" unite-ssh
         nn <leader>us :VimFiler ssh://
-		au FileType unite inoremap <buffer><expr> s unite#do_action('split')
 		au FileType unite nnoremap <buffer><expr> s unite#do_action('split')
 	" }}}
 	" vimfiler {{{
