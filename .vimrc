@@ -94,6 +94,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-syntastic/syntastic'
     Plug 'scrooloose/nerdcommenter'
     Plug 'luochen1990/rainbow'
+    Plug 'elzr/vim-json'
 
     " On-demand loading
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -203,6 +204,9 @@ nn <silent>q :exec !&modifiable ? ':q' : ''<CR>q
 " show todolist item
 nn <silent><leader>tl :vimgrep TODO\C % <CR> :copen <CR> :set nowrap <CR>
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
+
+set switchbuf+=usetab,newtab
+nnoremap <silent><leader>ge :grep <cword> *<CR>
 " }}}
 " abbreviate {{{
 	ia @@ jpabloaj@gmail.com
@@ -331,6 +335,7 @@ nnoremap N Nzzzv
 		nn <silent> <leader>um :<C-u>Unite file_mru<CR>
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+		nn <silent> <leader>un :<C-u>UniteWithBufferDir file file/new<CR>
 
 		autocmd FileType unite call s:unite_my_settings()
 		fun! s:unite_my_settings()
