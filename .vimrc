@@ -206,7 +206,7 @@ nn <silent><leader>tl :vimgrep TODO\C % <CR> :copen <CR> :set nowrap <CR>
 au! Filetype vim nn <leader>h :h <c-r>=expand("<cword>")<cr><cr>
 
 set switchbuf+=usetab,newtab
-nnoremap <silent><leader>ge :grep <cword> *<CR>
+nnoremap <silent><leader>g :vimgrep <cword> %:p:h/** <CR>
 " }}}
 " abbreviate {{{
 	ia @@ jpabloaj@gmail.com
@@ -283,7 +283,7 @@ nnoremap N Nzzzv
 		" autocmd FileType vimshell call vimshell#altercmd#define('g', 'git')
 	" }}}
 	" Extradite : addon for fugitive {{{
-	nnoremap <silent><leader>ge :Extradite<CR>
+	"nnoremap <silent><leader>ge :Extradite<CR>
 	let g:extradite_showhash=1
 	" }}}
 	" NERDtree {{{
