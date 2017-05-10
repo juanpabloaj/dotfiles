@@ -337,7 +337,7 @@ nnoremap N Nzzzv
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 		nn <silent> <leader>un :<C-u>UniteWithBufferDir file file/new<CR>
-		nn <silent> <leader>ug :<C-u>Unite vimgrep:**:<C-R><C-W>:<CR>v
+		nn <silent> <leader>ug :<C-u>Unite vimgrep:**:<C-R><C-W>:<CR>
 
 		autocmd FileType unite call s:unite_my_settings()
 		fun! s:unite_my_settings()
