@@ -17,15 +17,11 @@ relink:
 	cd utils/git-remote-init ; ln -v -s -f $(PWD)/utils/git-remote-init/bin/* $(HOME)/opt/bin/
 	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
 
-linkVimFiles:
-	@$(foreach f,$(vimFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
-
-install: vimdirs linkVimFiles vimplug
+install: viminstall
 	git submodule init
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
-	cd .vim/spell; bash spell.sh
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
 	cd utils/git-remote-init ; ln -v -s -f $(PWD)/utils/git-remote-init/bin/* $(HOME)/opt/bin/
 	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
@@ -47,12 +43,21 @@ neovim:
 	ln -s $(PWD)/.config/nvim $(HOME)/.config
 	pip3 install neovim
 
+viminstall: vimdirs linkVimFiles vimplug vimspell
+
+linkVimFiles:
+	@$(foreach f,$(vimFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
+
+vimspell:
+	cd .vim/spell; bash spell.sh
+
 vimproc:
 	cd $(PWD)/.vim/bundle/vimproc ; make -f $(VIMPROCMAKE) clean && make -f $(VIMPROCMAKE)
 
 vimplug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +PlugInstall +qa
 
 vimdirs:
 	mkdir -p .vim/autoload
