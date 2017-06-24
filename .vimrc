@@ -91,7 +91,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/neocomplete.vim'
 	Plug 'juanpabloaj/bufferWidget'
 
-    Plug 'majutsushi/tagbar'
+    "Plug 'majutsushi/tagbar'
     Plug 'vim-syntastic/syntastic'
     Plug 'scrooloose/nerdcommenter'
     Plug 'luochen1990/rainbow'
