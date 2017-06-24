@@ -79,3 +79,8 @@ gitBashCompletion:
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	ln -s $(PWD)/.bash_completion.d ~/.bash_completion.d
+	@echo
+	@echo "Add to ~/.bashrc"
+	@echo "if [ -d $$HOME/.bash_completion.d/ ]; then"
+	@echo "  . $$HOME/.bash_completion.d/*"
+	@echo "fi"
