@@ -89,3 +89,7 @@ gitBashCompletion:
 	@echo "if [ -d $$HOME/.bash_completion.d/ ]; then"
 	@echo "  . $$HOME/.bash_completion.d/*"
 	@echo "fi"
+
+addGitUser:
+	git config user.name "JuanPablo"
+	git config user.email jpabloaj@gmail.com
