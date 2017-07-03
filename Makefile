@@ -85,6 +85,7 @@ gitCompile:
 gitBashCompletion:
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+	cd .bash_completion.d ; [ -e git-flow-completion.bash ] || wget -c https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
 	ln -s $(PWD)/.bash_completion.d ~/.bash_completion.d
 	@echo
 	@echo "Add to ~/.bashrc"
