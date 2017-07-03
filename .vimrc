@@ -338,6 +338,7 @@ nnoremap N Nzzzv
 		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 		nn <silent> <leader>un :<C-u>UniteWithBufferDir file file/new<CR>
 		nn <silent> <leader>ug :<C-u>UniteWithCursorWord vimgrep:`expand('%:p:h')`/**:`expand('<cword>')`<CR>
+		nn <leader>uG :<C-u>UniteWithCursorWord vimgrep:`expand('%:p:h')`/**:
 
 		autocmd FileType unite call s:unite_my_settings()
 		fun! s:unite_my_settings()
