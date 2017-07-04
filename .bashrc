@@ -89,7 +89,7 @@ unset   rgb_restore   \
  rgb_usr
 
 if [ -d $HOME/.bash_completion.d/ ]; then
-	. $HOME/.bash_completion.d/*
+	for f in $HOME/.bash_completion.d/*; do source $f; done
 fi
 
 [ -f $HOME/opt/src/homebrew/etc/bash_completion ] && . $HOME/opt/src/homebrew/etc/bash_completion
