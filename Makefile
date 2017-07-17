@@ -90,9 +90,9 @@ gitBashCompletion:
 	@echo
 	@echo "Add to ~/.bashrc"
 	@echo "if [ -d $$HOME/.bash_completion.d/ ]; then"
-	@echo "  . $$HOME/.bash_completion.d/*"
+	@echo "    for f in \$$HOME/.bash_completion.d/*; do source \$$f; done"
 	@echo "fi"
 
-addGitUser:
+gitAddUser:
 	git config user.name "JuanPablo"
 	git config user.email jpabloaj@gmail.com
