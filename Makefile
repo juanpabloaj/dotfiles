@@ -68,7 +68,12 @@ vimdirs:
 pyenv:
 	curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 
-gitBash: gitBashPrompt gitBashCompletion
+gitBash: gitBashPrompt gitBashCompletion gitFlow
+
+gitFlow:
+	mkdir -p $(HOME)/src
+	cd $(HOME)/src && git clone --recursive git://github.com/nvie/gitflow.git
+	cd $(HOME)/src/gitflow && make prefix=$(HOME)/opt install
 
 gitBashPrompt:
 	cd ~ && git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
