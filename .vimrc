@@ -80,6 +80,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-surround'
+    Plug 'int3/vim-extradite'
 
 	if v:version >= 800
 		Plug 'skywind3000/asyncrun.vim'
