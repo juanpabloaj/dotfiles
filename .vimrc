@@ -336,7 +336,7 @@ nnoremap N Nzzzv
 		nn <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
 		nn <silent> <leader>um :<C-u>Unite file_mru<CR>
 		nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
-		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+		nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_rec file_mru bookmark file<CR>
 		nn <silent> <leader>un :<C-u>UniteWithBufferDir file file/new<CR>
 		nn <silent> <leader>ug :<C-u>UniteWithCursorWord vimgrep:`expand('%:p:h')`/**:`expand('<cword>')`<CR>
 		nn <leader>uG :<C-u>UniteWithCursorWord vimgrep:`expand('%:p:h')`/**:
