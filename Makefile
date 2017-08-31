@@ -68,6 +68,9 @@ vimdirs:
 pyenv:
 	curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 
+nvm:
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
 gitBash: gitBashPrompt gitBashCompletion gitFlow
 
 gitFlow:
