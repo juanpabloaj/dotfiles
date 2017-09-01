@@ -79,7 +79,7 @@ gitFlow:
 	cd $(HOME)/src/gitflow && make prefix=$(HOME)/opt install
 
 gitBashPrompt:
-	cd ~ && git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+	[ -e ~/.bash-git-prompt ] || git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 	@echo "GIT_PROMPT_ONLY_IN_REPO=1"
 	@echo "source ~/.bash-git-prompt/gitprompt.sh"
 
@@ -94,7 +94,7 @@ gitBashCompletion:
 	mkdir -p .bash_completion.d
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	cd .bash_completion.d ; [ -e git-flow-completion.bash ] || wget -c https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
-	cd .bash_completion.d ; [ -e docker ] || curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker > ~/.bash_completion.d/docker
+	cd .bash_completion.d ; [ -e docker ] || curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker > docker
 	ln -s $(PWD)/.bash_completion.d ~/.bash_completion.d
 	@echo
 	@echo "Add to ~/.bashrc"
