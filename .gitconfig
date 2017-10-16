@@ -48,7 +48,7 @@
 	rhom = reset --hard origin/master
 	ru = remote update
 	rv = remote -v
-	st = status
+	st = status -sb
 	suir = submodule update --init --recursive
     sl = stash list
 
