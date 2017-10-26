@@ -95,10 +95,10 @@ gitBashCompletion:
 	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
 	cd .bash_completion.d ; [ -e git-flow-completion.bash ] || wget -c https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
 	cd .bash_completion.d ; [ -e docker ] || curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker > docker
-	ln -s $(PWD)/.bash_completion.d ~/.bash_completion.d
+	[ -e ~/.bash_completion.d ] || ln -s $(PWD)/.bash_completion.d ~/.bash_completion.d
 	@echo
 	@echo "Add to ~/.bashrc"
-	@echo "if [ -d $$HOME/.bash_completion.d/ ]; then"
+	@echo "if [ -d \$$HOME/.bash_completion.d/ ]; then"
 	@echo "    for f in \$$HOME/.bash_completion.d/*; do source \$$f; done"
 	@echo "fi"
 
