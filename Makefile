@@ -71,7 +71,7 @@ pyenv:
 nvm:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
-gitBash: gitBashPrompt gitBashCompletion gitFlow
+gitBash: gitBashPrompt gitBashCompletion gitFlow toBashrc
 
 gitFlow:
 	mkdir -p $(HOME)/src
@@ -102,6 +102,16 @@ gitBashCompletion:
 	@echo "if [ -d \$$HOME/.bash_completion.d/ ]; then"
 	@echo "    for f in \$$HOME/.bash_completion.d/*; do source \$$f; done"
 	@echo "fi"
+
+toBashrc:
+	@echo "Adding to ~/.bashrc"
+	echo "" >> ~/.bashrc
+	echo "if [ -d \$$HOME/.bash_completion.d/ ]; then" >> ~/.bashrc
+	echo "    for f in \$$HOME/.bash_completion.d/*; do source \$$f; done" >> ~/.bashrc
+	echo "fi" >> ~/.bashrc
+	echo "" >> ~/.bashrc
+	echo "GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
+	echo "source ~/.bash-git-prompt/gitprompt.sh" >> ~/.bashrc
 
 gitAddUser:
 	git config user.name "JuanPablo"
