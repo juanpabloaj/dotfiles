@@ -17,7 +17,7 @@ relink:
 	cd utils/git-remote-init ; ln -v -s -f $(PWD)/utils/git-remote-init/bin/* $(HOME)/opt/bin/
 	cd utils/oh-my-zsh ; [ -d $(HOME)/.oh-my-zsh ] || ln -vf -s $(PWD)/utils/oh-my-zsh $(HOME)/.oh-my-zsh
 
-install: viminstall
+install: vimInstall
 	git submodule init
 	git submodule update
 	@[ -d $(HOME)/opt/bin ] || mkdir -vp $(HOME)/opt/bin
@@ -43,7 +43,7 @@ neovim:
 	ln -s $(PWD)/.config/nvim $(HOME)/.config
 	pip3 install neovim
 
-viminstall: vimdirs linkVimFiles vimplug vimspell
+vimInstall: vimdirs linkVimFiles vimplug vimspell
 
 linkVimFiles:
 	@$(foreach f,$(vimFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
@@ -70,6 +70,13 @@ pyenv:
 
 nvm:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+fullInstall: quickInstall pyenv nvm
+
+quickInstall: vimInstall gitBash copyFiles toBashrc gitAddUser
+
+copyFiles:
+	[ -e ~/.gitconfig ] || cp -v $(PWD)/.gitconfig ~/.gitconfig
 
 gitBash: gitBashPrompt gitBashCompletion gitFlow toBashrc
 
@@ -105,6 +112,8 @@ gitBashCompletion:
 
 toBashrc:
 	@echo "Adding to ~/.bashrc"
+	echo "" >> ~/.bashrc
+	echo "set -o vi" >> ~/.bashrc
 	echo "" >> ~/.bashrc
 	echo "if [ -d \$$HOME/.bash_completion.d/ ]; then" >> ~/.bashrc
 	echo "    for f in \$$HOME/.bash_completion.d/*; do source \$$f; done" >> ~/.bashrc
