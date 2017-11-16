@@ -119,6 +119,8 @@ toBashrc:
 	echo "    for f in \$$HOME/.bash_completion.d/*; do source \$$f; done" >> ~/.bashrc
 	echo "fi" >> ~/.bashrc
 	echo "" >> ~/.bashrc
+	echo "export PATH=\$$HOME/opt/bin:\$$PATH" >> ~/.bashrc
+	echo "" >> ~/.bashrc
 	echo "GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
 	echo "source ~/.bash-git-prompt/gitprompt.sh" >> ~/.bashrc
 
