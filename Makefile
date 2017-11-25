@@ -113,6 +113,7 @@ gitBashCompletion:
 toBashrc:
 	@echo "Adding to ~/.bashrc"
 	echo "" >> ~/.bashrc
+	echo "export EDITOR=vi" >> ~/.bashrc
 	echo "set -o vi" >> ~/.bashrc
 	echo "" >> ~/.bashrc
 	echo "if [ -d \$$HOME/.bash_completion.d/ ]; then" >> ~/.bashrc
