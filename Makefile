@@ -127,3 +127,9 @@ toBashrc:
 gitAddUser:
 	git config user.name "JuanPablo"
 	git config user.email jpabloaj@gmail.com
+
+dockerComposeInstall:
+	mkdir -p $(HOME)/opt/bin
+	curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o $(HOME)/opt/bin/docker-compose
+	chmod u+x $(HOME)/opt/bin/docker-compose
+
