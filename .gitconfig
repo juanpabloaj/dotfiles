@@ -17,6 +17,8 @@
 [alias]
 	ba = branch -a
 	br = branch
+	bm = branch --merged
+	bnm = branch --no-merged
 	cf = clean -fd
     ; borrar los que menciona gitignore
 	cx = clean -xf
