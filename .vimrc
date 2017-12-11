@@ -106,6 +106,8 @@ call plug#begin('~/.vim/plugged')
     " elixir
     Plug 'elixir-lang/vim-elixir'
 
+	Plug 'ekalinin/Dockerfile.vim'
+
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
