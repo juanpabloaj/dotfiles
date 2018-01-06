@@ -164,8 +164,10 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # pyenv
-export PYENV_ROOT=$HOME/opt/src/homebrew/var/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PYENV_ROOT=$HOME/.pyenv
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export PATH=$HOME/.local/bin:$PATH
 
