@@ -108,6 +108,8 @@ call plug#begin('~/.vim/plugged')
 
 	Plug 'ekalinin/Dockerfile.vim'
 
+	Plug 'fatih/vim-go'
+
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
@@ -245,6 +247,9 @@ nnoremap N Nzzzv
 " }}}
 " plugins configuration {{{
 	nnoremap <Leader>vg :GundoToggle<CR>
+	" go {{{
+	let g:go_version_warning = 0
+	" }}}
 	" tagbar {{{
 		nn <silent><Leader>l :TagbarToggle<CR>
         let tagbar_width = 30
