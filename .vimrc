@@ -487,11 +487,14 @@ endfunction
 	" When vimrc is edited, reload it
 	au! CmdwinEnter * nn <silent><buffer> q :q<CR>
 	autocmd! bufwritepost .vimrc source ~/.vimrc
+
+	if v:version > 704
 	augroup longLines
 		au!
 		au! filetype zsh,sh,vim
 			\ syn match ColorColumn /\%>80v.\+/
 	augroup END
+	endif
 	" never mix tabs and spaces
 	au FileType vim,python if search('^\t') >0 |
 		\ exe "setl noexpandtab" |
