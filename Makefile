@@ -11,6 +11,10 @@ endif
 ifeq ($(UNAME), CYGWIN_NT-6.1)
 	VIMPROCMAKE = make_cygwin.mak
 endif
+
+gitCentos6 = https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/git214-2.14.0-0.1.ius.el6.x86_64.rpm
+perlGitCentos6 = https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/perl-Git214-2.14.0-0.1.ius.el6.noarch.rpm
+
 relink:
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
@@ -128,6 +132,11 @@ toBashrc:
 gitAddUser:
 	git config user.name "JuanPablo"
 	git config user.email jpabloaj@gmail.com
+
+gitUpdateCentos6:
+	cd /tmp && wget $(gitCentos6)
+	cd /tmp && wget $(perlGitCentos6)
+	cd /tmp && sudo yum install -y $(gitCentos6) $(perlGitCentos6)
 
 dockerComposeInstall:
 	mkdir -p $(HOME)/opt/bin
