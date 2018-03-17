@@ -117,6 +117,12 @@ export LC_CTYPE="es_ES.UTF-8"
 
 [ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
 
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # virtualenvwrapper
 [ -d $HOME/.envs ] && export WORKON_HOME=~/.envs
 
@@ -162,12 +168,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 export PATH=$HOME/.local/bin:$PATH
 
