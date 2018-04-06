@@ -156,3 +156,9 @@ dockerComposeInstall:
 	curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o $(HOME)/opt/bin/docker-compose
 	chmod u+x $(HOME)/opt/bin/docker-compose
 
+goInstall:
+	cd /tmp && wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+	cd /tmp && tar -C $(HOME)/opt -xzf go1.10.1.linux-amd64.tar.gz
+	@echo "add to ~/.bashrc"
+	@echo
+	@echo "export PATH=\$$PATH:\$$HOME/opt/go/bin"
