@@ -53,6 +53,7 @@
 	st = status -sb
 	suir = submodule update --init --recursive
     sl = stash list
+    sp = "!git stash && git pull origin && git stash pop"
 
 [diff]
 	tool = vimdiff
