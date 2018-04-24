@@ -172,3 +172,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$HOME/.local/bin:$PATH
 
 [ -f $HOME/.bashrc_local ] && . $HOME/.bashrc_local
+
+export GOPATH=$HOME/go
