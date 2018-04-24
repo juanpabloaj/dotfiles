@@ -175,3 +175,4 @@ export PATH=$HOME/.local/bin:$PATH
 
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
+export PATH=$PATH:$GOBIN
