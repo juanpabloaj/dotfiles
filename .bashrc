@@ -174,3 +174,4 @@ export PATH=$HOME/.local/bin:$PATH
 [ -f $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
 export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
