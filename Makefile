@@ -141,12 +141,15 @@ gitAddUser:
 	git config user.name "JuanPablo"
 	git config user.email jpabloaj@gmail.com
 
-gitUpdateCentos6:
+gitEraseFromCentos:
+	sudo yum erase -y git
+
+gitUpdateCentos6: gitEraseFromCentos
 	cd /tmp && wget $(gitCentos6)
 	cd /tmp && wget $(perlGitCentos6)
 	cd /tmp && sudo yum install -y $(gitCentos6) $(perlGitCentos6)
 
-gitUpdateCentos7:
+gitUpdateCentos7: gitEraseFromCentos
 	cd /tmp && wget $(gitCentos7)
 	cd /tmp && wget $(perlGitCentos7)
 	cd /tmp && sudo yum install -y $(gitCentos7) $(perlGitCentos7)
