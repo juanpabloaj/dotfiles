@@ -109,8 +109,9 @@ gitCompile:
 	cd ~/opt/src/git-* && make && make install
 
 gitBashCompletion:
+	$(eval gitVersion := $(shell git --version | awk '{print $$NF}'))
 	mkdir -p .bash_completion.d
-	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+	cd .bash_completion.d ; [ -e git-completion.bash ] || wget -c https://raw.githubusercontent.com/git/git/v$(gitVersion)/contrib/completion/git-completion.bash
 	cd .bash_completion.d ; [ -e git-flow-completion.bash ] || wget -c https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
 	cd .bash_completion.d ; [ -e docker ] || curl -L https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker > docker
 	cd .bash_completion.d ; [ -e docker-compose ] || curl -L https://raw.githubusercontent.com/docker/compose/1.16.1/contrib/completion/bash/docker-compose -o docker-compose
