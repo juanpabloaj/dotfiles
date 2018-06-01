@@ -80,7 +80,7 @@ nvm:
 
 nodejs: nvm
 	source ~/.bashrc
-	nvm install v9.5.0
+	nvm install v8.11.2
 
 
 fullInstall: quickInstall pyenv nvm

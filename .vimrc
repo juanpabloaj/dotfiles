@@ -113,6 +113,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 
+	Plug 'prettier/vim-prettier', {
+	  \ 'do': 'npm install',
+	  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+
     " colorscheme
     Plug 'sickill/vim-monokai'
     Plug 'joshdick/onedark.vim'
