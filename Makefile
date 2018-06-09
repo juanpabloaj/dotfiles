@@ -45,7 +45,7 @@ neovim:
 	pip3 install neovim
 
 vimCompileCentos6:
-	sudo yum install -y gcc-c++ ncurses-devel python-devel git
+	sudo yum install -y gcc-c++ ncurses-devel python-devel
 	$(eval tempDir := $(shell mktemp -d))
 	mkdir -p $(HOME)/.local
 	cd $(tempDir) && git clone https://github.com/vim/vim.git
