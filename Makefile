@@ -12,12 +12,6 @@ ifeq ($(UNAME), CYGWIN_NT-6.1)
 	VIMPROCMAKE = make_cygwin.mak
 endif
 
-gitCentos6 = https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/git214-2.14.0-0.1.ius.el6.x86_64.rpm
-perlGitCentos6 = https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/perl-Git214-2.14.0-0.1.ius.el6.noarch.rpm
-
-gitCentos7 = https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/git214-2.14.0-0.1.ius.el7.centos.x86_64.rpm
-perlGitCentos7 = https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/perl-Git214-2.14.0-0.1.ius.el7.centos.noarch.rpm
-
 relink:
 	@$(foreach f,$(rcFiles), [ -e $(HOME)/$f ] || ln -s -fvn  $(PWD)/$f $(HOME)/ ;  )
 	cd utils/git-map ; ln -v -s -f $(PWD)/utils/git-map/git-map $(HOME)/opt/bin/
@@ -168,15 +162,15 @@ gitAddUser:
 gitEraseFromCentos:
 	sudo yum erase -y git
 
-gitUpdateCentos6: gitEraseFromCentos
-	cd /tmp && wget $(gitCentos6)
-	cd /tmp && wget $(perlGitCentos6)
-	cd /tmp && sudo yum install -y $(gitCentos6) $(perlGitCentos6)
-
-gitUpdateCentos7: gitEraseFromCentos
-	cd /tmp && wget $(gitCentos7)
-	cd /tmp && wget $(perlGitCentos7)
-	cd /tmp && sudo yum install -y $(gitCentos7) $(perlGitCentos7)
+gitUpdateCentos: gitEraseFromCentos
+	$(eval centosVersion := $(shell sed 's/\.[0-9]//' /etc/centos-release | awk '{print $$3}' ))
+	$(eval tempDir := $(shell mktemp -d))
+	$(eval gitRpm := git214-2.14.0-0.1.ius.el$(centosVersion).x86_64.rpm )
+	$(eval perlRpm := perl-Git214-2.14.0-0.1.ius.el$(centosVersion).noarch.rpm )
+	cd $(tempDir) && \
+		wget https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/$(gitRpm) && \
+		wget https://github.com/juanpabloaj/git-rpm-centos/releases/download/2.14.0/$(perlRpm)
+	cd $(tempDir) && sudo yum install -y $(gitRpm) $(perlRpm)
 
 dockerComposeInstall:
 	mkdir -p $(HOME)/opt/bin
