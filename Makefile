@@ -50,6 +50,30 @@ neovim:
 	ln -s $(PWD)/.config/nvim $(HOME)/.config
 	pip3 install neovim
 
+vimCompileCentos6:
+	sudo yum install -y gcc-c++ ncurses-devel python-devel git
+	$(eval tempDir := $(shell mktemp -d))
+	mkdir -p $(HOME)/.local
+	cd $(tempDir) && git clone https://github.com/vim/vim.git
+	cd $(tempDir)/vim/src && git checkout $(shell git tag | tail -1)
+	cd $(tempDir)/vim/src && ./configure \
+	--disable-nls \
+	--enable-cscope \
+	--enable-gui=no \
+	--enable-multibyte  \
+	--enable-pythoninterp \
+	--enable-rubyinterp \
+	--prefix=$(HOME)/.local/vim \
+	--with-features=huge  \
+	--with-python-config-dir=/usr/lib/python2.6/config \
+	--with-tlib=tinfo \
+	--without-x
+	cd $(tempDir)/vim/src && make && make install
+	echo "" >> ~/.bashrc
+	echo "if [ -d "\$$HOME/.local/vim/bin/" ] ; then" >> ~/.bashrc
+	echo "    export PATH="\$$HOME/.local/vim/bin/:\$$PATH"" >> ~/.bashrc
+	echo "fi" >> ~/.bashrc
+
 vimInstall: vimdirs linkVimFiles vimplug vimspell
 
 linkVimFiles:
