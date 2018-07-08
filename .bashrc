@@ -115,14 +115,6 @@ export MM_CHARSET="utf8"
 export LC_CTYPE="es_ES.UTF-8"
 #export LC_ALL=C
 
-[ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
-
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # virtualenvwrapper
 [ -d $HOME/.envs ] && export WORKON_HOME=~/.envs
 
@@ -136,7 +128,7 @@ if [[ $(uname) == "Darwin" ]]; then
 
     MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
 
-    source $(brew --prefix)/bin/virtualenvwrapper.sh
+    #source $(brew --prefix)/bin/virtualenvwrapper.sh
 
     export RSTUDIO_WHICH_R=$(brew --prefix)/bin/R
 fi
@@ -145,6 +137,17 @@ fi
 if [[ "$(uname)" =~ "CYGWIN" ]]; then
 	export GIT_SSL_NO_VERIFY=true
 fi
+
+[ -d $HOME/opt/bin ] && PATH=$HOME/opt/bin:$PATH
+
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+eval "$(pipenv --completion)"
+
 export PATH
 
 # exports
