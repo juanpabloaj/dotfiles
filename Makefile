@@ -166,7 +166,7 @@ gitEraseFromCentos:
 	sudo yum erase -y git
 
 gitUpdateCentos: gitEraseFromCentos
-	$(eval centosVersion := $(shell sed 's/\.[0-9]//' /etc/centos-release | awk '{print $$3}' ))
+	$(eval centosVersion := $(shell sed 's/\.[0-9]*//' /etc/centos-release | awk '{print $$3}' ))
 	$(eval tempDir := $(shell mktemp -d))
 	$(eval gitRpm := git214-2.14.0-0.1.ius.el$(centosVersion).x86_64.rpm )
 	$(eval perlRpm := perl-Git214-2.14.0-0.1.ius.el$(centosVersion).noarch.rpm )
