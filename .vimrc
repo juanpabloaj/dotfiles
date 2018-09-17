@@ -106,6 +106,7 @@ call plug#begin('~/.vim/plugged')
 
     " elixir
     Plug 'elixir-lang/vim-elixir'
+	Plug 'mhinz/vim-mix-format'
 
 	Plug 'ekalinin/Dockerfile.vim'
 
@@ -252,6 +253,8 @@ nnoremap N Nzzzv
 " }}}
 " plugins configuration {{{
 	nnoremap <Leader>vg :GundoToggle<CR>
+	" elixir
+	let g:mix_format_on_save = 1
 	" go {{{
 	let g:go_version_warning = 0
 	" }}}
