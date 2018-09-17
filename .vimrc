@@ -332,6 +332,15 @@ nnoremap N Nzzzv
 		" add our own source
 		" let g:snipMateSources['with_folding'] = funcref#Function('SnippetsWithFolding')
 	" }}}
+	" ultisnips {{{
+		" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+		let g:UltiSnipsExpandTrigger="<tab>"
+		let g:UltiSnipsJumpForwardTrigger="<c-b>"
+		let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+		" If you want :UltiSnipsEdit to split your window.
+		let g:UltiSnipsEditSplit="vertical"
+	" }}}
 	" Syntastic {{{
 	let g:syntastic_enable_signs = 1
 	"let g:syntastic_stl_format = '[%E{Error 1/%e: line %fe}%B{, }%W{Warning 1/%w: line %fw}]'
