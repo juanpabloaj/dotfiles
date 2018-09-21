@@ -1,0 +1,9 @@
+#!/bin/bash
+
+MSG="$1"
+
+if ! egrep -qE "#[0-9]+" "$MSG";then
+    cat "$MSG"
+    echo "Your commit message must contain some issue reference '#...'"
+    exit 1
+fi
