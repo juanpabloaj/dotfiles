@@ -54,6 +54,7 @@
 	suir = submodule update --init --recursive
     sl = stash list
     sp = "!git stash && git pull origin && git stash pop"
+    fno = diff-tree --no-commit-id --name-only -r HEAD
 
 [diff]
 	tool = vimdiff
