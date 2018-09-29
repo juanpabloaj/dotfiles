@@ -5,3 +5,4 @@
 .vim/tmp/*
 .bash_completion.d
 .vim/bundle/vim-taglist/docs/*
+nohup.out
