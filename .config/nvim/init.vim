@@ -39,7 +39,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/deol.nvim'
 
 Plug 'majutsushi/tagbar'
