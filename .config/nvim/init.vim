@@ -12,7 +12,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-set fdm=syntax
+set fdm=manual
 
 set noerrorbells
 set modeline
@@ -38,8 +38,10 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deol.nvim'
+
+Plug 'w0rp/ale'
 
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
@@ -58,6 +60,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " elixir
 Plug 'elixir-lang/vim-elixir'
+
+" javascript
+Plug 'ludovicchabant/vim-gutentags'
 
 " colorscheme
 Plug 'sickill/vim-monokai'
