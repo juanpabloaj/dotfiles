@@ -16,7 +16,6 @@ set fdm=syntax
 
 set noerrorbells
 set modeline
-set esckeys
 set linespace=0
 set wildmenu
 set wildmode=list:longest
@@ -41,7 +40,7 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/deol.nvim'
 
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
