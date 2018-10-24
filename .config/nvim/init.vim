@@ -60,6 +60,15 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " elixir
 Plug 'elixir-lang/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+
+Plug 'ekalinin/Dockerfile.vim'
+
+Plug 'fatih/vim-go'
+
+Plug 'prettier/vim-prettier', {
+	  \ 'do': 'npm install',
+	  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 " javascript
 Plug 'ludovicchabant/vim-gutentags'
