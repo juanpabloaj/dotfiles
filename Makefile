@@ -107,7 +107,7 @@ nodejs: nvm
 	source ~/.bashrc && nvm install v8.11.2
 
 npmInstall: nodejs
-	source ~/.bashrc && npm install -g jshint prettier nodemon
+	source ~/.bashrc && npm install -g jshint jsinspect prettier nodemon
 
 
 fullInstall: quickInstall pyenv nvm
