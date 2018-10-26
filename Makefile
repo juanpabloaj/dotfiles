@@ -192,7 +192,7 @@ goInstall:
 	cd /tmp && tar -C $(HOME)/opt -xzf go1.11.1.linux-amd64.tar.gz
 	@echo "add to ~/.bashrc"
 	@echo
-	@echo "export PATH=\$$PATH:\$$HOME/opt/go/bin"
+	@echo "export PATH=\$$PATH:\$$HOME/opt/go/bin:\$$HOME/go/bin"
 
 goInstallUtils:
 	go get -v github.com/wagoodman/dive
