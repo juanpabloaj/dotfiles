@@ -188,8 +188,8 @@ dockerComposeInstall:
 	chmod u+x $(HOME)/opt/bin/docker-compose
 
 goInstall:
-	cd /tmp && wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-	cd /tmp && tar -C $(HOME)/opt -xzf go1.10.1.linux-amd64.tar.gz
+	cd /tmp && wget https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz
+	cd /tmp && tar -C $(HOME)/opt -xzf go1.11.1.linux-amd64.tar.gz
 	@echo "add to ~/.bashrc"
 	@echo
 	@echo "export PATH=\$$PATH:\$$HOME/opt/go/bin"
