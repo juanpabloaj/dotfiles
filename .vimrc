@@ -101,6 +101,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'luochen1990/rainbow'
     Plug 'elzr/vim-json'
 
+	Plug 'johngrib/vim-git-msg-wheel'
+
     " On-demand loading
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 

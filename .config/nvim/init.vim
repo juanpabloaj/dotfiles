@@ -51,6 +51,7 @@ Plug 'luochen1990/rainbow'
 Plug 'lervag/vimtex'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'johngrib/vim-git-msg-wheel'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
