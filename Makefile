@@ -199,3 +199,7 @@ goInstallUtils:
 
 oklogInstall:
 	wget https://github.com/oklog/oklog/releases/download/v0.3.2/oklog-0.3.2-linux-amd64 -O $(HOME)/opt/bin/oklog && chmod u+x $(HOME)/opt/bin/oklog
+
+jqInstall:
+	wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O $(HOME)/opt/bin/jq
+	chmod u+x $(HOME)/opt/bin/jq
