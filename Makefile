@@ -188,14 +188,16 @@ dockerComposeInstall:
 	chmod u+x $(HOME)/opt/bin/docker-compose
 
 goInstall:
-	cd /tmp && wget https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz
-	cd /tmp && tar -C $(HOME)/opt -xzf go1.11.1.linux-amd64.tar.gz
+	cd /tmp && wget https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
+	cd /tmp && tar -C $(HOME)/opt -xzf go1.11.4.linux-amd64.tar.gz
 	@echo "add to ~/.bashrc"
 	@echo
 	@echo "export PATH=\$$PATH:\$$HOME/opt/go/bin:\$$HOME/go/bin"
 
 goInstallUtils:
 	go get -v github.com/wagoodman/dive
+	go get -v github.com/peco/peco/cmd/peco
+	go get -v github.com/akavel/up
 
 oklogInstall:
 	wget https://github.com/oklog/oklog/releases/download/v0.3.2/oklog-0.3.2-linux-amd64 -O $(HOME)/opt/bin/oklog && chmod u+x $(HOME)/opt/bin/oklog
