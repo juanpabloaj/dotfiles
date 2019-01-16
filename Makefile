@@ -163,6 +163,7 @@ toBashrc:
 	echo "export PATH=\$$HOME/opt/bin:\$$PATH" >> ~/.bashrc
 	echo "" >> ~/.bashrc
 	echo "GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
+	echo "export GIT_PROMPT_THEME=TruncatedPwd_WindowTitle" >> ~/.bashrc
 	echo "source ~/.bash-git-prompt/gitprompt.sh" >> ~/.bashrc
 
 gitAddUser:
