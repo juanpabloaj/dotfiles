@@ -200,6 +200,7 @@ goInstallUtils:
 	go get -u -v github.com/peco/peco/cmd/peco
 	go get -u -v github.com/akavel/up
 	go get -u -v github.com/kisielk/errcheck
+	go get -u -v github.com/cortesi/modd
 	go get -u -v golang.org/x/lint/golint
 	go get -u -v github.com/jesseduffield/lazygit
 
