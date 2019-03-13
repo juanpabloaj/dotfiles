@@ -111,6 +111,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mhinz/vim-mix-format'
 
 	Plug 'ekalinin/Dockerfile.vim'
+	Plug 'johngrib/vim-git-msg-wheel'
 
 	Plug 'fatih/vim-go'
 
