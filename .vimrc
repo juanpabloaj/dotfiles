@@ -83,6 +83,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'int3/vim-extradite'
 
+	if has('python3')
+		Plug 'python/black'
+	endif
+
 	if v:version >= 800
 		Plug 'skywind3000/asyncrun.vim'
 	endif
