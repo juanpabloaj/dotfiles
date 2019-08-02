@@ -165,6 +165,7 @@ eval $(dircolors -b $HOME/.dircolors)
 
 # git-bash-prompt
 GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_THEME=TruncatedPwd_WindowTitle
 source ~/.bash-git-prompt/gitprompt.sh
 
 export NVM_DIR="$HOME/.nvm"
