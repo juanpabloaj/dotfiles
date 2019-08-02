@@ -41,6 +41,8 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deol.nvim'
 
+Plug 'psf/black'
+
 Plug 'w0rp/ale'
 
 Plug 'majutsushi/tagbar'

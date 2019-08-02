@@ -4,6 +4,7 @@ tags
 .netrwhist
 .vim/spell/*
 .vim/tmp/*
+.vim/black
 .bash_completion.d
 .vim/bundle/vim-taglist/docs/*
 nohup.out
