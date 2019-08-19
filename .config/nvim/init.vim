@@ -43,6 +43,9 @@ Plug 'Shougo/deol.nvim'
 
 Plug 'psf/black'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'w0rp/ale'
 
 Plug 'majutsushi/tagbar'
