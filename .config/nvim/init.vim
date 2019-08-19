@@ -142,6 +142,9 @@ au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 
 let g:deoplete#enable_at_startup = 1
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 " unite
 
 nn <silent> <leader>ub :<C-u>Unite buffer<CR>
