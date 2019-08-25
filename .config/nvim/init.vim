@@ -148,6 +148,10 @@ let g:deoplete#enable_at_startup = 1
 " vim-go
 let g:go_fmt_command = "goimports"
 
+let g:go_metalinter_command = "golangci-lint"
+let g:go_metalinter_enabled= ['golint', 'deadcode', 'errcheck', 'misspell', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused', 'varcheck']
+let g:go_metalinter_autosave = 1
+
 " unite
 
 nn <silent> <leader>ub :<C-u>Unite buffer<CR>
