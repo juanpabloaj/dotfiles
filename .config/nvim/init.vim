@@ -46,7 +46,7 @@ Plug 'psf/black'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
@@ -67,6 +67,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
+"Plug 'slashmili/alchemist.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
 
