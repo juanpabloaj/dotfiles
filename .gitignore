@@ -1,3 +1,4 @@
+*.orig
 tags
 .vim/plugged
 .vim/autoload/*
