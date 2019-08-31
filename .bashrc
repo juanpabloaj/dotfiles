@@ -173,10 +173,11 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export PATH=$HOME/.local/bin:$PATH
+#export PATH=$HOME/.local/bin:$PATH
 
 [ -f $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
+export PATH=$PATH:$HOME/opt/go/bin
