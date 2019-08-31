@@ -94,7 +94,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/unite.vim'
     Plug 'Shougo/neomru.vim'
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-    Plug 'Shougo/neocomplete.vim'
+    "Plug 'Shougo/neocomplete.vim'
 	Plug 'juanpabloaj/bufferWidget'
 
 	Plug 'pangloss/vim-javascript'
