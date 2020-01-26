@@ -40,7 +40,7 @@ fetch:
 	git submodule foreach git fetch
 
 python3Install:
-	pyenv install --skip-existing 3.6.6
+	pyenv install --skip-existing 3.8.1
 
 neovimInstallPlug:
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -48,7 +48,8 @@ neovimInstallPlug:
 
 neovim: neovimInstallPlug python3Install
 	@echo "Copiando archivos de configuracion a "$(HOME)/.config
-	ln -vsf $(PWD)/.config/nvim $(HOME)/.config
+	mkdir -p $(HOME)/.config
+	ln -vsf $(PWD)/.config/nvim $(HOME)/.config/nvim
 	pip3 install neovim
 
 vimCompileCentos6:

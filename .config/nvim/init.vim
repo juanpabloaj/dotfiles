@@ -78,7 +78,7 @@ Plug 'prettier/vim-prettier', {
 	  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 " javascript
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " colorscheme
 Plug 'sickill/vim-monokai'
