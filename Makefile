@@ -46,7 +46,14 @@ neovimInstallPlug:
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-neovim: neovimInstallPlug python3Install
+neovimDownloadAppImage:
+ifeq (,$(wildcard ~/opt/bin/nvim))
+	mkdir -p $(HOME)/opt/bin
+	curl -L https://github.com/neovim/neovim/releases/download/stable/nvim.appimage > ~/opt/bin/nvim
+	chmod u+x ~/opt/bin/nvim
+endif
+
+neovim: neovimDownloadAppImage neovimInstallPlug python3Install
 	@echo "Copiando archivos de configuracion a "$(HOME)/.config
 	mkdir -p $(HOME)/.config
 	ln -vsf $(PWD)/.config/nvim $(HOME)/.config/nvim
