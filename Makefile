@@ -99,7 +99,16 @@ vimdirs:
 	mkdir -p .vim/tmp/swap
 
 pyenv:
-	curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+	[ -e ~/.pyenv ] || curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+	@echo "# add to .bashrc"
+	@echo 'export PATH="$$HOME/.pyenv/bin:$$PATH"'
+	@echo 'eval "$$(pyenv init -)"'
+	@echo 'eval "$$(pyenv virtualenv-init -)"'
+	@echo ". ~/.bashrc"
+	@echo "# install manually"
+	@echo "pyenv install --skip-existing 3.8.1"
+	@echo "pyenv install --skip-existing 2.7.17"
+	@echo "pyenv shell 2.7.17 3.8.1"
 
 nvm:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
