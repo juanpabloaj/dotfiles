@@ -51,6 +51,7 @@ neovim: neovimInstallPlug python3Install
 	mkdir -p $(HOME)/.config
 	ln -vsf $(PWD)/.config/nvim $(HOME)/.config/nvim
 	pip3 install neovim
+	nvim +PlugInstall +qa
 
 vimCompileCentos6:
 	sudo yum install -y gcc-c++ ncurses-devel python-devel
@@ -108,7 +109,7 @@ pyenv:
 	@echo "# install manually"
 	@echo "pyenv install --skip-existing 3.8.1"
 	@echo "pyenv install --skip-existing 2.7.17"
-	@echo "pyenv shell 2.7.17 3.8.1"
+	@echo "pyenv global 2.7.17 3.8.1"
 
 nvm:
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
