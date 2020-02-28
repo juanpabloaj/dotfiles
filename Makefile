@@ -222,6 +222,14 @@ goInstallUtils:
 	go get -u -v golang.org/x/lint/golint
 	go get -u -v github.com/jesseduffield/lazygit
 
+devdInstall:
+ifeq (,$(wildcard ~/opt/bin/devd))
+	mkdir -p $(HOME)/opt/bin
+	cd /tmp && curl -L -o devd.tgz https://github.com/cortesi/devd/releases/download/v0.9/devd-0.9-osx64.tgz
+	cd /tmp && tar xvfz devd.tgz && cp /tmp/devd-0.9-osx64/devd ~/opt/bin/
+	chmod u+x ~/opt/bin/devd
+endif
+
 oklogInstall:
 	wget https://github.com/oklog/oklog/releases/download/v0.3.2/oklog-0.3.2-linux-amd64 -O $(HOME)/opt/bin/oklog && chmod u+x $(HOME)/opt/bin/oklog
 
