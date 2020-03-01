@@ -236,3 +236,24 @@ oklogInstall:
 jqInstall:
 	wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O $(HOME)/opt/bin/jq
 	chmod u+x $(HOME)/opt/bin/jq
+
+asdfInstallNodejs:
+	asdf plugin-add nodejs || echo updated
+	bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+	asdf install nodejs 12.16.1
+	asdf global nodejs 12.16.1
+
+asdfInstallGolang:
+	asdf plugin-add golang || echo updated
+	asdf install golang 1.12.17
+	asdf global golang 1.12.17
+
+asdfInstallErlang:
+	asdf plugin-add erlang || echo updated
+	asdf install erlang 22.2.8
+	asdf global erlang 22.2.8
+
+asdfInstallElixir: asdfInstallErlang
+	asdf plugin-add elixir || echo updated
+	asdf install elixir 1.10.2
+	asdf global elixir 1.10.2
