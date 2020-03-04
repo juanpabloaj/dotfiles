@@ -94,6 +94,8 @@ fi
 
 [ -f $HOME/opt/src/homebrew/etc/bash_completion ] && . $HOME/opt/src/homebrew/etc/bash_completion
 
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 #aliases
 if [ -f ~/.aliases ]; then
 	. ~/.aliases
