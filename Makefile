@@ -237,6 +237,16 @@ jqInstall:
 	wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O $(HOME)/opt/bin/jq
 	chmod u+x $(HOME)/opt/bin/jq
 
+asdfInstall:
+ifeq (,$(wildcard ~/.asdf))
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+	pushd ~/.asdf
+	git checkout "$(git describe --abbrev=0 --tags)"
+	popd
+	echo -e '\n. $(HOME)/.asdf/asdf.sh' >> ~/.bashrc
+	echo -e '\n. $(HOME)/.asdf/completions/asdf.bash' >> ~/.bashrc
+endif
+
 asdfInstallNodejs:
 	asdf plugin-add nodejs || echo updated
 	bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
