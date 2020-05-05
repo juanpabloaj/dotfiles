@@ -75,7 +75,7 @@ Plug 'fatih/vim-go'
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'npm install',
-	  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " javascript
 " Plug 'ludovicchabant/vim-gutentags'
