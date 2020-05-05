@@ -144,6 +144,9 @@ au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 
 " plugins configuration
 
+" fzf
+nnoremap <silent><leader>F :FZF<CR>
+
 let g:deoplete#enable_at_startup = 1
 
 " vim-go
