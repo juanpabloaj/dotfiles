@@ -265,5 +265,5 @@ asdfInstallErlang:
 
 asdfInstallElixir: asdfInstallErlang
 	asdf plugin-add elixir || echo updated
-	asdf install elixir 1.10.2
-	asdf global elixir 1.10.2
+	asdf install elixir 1.10.3
+	asdf global elixir 1.10.3
