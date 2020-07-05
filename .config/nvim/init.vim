@@ -41,7 +41,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deol.nvim'
 
-Plug 'psf/black'
+Plug 'python/black', { 'tag': '19.10b0' }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -65,6 +65,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " elixir
+Plug 'elixir-editors/vim-elixir'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim'
@@ -147,6 +148,12 @@ highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 
 " plugins configuration
+
+" nerdtree
+nnoremap <silent><leader>n :NERDTreeToggle<CR>
+
+" black
+let g:black_linelength = 79
 
 " fzf
 nnoremap <silent><leader>F :FZF<CR>
