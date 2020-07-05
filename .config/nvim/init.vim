@@ -139,6 +139,10 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 ""}}}
 
+" terminal
+nn <silent><leader>ç :split term://bash
+tnoremap <Esc> <C-\><C-n>
+
 highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 
@@ -181,8 +185,6 @@ endf
 "vimshell
 let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
 let g:vimshell_prompt = '$ '
-nn <silent><leader>Ç :VimShell<cr>
-nn <silent><leader>ç :VimShellBufferDir<cr>
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
