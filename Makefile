@@ -212,6 +212,7 @@ goInstall:
 	@echo "add to ~/.bashrc"
 	@echo
 	@echo "export PATH=\$$PATH:\$$HOME/opt/go/bin:\$$HOME/go/bin"
+	@echo "export PATH=\$$(go env GOPATH)/bin:\$$PATH"
 
 goInstallUtils:
 	go get -u -v github.com/wagoodman/dive
@@ -221,6 +222,7 @@ goInstallUtils:
 	go get -u -v github.com/cortesi/modd/cmd/modd
 	go get -u -v golang.org/x/lint/golint
 	go get -u -v github.com/jesseduffield/lazygit
+
 
 devdInstall:
 ifeq (,$(wildcard ~/opt/bin/devd))
