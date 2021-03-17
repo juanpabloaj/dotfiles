@@ -36,6 +36,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'airblade/vim-gitgutter'
+
+Plug 'vim-airline/vim-airline'
+
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
