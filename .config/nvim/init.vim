@@ -51,7 +51,7 @@ else
   Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 endif
 
-Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -164,6 +164,7 @@ nnoremap <silent><leader>n :NERDTreeToggle<CR>
 
 " black
 let g:black_linelength = 79
+autocmd BufWritePre *.py execute ':Black'
 
 " fzf
 nnoremap <silent><leader>F :FZF<CR>
