@@ -151,7 +151,7 @@ nnoremap N Nzzzv
 ""}}}
 
 " terminal
-nn <silent><leader>ç :split term://bash
+nn <silent><leader>ç :split term://bash<CR>A
 tnoremap <Esc> <C-\><C-n>
 
 highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
