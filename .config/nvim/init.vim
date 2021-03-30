@@ -82,7 +82,7 @@ Plug 'mhinz/vim-mix-format'
 
 Plug 'ekalinin/Dockerfile.vim'
 
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'npm install',
