@@ -84,7 +84,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'int3/vim-extradite'
 
 	if has('python3')
-		Plug 'python/black'
+		"Plug 'python/black'
 	endif
 
 	if v:version >= 800
