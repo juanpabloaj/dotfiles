@@ -169,6 +169,9 @@ autocmd BufWritePre *.py execute ':Black'
 " fzf
 nnoremap <silent><leader>F :FZF<CR>
 
+" elixir
+let g:mix_format_on_save = 1
+
 let g:deoplete#enable_at_startup = 1
 
 " vim-go
