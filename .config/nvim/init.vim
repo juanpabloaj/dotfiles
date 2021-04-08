@@ -176,6 +176,9 @@ let g:deoplete#enable_at_startup = 1
 
 " vim-go
 let g:go_fmt_command = "goimports"
+"let g:go_def_mode = 'gopls'
+let g:go_fmt_command="gopls"
+let g:go_gopls_gofumpt=1
 
 let g:go_metalinter_command = "golangci-lint"
 let g:go_metalinter_enabled= ['golint', 'deadcode', 'errcheck', 'misspell', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused', 'varcheck']
