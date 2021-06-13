@@ -76,7 +76,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " elixir
 Plug 'elixir-editors/vim-elixir'
-Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim'
 
@@ -105,8 +104,6 @@ Plug 'sjl/badwolf'
 
 call plug#end()
 
-let g:seoul256_background=233
-colorscheme seoul256 | set background=dark
 colorscheme gruvbox | set background=dark
 
 autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
@@ -171,6 +168,12 @@ nnoremap <silent><leader>F :FZF<CR>
 
 " elixir
 let g:mix_format_on_save = 1
+
+autocmd FileType elixir call s:elixir_settings()
+fun! s:elixir_settings()
+  " rainbow plugin breaks elixir's syntax colors
+  RainbowToggleOff
+endf
 
 let g:deoplete#enable_at_startup = 1
 
