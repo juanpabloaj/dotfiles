@@ -220,7 +220,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " fugitive
 nnoremap <silent><leader>gd :Gvdiff<CR>
-nn <silent><leader>gc :Gcommit -a<CR>
+nn <silent><leader>gc :Git commit -a<CR>
 nn <silent><leader>gs :Gstatus<CR>
 nn <silent><leader>gw :Gwrite<CR>
 nn <silent><leader>gr :Gread<CR>
