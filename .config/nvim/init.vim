@@ -65,7 +65,7 @@ Plug 'luochen1990/rainbow'
 
 Plug 'lervag/vimtex'
 
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'johngrib/vim-git-msg-wheel'
 
 " Group dependencies, vim-snippets depends on ultisnips
@@ -110,6 +110,7 @@ autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
 
 let mapleader = ","
 nnoremap <silent><leader>ve :sp ~/.config/nvim/init.vim<CR>
+nnoremap <silent><leader>we :sp ~/src/blog/wiki<CR>
 
 " spanish keyboards
 ino ç <esc>
@@ -148,7 +149,8 @@ nnoremap N Nzzzv
 ""}}}
 
 " terminal
-nn <silent><leader>ç :setl autochdir<cr>:split term://bash<CR>A
+nn <silent><leader>ç :setl autochdir<cr>:split term://bash -l<CR>A
+nn <silent><leader>ñ :setl autochdir<cr>:split term://bash -l<CR>A
 tnoremap <Esc> <C-\><C-n>
 
 highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
