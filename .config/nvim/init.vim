@@ -45,11 +45,13 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deol.nvim'
 
-if has('win32') || has('win64')
-  Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-else
-  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-endif
+"if has('win32') || has('win64')
+  "Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+"else
+  "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+"endif
+
+"Plug 'github/copilot.vim'
 
 Plug 'psf/black'
 
