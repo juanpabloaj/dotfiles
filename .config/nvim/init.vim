@@ -54,6 +54,7 @@ Plug 'Shougo/deol.nvim'
 "Plug 'github/copilot.vim'
 
 Plug 'psf/black'
+Plug 'nvie/vim-flake8'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -64,6 +65,8 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'luochen1990/rainbow'
+
+Plug 'ap/vim-css-color'
 
 Plug 'lervag/vimtex'
 
