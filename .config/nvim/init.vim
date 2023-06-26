@@ -53,6 +53,13 @@ Plug 'Shougo/deol.nvim'
 
 "Plug 'github/copilot.vim'
 
+" I tried neosnippet but I'm not used to the keymap
+"Plug 'Shougo/neosnippet.vim'
+"Plug 'Shougo/neosnippet-snippets'
+
+" Group dependencies, vim-snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
 Plug 'psf/black'
 Plug 'nvie/vim-flake8'
 
@@ -72,9 +79,6 @@ Plug 'lervag/vimtex'
 
 "Plug 'sheerun/vim-polyglot'
 Plug 'johngrib/vim-git-msg-wheel'
-
-" Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -184,6 +188,18 @@ endf
 
 let g:deoplete#enable_at_startup = 1
 
+" this keymap doesn't work with ultisnips
+"inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+
+"call deoplete#custom#option('omni_patterns', {
+"\ 'go': '[^. *\t]\.\w*',
+"\})
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " vim-go
 let g:go_fmt_command = "goimports"
 "let g:go_def_mode = 'gopls'
@@ -219,11 +235,6 @@ endf
 "vimshell
 let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
 let g:vimshell_prompt = '$ '
-
-" ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " fugitive
 nnoremap <silent><leader>gd :Gvdiff<CR>
