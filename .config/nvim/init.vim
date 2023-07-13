@@ -278,3 +278,8 @@ fun! s:markdown_settings()
   setl softtabstop=4
   setl spell
 endf
+
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
+augroup END
