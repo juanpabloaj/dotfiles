@@ -80,8 +80,12 @@ Plug 'lervag/vimtex'
 "Plug 'sheerun/vim-polyglot'
 Plug 'johngrib/vim-git-msg-wheel'
 
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'stevearc/oil.nvim'
+
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'nvim-tree/nvim-tree.lua'
 
 " elixir
 Plug 'elixir-editors/vim-elixir'
@@ -112,6 +116,11 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 
 call plug#end()
+
+" to load lua/init.lua
+" and avoid conflicts between init.vim and init.lua
+" I put it here to load the plugins first
+lua require('init')
 
 colorscheme gruvbox | set background=dark
 
@@ -168,7 +177,7 @@ au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 " plugins configuration
 
 " nerdtree
-nnoremap <silent><leader>n :NERDTreeToggle<CR>
+"nnoremap <silent><leader>n :NERDTreeToggle<CR>
 
 " black
 let g:black_linelength = 79
