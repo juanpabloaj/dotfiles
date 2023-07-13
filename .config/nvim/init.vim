@@ -207,7 +207,8 @@ let g:go_fmt_command = "goimports"
 let g:go_gopls_gofumpt=1
 
 let g:go_metalinter_command = "golangci-lint"
-let g:go_metalinter_enabled= ['golint', 'deadcode', 'errcheck', 'misspell', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused', 'varcheck']
+let g:go_metalinter_enabled= ['revive', 'errcheck', 'misspell', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused']
+let g:go_metalinter_autosave_enabled=g:go_metalinter_enabled
 let g:go_metalinter_autosave = 1
 
 " unite
