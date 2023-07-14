@@ -16,8 +16,8 @@ require("nvim-tree").setup()
 vim.keymap.set("n", "<leader>n", ':NvimTreeToggle<cr>', { desc = "open nvim tree" })
 
 require'nvim-treesitter.configs'.setup{
-  -- to install another one manually :TSInstall supported_language
   ensure_installed = { "vim", "lua", "elixir", "heex" },
+  -- to install another language manually :TSInstall supported_language
 
   highlight={
     enable=true
