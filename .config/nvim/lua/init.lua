@@ -14,3 +14,12 @@ vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" }
 require("nvim-tree").setup()
 
 vim.keymap.set("n", "<leader>n", ':NvimTreeToggle<cr>', { desc = "open nvim tree" })
+
+require'nvim-treesitter.configs'.setup{
+  -- to install another one manually :TSInstall supported_language
+  ensure_installed = { "vim", "lua", "elixir", "heex" },
+
+  highlight={
+    enable=true
+  },
+}

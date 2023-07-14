@@ -87,8 +87,10 @@ Plug 'stevearc/oil.nvim'
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'nvim-tree/nvim-tree.lua'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " elixir
-Plug 'elixir-editors/vim-elixir'
+"Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim'
 
