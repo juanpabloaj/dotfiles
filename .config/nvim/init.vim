@@ -252,7 +252,7 @@ let g:vimshell_prompt = '$ '
 " fugitive
 nnoremap <silent><leader>gd :Gvdiff<CR>
 nn <silent><leader>gc :Git commit -a<CR>
-nn <silent><leader>gs :Gstatus<CR>
+nn <silent><leader>gs :Git<CR>
 nn <silent><leader>gw :Gwrite<CR>
 nn <silent><leader>gr :Gread<CR>
 nn <silent><leader>gb :Gblame<CR>
