@@ -186,7 +186,8 @@ let g:black_linelength = 79
 autocmd BufWritePre *.py execute ':Black'
 
 " fzf
-nnoremap <silent><leader>F :FZF<CR>
+nnoremap <silent><leader>f :FZF<CR>
+nnoremap <silent><leader>b :Buffers<CR>
 
 " elixir
 let g:mix_format_on_save = 1
