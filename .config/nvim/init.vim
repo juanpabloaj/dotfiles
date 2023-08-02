@@ -170,7 +170,7 @@ nnoremap N Nzzzv
 
 " terminal
 nn <silent><leader>ç :setl autochdir<cr>:split term://bash -l<CR>A
-nn <silent><leader>ñ :setl autochdir<cr>:split term://bash -l<CR>A
+nn <silent><leader>ñ :split term://bash -c 'cd %:p:h && bash -l'<CR>A
 nn <silent><leader>Ñ :split term://bash -l<CR>A
 tnoremap <Esc> <C-\><C-n>
 
