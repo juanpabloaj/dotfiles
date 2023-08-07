@@ -63,7 +63,7 @@
 	tool = vimdiff
 
 [core]
-	editor = vim
+	editor = nvim
 	;excludesfile = ~/.gitignore
 	excludesfile = ~/.gitexcludes
 
