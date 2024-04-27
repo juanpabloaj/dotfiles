@@ -51,7 +51,7 @@ Plug 'Shougo/deol.nvim'
   "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 "endif
 
-"Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 
 " I tried neosnippet but I'm not used to the keymap
 "Plug 'Shougo/neosnippet.vim'
@@ -89,10 +89,17 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'neovim/nvim-lspconfig'
+
 " elixir
 "Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim'
+
+Plug 'nvim-lua/plenary.nvim'
+"Plug 'elixir-tools/elixir-tools.nvim'
+
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 
 Plug 'ekalinin/Dockerfile.vim'
 
@@ -186,8 +193,12 @@ let g:black_linelength = 79
 autocmd BufWritePre *.py execute ':Black'
 
 " fzf
-nnoremap <silent><leader>f :FZF<CR>
+" fzf-vim-commands
+nnoremap <silent><leader>F :FZF<CR>
 nnoremap <silent><leader>b :Buffers<CR>
+
+" telescope
+nnoremap <silent><leader>T :Telescope<CR>
 
 " elixir
 let g:mix_format_on_save = 1
@@ -218,8 +229,8 @@ let g:go_fmt_command = "goimports"
 "let g:go_fmt_command="gopls"
 let g:go_gopls_gofumpt=1
 
-let g:go_metalinter_command = "golangci-lint"
-let g:go_metalinter_enabled= ['revive', 'errcheck', 'misspell', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused']
+"let g:go_metalinter_command = "golangci-lint"
+let g:go_metalinter_enabled= ['errcheck', 'misspell', 'gosimple', 'govet', 'staticcheck', 'typecheck', 'unused']
 let g:go_metalinter_autosave_enabled=g:go_metalinter_enabled
 let g:go_metalinter_autosave = 1
 
