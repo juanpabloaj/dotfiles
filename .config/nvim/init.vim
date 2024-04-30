@@ -87,6 +87,8 @@ Plug 'stevearc/oil.nvim'
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'nvim-tree/nvim-tree.lua'
 
+"Plug 'kevinhwang91/nvim-bqf'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'neovim/nvim-lspconfig'
@@ -100,8 +102,6 @@ Plug 'nvim-lua/plenary.nvim'
 "Plug 'elixir-tools/elixir-tools.nvim'
 
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
-
-Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
