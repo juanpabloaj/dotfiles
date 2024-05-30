@@ -126,6 +126,8 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
+Plug 'folke/tokyonight.nvim'
+Plug 'rebelot/kanagawa.nvim'
 
 call plug#end()
 
