@@ -18,13 +18,23 @@ vim.keymap.set("n", "<leader>n", ':NvimTreeToggle<cr>', { desc = "open nvim tree
 
 -- don't remove lua, vim or vimdoc
 require'nvim-treesitter.configs'.setup{
-  ensure_installed = {"c", "lua", "vim", "vimdoc", "elixir", "heex", "javascript", "go"},
+  ensure_installed = {
+    "c", "lua", "vim", "vimdoc",
+    "elixir", "heex", "javascript",
+    "go", "python",
+    "dockerfile", "markdown"},
   -- to install another language manually :TSInstall supported_language
 
   highlight={
     enable=true
   },
 }
+
+--require('bqf').setup({
+    --auto_enable = true,
+    --auto_resize_height = true,
+    --wrap = true
+--})
 
 require'lspconfig'.gopls.setup{
   settings = {
