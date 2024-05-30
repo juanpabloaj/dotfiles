@@ -256,7 +256,7 @@ fun! s:unite_my_settings()
 	nnoremap <buffer><expr> s unite#do_action('split')
 	"inoremap <buffer><expr> v unite#do_action('vsplit')
 	nnoremap <buffer><expr> v unite#do_action('vsplit')
-	hi whitespaceEOL ctermbg=bg
+	"hi whitespaceEOL ctermbg=bg
 endf
 
 "vimshell
