@@ -30,6 +30,9 @@ set wildignore+=*.DS_Store?                      " OSX bullshit
 set wildignore+=*.beam                           " elixir files
 set completeopt=longest,menuone",preview
 
+set list
+set listchars=tab:▸\ ,eol:¬,trail:-,extends:»,precedes:«,nbsp:+
+
 set spelllang=es,en
 
 call plug#begin('~/.vim/plugged')
