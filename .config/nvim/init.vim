@@ -105,6 +105,8 @@ Plug 'nvim-lua/plenary.nvim'
 "Plug 'elixir-tools/elixir-tools.nvim'
 
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+Plug 'nvim-telescope/telescope-frecency.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
