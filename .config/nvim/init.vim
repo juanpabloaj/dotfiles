@@ -38,6 +38,7 @@ set spelllang=es,en
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 Plug 'airblade/vim-gitgutter'
 
