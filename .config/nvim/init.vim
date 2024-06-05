@@ -131,6 +131,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'folke/tokyonight.nvim'
 Plug 'rebelot/kanagawa.nvim'
+Plug 'catppuccin/nvim'
+Plug 'rose-pine/neovim'
 
 call plug#end()
 
@@ -139,7 +141,11 @@ call plug#end()
 " I put it here to load the plugins first
 lua require('init')
 
-colorscheme gruvbox | set background=dark
+set background=dark
+"colorscheme gruvbox | set background=dark
+colorscheme kanagawa-dragon
+colorscheme kanagawa-wave
+"colorscheme catppuccin
 
 autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
 
