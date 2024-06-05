@@ -202,6 +202,10 @@ au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 " nerdtree
 "nnoremap <silent><leader>n :NERDTreeToggle<CR>
 
+" lspconfig
+" rename a reference over all the project
+" lua vim.lsp.buf.rename()
+
 " black
 let g:black_linelength = 79
 autocmd BufWritePre *.py execute ':Black'
