@@ -104,7 +104,7 @@ Plug 'mhinz/vim-mix-format'
 Plug 'nvim-lua/plenary.nvim'
 "Plug 'elixir-tools/elixir-tools.nvim'
 
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'nvim-telescope/telescope-frecency.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 
@@ -203,6 +203,7 @@ autocmd BufWritePre *.py execute ':Black'
 " fzf-vim-commands
 nnoremap <silent><leader>F :FZF<CR>
 nnoremap <silent><leader>b :Buffers<CR>
+nn <silent><leader>fh :History<CR>
 
 " telescope
 nnoremap <silent><leader>T :Telescope<CR>
