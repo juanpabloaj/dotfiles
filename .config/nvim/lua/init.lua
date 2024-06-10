@@ -44,6 +44,11 @@ require'lspconfig'.gopls.setup{
   },
 }
 
+require("toggleterm").setup{
+  shell = "bash -l",
+  open_mapping = [[<c-ñ>]],
+}
+
 require'telescope'.load_extension('frecency')
 require("telescope").load_extension "file_browser"
 
