@@ -110,6 +110,7 @@ Plug 'nvim-telescope/telescope-frecency.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+Plug 'tris203/precognition.nvim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 

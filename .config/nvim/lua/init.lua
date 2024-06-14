@@ -49,6 +49,10 @@ require("toggleterm").setup{
   open_mapping = [[<c-ñ>]],
 }
 
+require('precognition').setup{
+  startVisible = false,
+}
+
 require'telescope'.load_extension('frecency')
 require("telescope").load_extension "file_browser"
 
