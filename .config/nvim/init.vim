@@ -230,7 +230,9 @@ fun! s:elixir_settings()
   RainbowToggleOff
 endf
 
+" reminder pip install pynvim
 let g:deoplete#enable_at_startup = 1
+autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
 
 " this keymap doesn't work with ultisnips
 "inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
