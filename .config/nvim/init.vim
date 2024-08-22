@@ -219,6 +219,8 @@ nnoremap <silent><leader>F :FZF<CR>
 nnoremap <silent><leader>b :Buffers<CR>
 nn <silent><leader>fh :History<CR>
 
+let g:fzf_commits_log_options = '--color=always --format="%C(yellow)%h%Creset %s %C(green)%cr%Creset %C(dim white)%an%Creset"'
+
 " telescope
 nnoremap <silent><leader>T :Telescope<CR>
 
