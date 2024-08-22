@@ -22,7 +22,7 @@ require'nvim-treesitter.configs'.setup{
     "c", "lua", "vim", "vimdoc",
     "elixir", "heex", "javascript",
     "go", "python",
-    "dockerfile", "markdown"},
+    "markdown"},
   -- to install another language manually :TSInstall supported_language
 
   highlight={
