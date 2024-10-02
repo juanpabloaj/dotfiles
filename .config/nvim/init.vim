@@ -292,7 +292,7 @@ nn <silent><leader>gc :Git commit<CR>
 nn <silent><leader>gs :Git<CR>
 nn <silent><leader>gw :Gwrite<CR>
 nn <silent><leader>gr :Gread<CR>
-nn <silent><leader>gb :Gblame<CR>
+nn <silent><leader>gb :Git blame<CR>
 
 " rainbow
 let g:rainbow_active = 1
