@@ -47,7 +47,14 @@ require'lspconfig'.gopls.setup{
 require("toggleterm").setup{
   shell = "bash -l",
   open_mapping = [[<c-ñ>]],
+  float_opts = {
+    border = "curved",
+    winblend = 3,
+  }
 }
+
+vim.api.nvim_set_keymap('n', '<leader>th', '<cmd>ToggleTerm direction=horizontal<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { noremap = true, silent = true })
 
 require('precognition').setup{
   startVisible = false,
