@@ -14,7 +14,7 @@ vim.keymap.set("n", "_", ":split<CR>:Oil<CR>", { desc = "Open split parent direc
 
 require("nvim-tree").setup()
 
-vim.keymap.set("n", "<leader>n", ':NvimTreeToggle<cr>', { desc = "open nvim tree" })
+vim.keymap.set("n", "<leader>nt", ':NvimTreeToggle<cr>', { desc = "open nvim tree" })
 
 -- don't remove lua, vim or vimdoc
 require'nvim-treesitter.configs'.setup{
