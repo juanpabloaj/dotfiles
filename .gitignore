@@ -9,3 +9,4 @@ tags
 .bash_completion.d
 .vim/bundle/vim-taglist/docs/*
 nohup.out
+.config/nvim/spell
