@@ -11,6 +11,9 @@ return {
 
   leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
 
+  -- Disable ligatures, example != to not be rendered as ≠
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+
   keys = {
   -- CMD-d and CMD-SHIFT-d to split panes like in iTerm2.
   {
