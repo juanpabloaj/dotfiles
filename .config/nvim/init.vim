@@ -297,6 +297,11 @@ nn <silent><leader>gw :Gwrite<CR>
 nn <silent><leader>gr :Gread<CR>
 nn <silent><leader>gb :Git blame<CR>
 
+" to ignore whitespace changes in git diff and vimdiff
+" set diffopt+=iwhite,iwhiteall,iwhiteeol
+" to ignore whitespaces at end of line only
+set diffopt+=iwhiteeol
+
 " rainbow
 let g:rainbow_active = 1
 
