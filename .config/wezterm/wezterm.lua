@@ -1,6 +1,13 @@
 local wezterm = require 'wezterm'
 
 return {
+  -- Disable mouse wheel → arrow key translation inside alternate screen
+  -- (tmux uses alternate screen; without this, trackpad scroll sends Up/Down
+  -- arrow keys to the program instead of doing nothing).
+  -- See: alternate_buffer_wheel_scroll_speed
+  --scrollback_lines = 0,
+  alternate_buffer_wheel_scroll_speed = 0,
+
   default_prog = { '/bin/bash', '-l' },
 
   --font = wezterm.font('JetBrains Mono', { weight = 'Medium' }),
