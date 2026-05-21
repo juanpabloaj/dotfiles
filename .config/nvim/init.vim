@@ -166,6 +166,10 @@ vn ñ :
 " no ex mode ; press gQ
 nn Q gq
 
+" insert hour/date
+inoremap <C-d> <C-r>=strftime('%Y-%m-%dT%H:%M:%S')<CR>
+inoremap <C-t> <C-r>=strftime('%H:%M:%S')<CR>
+
 " <c-a> is for screen or tmux
 nn <silent><c-A> <c-a>
 
@@ -193,8 +197,8 @@ nnoremap N Nzzzv
 ""}}}
 
 " terminal
-nn <silent><leader>ñ :split term://%:p:h//bash -c 'bash -l'<CR>A
-nn <silent><leader>Ñ :split term://bash -l<CR>A
+nn <silent><leader>Ñ :split term://%:p:h//bash -c 'bash -l'<CR>A
+nn <silent><leader>ñ :split term://bash -l<CR>A
 tnoremap <Esc> <C-\><C-n>
 
 highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey

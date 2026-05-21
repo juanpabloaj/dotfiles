@@ -72,6 +72,11 @@ vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>' , {})
 vim.keymap.set('n', '<leader>fi', ':Telescope lsp_implementations<CR>' , {})
 vim.keymap.set('n', '<leader>fd', ':Telescope lsp_definitions<CR>' , {})
+
+-- diagnostics
+vim.keymap.set("n", "<leader>dq", function()
+  vim.diagnostic.setqflist()
+end, { desc = "Diagnostics → quickfix" })
 --vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 --vim.keymap.set('n', '<leader>fr', ':Telescope frecency<CR>' , {})
 --vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>' , {})
