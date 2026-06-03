@@ -28,7 +28,9 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
 set wildignore+=*.beam                           " elixir files
-set completeopt=longest,menuone",preview
+" <C-x><C-o> to trigger omnicompletion omnifunc
+set completeopt=menuone,longest,preview
+" comment preview if it is too noisy, ",preview
 
 set list
 set listchars=tab:▸\ ,eol:¬,trail:-,extends:»,precedes:«,nbsp:+

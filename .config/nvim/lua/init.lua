@@ -60,6 +60,17 @@ require('precognition').setup{
   startVisible = false,
 }
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(event)
+    local opts = { buffer = event.buf }
+
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  end,
+})
+
 --require'telescope'.load_extension('frecency')
 --require("telescope").load_extension "file_browser"
 
@@ -72,6 +83,8 @@ vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>' , {})
 vim.keymap.set('n', '<leader>fi', ':Telescope lsp_implementations<CR>' , {})
 vim.keymap.set('n', '<leader>fd', ':Telescope lsp_definitions<CR>' , {})
+vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>fw', builtin.lsp_dynamic_workspace_symbols, {})
 
 -- diagnostics
 vim.keymap.set("n", "<leader>dq", function()
