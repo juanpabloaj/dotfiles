@@ -29,7 +29,8 @@ set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store?                      " OSX bullshit
 set wildignore+=*.beam                           " elixir files
 " <C-x><C-o> to trigger omnicompletion omnifunc
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
+"set completeopt=menuone,longest,preview
 " comment preview if it is too noisy, ",preview
 
 set list
