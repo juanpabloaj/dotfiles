@@ -147,13 +147,13 @@ lua require('init')
 
 set background=dark
 "colorscheme gruvbox | set background=dark
-colorscheme kanagawa-dragon
+"colorscheme kanagawa-dragon
 colorscheme kanagawa-wave
 "colorscheme catppuccin
 
-autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
+"autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
 
-let mapleader = ","
+"let mapleader = ","
 nnoremap <silent><leader>ve :sp ~/.config/nvim/init.vim<CR>
 nnoremap <silent><leader>we :sp ~/src/blog/wiki<CR>
 
@@ -171,9 +171,6 @@ nn Q gq
 inoremap <C-d> <C-r>=strftime('%Y-%m-%dT%H:%M:%S')<CR>
 inoremap <C-t> <C-r>=strftime('%H:%M:%S')<CR>
 
-" <c-a> is for screen or tmux
-nn <silent><c-A> <c-a>
-
 nn <leader>tn :tabnew 
 nn <silent>gt : exec tabpagenr('$') == 1 ? 'bn' : 'tabnext'<CR>
 nn <silent>gT : exec tabpagenr('$') == 1 ? 'bp' : 'tabprevious'<CR>
@@ -188,7 +185,6 @@ set ignorecase
 set smartcase
 set gdefault
 set incsearch
-set showmatch
 set hlsearch
 nnoremap <silent><leader><space> :setl hlsearch!<cr>
 "nnoremap <tab> %
@@ -226,6 +222,8 @@ autocmd BufWritePre *.py execute ':Black'
 nnoremap <silent><leader>F :FZF<CR>
 nnoremap <silent><leader>b :Buffers<CR>
 nn <silent><leader>fh :History<CR>
+
+autocmd! FileType fzf tnoremap <buffer> <Esc> <Esc>
 
 let g:fzf_commits_log_options = '--color=always --format="%C(yellow)%h%Creset %s %C(green)%cr%Creset %C(dim white)%an%Creset"'
 
@@ -292,10 +290,6 @@ fun! s:unite_my_settings()
 	nnoremap <buffer><expr> v unite#do_action('vsplit')
 	"hi whitespaceEOL ctermbg=bg
 endf
-
-"vimshell
-let g:vimshell_user_prompt='substitute(getcwd(),eval("$HOME"),"~","")'
-let g:vimshell_prompt = '$ '
 
 " fugitive
 nnoremap <silent><leader>gd :Gvdiff<CR>
