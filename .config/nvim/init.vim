@@ -96,8 +96,6 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 "Plug 'kevinhwang91/nvim-bqf'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 Plug 'neovim/nvim-lspconfig'
 
 " elixir
@@ -108,7 +106,7 @@ Plug 'mhinz/vim-mix-format'
 Plug 'nvim-lua/plenary.nvim'
 "Plug 'elixir-tools/elixir-tools.nvim'
 
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': 'v0.2.2' }
 "Plug 'nvim-telescope/telescope-frecency.nvim'
 "Plug 'nvim-telescope/telescope-file-browser.nvim'
 

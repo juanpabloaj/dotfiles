@@ -17,33 +17,21 @@ require("nvim-tree").setup()
 vim.keymap.set("n", "<leader>nt", ':NvimTreeToggle<cr>', { desc = "open nvim tree" })
 vim.keymap.set("n", "<leader>nf", ':NvimTreeFindFileToggle<cr>', { desc = "open nvim tree find file" })
 
--- don't remove lua, vim or vimdoc
-require'nvim-treesitter.configs'.setup{
-  ensure_installed = {
-    "c", "lua", "vim", "vimdoc",
-    "elixir", "heex", "javascript",
-    "go", "python",
-    "markdown"},
-  -- to install another language manually :TSInstall supported_language
-
-  highlight={
-    enable=true
-  },
-}
-
 --require('bqf').setup({
     --auto_enable = true,
     --auto_resize_height = true,
     --wrap = true
 --})
 
-require'lspconfig'.gopls.setup{
+vim.lsp.config("gopls", {
   settings = {
     gopls = {
-      buildFlags = {"-tags=integration"},
+      buildFlags = { "-tags=integration" },
     },
   },
-}
+})
+
+vim.lsp.enable("gopls")
 
 require("toggleterm").setup{
   shell = "bash -l",
