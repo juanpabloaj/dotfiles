@@ -7,7 +7,15 @@ vim.g.mapleader = ","
 -- iterm -> preferences -> profiles -> text -> font -> roboto mono nerd font
 require("nvim-web-devicons").setup()
 
-require("lualine").setup()
+-- path = 1: relative path like airline's %f, not just the filename
+require("lualine").setup({
+  sections = {
+    lualine_c = { { "filename", path = 1 } },
+  },
+  inactive_sections = {
+    lualine_c = { { "filename", path = 1 } },
+  },
+})
 
 require("gitsigns").setup({
   on_attach = function(bufnr)
