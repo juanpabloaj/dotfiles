@@ -23,6 +23,14 @@ vim.keymap.set("n", "<leader>nf", ':NvimTreeFindFileToggle<cr>', { desc = "open 
     --wrap = true
 --})
 
+require("blink.cmp").setup({
+  keymap = { preset = "default" },
+})
+
+vim.lsp.config("*", {
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
+
 vim.lsp.config("gopls", {
   settings = {
     gopls = {

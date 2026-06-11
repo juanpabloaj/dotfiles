@@ -51,14 +51,8 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 Plug 'Shougo/deol.nvim'
-
-"if has('win32') || has('win64')
-  "Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-"else
-  "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-"endif
 
 "Plug 'github/copilot.vim'
 
@@ -66,8 +60,7 @@ Plug 'Shougo/deol.nvim'
 "Plug 'Shougo/neosnippet.vim'
 "Plug 'Shougo/neosnippet-snippets'
 
-" Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'rafamadriz/friendly-snippets'
 
 Plug 'psf/black'
 Plug 'nvie/vim-flake8'
@@ -249,20 +242,6 @@ let g:mix_format_on_save = 1
 " pip install neovim
 " pip install black
 " reminder pip install pynvim
-let g:deoplete#enable_at_startup = 1
-autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
-
-" this keymap doesn't work with ultisnips
-"inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
-
-"call deoplete#custom#option('omni_patterns', {
-"\ 'go': '[^. *\t]\.\w*',
-"\})
-
-" ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " vim-go
 let g:go_fmt_command = "goimports"
