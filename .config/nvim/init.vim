@@ -45,11 +45,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
 
-Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+" branch instead of tag: PlugClean deletes tag checkouts of this repo
+" (release tags are not contained in main, vim-plug flags them as diverged)
+Plug 'saghen/blink.cmp', { 'branch': 'v1' }
 
 "Plug 'github/copilot.vim'
 
@@ -66,8 +68,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'preservim/tagbar'
 Plug 'preservim/nerdcommenter'
-
-Plug 'luochen1990/rainbow'
 
 Plug 'ap/vim-css-color'
 
@@ -244,9 +244,6 @@ nn <silent><leader>gb :Git blame<CR>
 " set diffopt+=iwhite,iwhiteall,iwhiteeol
 " to ignore whitespaces at end of line only
 set diffopt+=iwhiteeol
-
-" rainbow
-let g:rainbow_active = 1
 
 " Tagbar
 nn <silent><Leader>l :TagbarToggle<CR>

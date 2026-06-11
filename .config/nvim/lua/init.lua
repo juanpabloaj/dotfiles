@@ -7,6 +7,34 @@ vim.g.mapleader = ","
 -- iterm -> preferences -> profiles -> text -> font -> roboto mono nerd font
 require("nvim-web-devicons").setup()
 
+require("lualine").setup()
+
+require("gitsigns").setup({
+  on_attach = function(bufnr)
+    local gitsigns = require("gitsigns")
+    local opts = { buffer = bufnr }
+
+    -- same keys vim-gitgutter provided
+    vim.keymap.set("n", "]c", function()
+      if vim.wo.diff then
+        vim.cmd.normal({ "]c", bang = true })
+      else
+        gitsigns.nav_hunk("next")
+      end
+    end, opts)
+    vim.keymap.set("n", "[c", function()
+      if vim.wo.diff then
+        vim.cmd.normal({ "[c", bang = true })
+      else
+        gitsigns.nav_hunk("prev")
+      end
+    end, opts)
+    vim.keymap.set("n", "<leader>hs", gitsigns.stage_hunk, opts)
+    vim.keymap.set("n", "<leader>hu", gitsigns.reset_hunk, opts)
+    vim.keymap.set("n", "<leader>hp", gitsigns.preview_hunk, opts)
+  end,
+})
+
 require("oil").setup()
 
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
