@@ -1,4 +1,6 @@
-syntax on
+" no 'syntax on' here: it triggers filetype detection of the startup file
+" at this point, before the rest of this file is sourced; plug#end() runs
+" 'syntax enable' later anyway
 set showcmd
 set showmatch
 set showmode
@@ -198,8 +200,15 @@ nn <silent><leader>Ñ :split term://%:p:h//bash -c 'bash -l'<CR>A
 nn <silent><leader>ñ :split term://bash -l<CR>A
 tnoremap <Esc> <C-\><C-n>
 
+" window matches instead of 'syn match': they survive :syn clear and also
+" show up in treesitter-highlighted buffers (markdown in nvim 0.12)
 highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
-au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
+augroup whitespace_eol
+  autocmd!
+  autocmd VimEnter,WinEnter * if empty(&buftype) && !exists('w:whitespaceEOL_id')
+        \ | let w:whitespaceEOL_id = matchadd('whitespaceEOL', '\s\+\(\%#\)\@!$')
+        \ | endif
+augroup END
 
 " plugins configuration
 
@@ -215,7 +224,10 @@ au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 
 " black
 let g:black_linelength = 79
-autocmd BufWritePre *.py execute ':Black'
+augroup python_black
+  autocmd!
+  autocmd BufWritePre *.py execute ':Black'
+augroup END
 
 " fzf
 " fzf-vim-commands
@@ -232,12 +244,6 @@ nnoremap <silent><leader>T :Telescope<CR>
 
 " elixir
 let g:mix_format_on_save = 1
-
-autocmd FileType elixir call s:elixir_settings()
-fun! s:elixir_settings()
-  " rainbow plugin breaks elixir's syntax colors
-  RainbowToggleOff
-endf
 
 " reminder
 " pip install neovim
@@ -324,21 +330,4 @@ let g:syntastic_aggregate_errors = 1
 " Tagbar
 nn <silent><Leader>l :TagbarToggle<CR>
 
-" FileType settings
-
-autocmd FileType make call s:make_settings()
-fun! s:make_settings()
-  setl noexpandtab
-endf
-autocmd FileType markdown call s:markdown_settings()
-fun! s:markdown_settings()
-  setlocal tabstop=4
-  setl shiftwidth=4
-  setl softtabstop=4
-  setl spell
-endf
-
-augroup quickfix
-    autocmd!
-    autocmd FileType qf setlocal wrap
-augroup END
+" FileType settings live in after/ftplugin/*.vim
