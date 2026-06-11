@@ -58,7 +58,7 @@ Plug 'Shougo/deol.nvim'
   "Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 "endif
 
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
 
 " I tried neosnippet but I'm not used to the keymap
 "Plug 'Shougo/neosnippet.vim'
@@ -208,6 +208,9 @@ highlight whitespaceEOL term=reverse ctermbg=Grey guibg=Grey
 au Syntax * syn match whitespaceEOL /\s\+\(\%#\)\@!$/ containedin=ALL
 
 " plugins configuration
+
+" ssh over oil
+" :e oil-ssh://ssh_alias/
 
 " nerdtree
 "nnoremap <silent><leader>n :NERDTreeToggle<CR>
