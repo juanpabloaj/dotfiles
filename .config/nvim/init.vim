@@ -59,9 +59,6 @@ Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 
 Plug 'rafamadriz/friendly-snippets'
 
-Plug 'psf/black'
-Plug 'nvie/vim-flake8'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -208,13 +205,6 @@ augroup END
 " rename a reference over all the project
 " lua vim.lsp.buf.rename()
 
-" black
-let g:black_linelength = 79
-augroup python_black
-  autocmd!
-  autocmd BufWritePre *.py execute ':Black'
-augroup END
-
 " fzf
 " fzf-vim-commands
 nnoremap <silent><leader>F :FZF<CR>
@@ -230,11 +220,6 @@ nnoremap <silent><leader>T :Telescope<CR>
 
 " elixir
 let g:mix_format_on_save = 1
-
-" reminder
-" pip install neovim
-" pip install black
-" reminder pip install pynvim
 
 " vim-go
 let g:go_fmt_command = "goimports"

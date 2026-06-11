@@ -41,6 +41,29 @@ vim.lsp.config("gopls", {
 
 vim.lsp.enable("gopls")
 
+-- needs the ruff binary (asdf install ruff)
+-- ruff is lint/format only; add basedpyright if python completion/goto is needed
+vim.lsp.config("ruff", {
+  init_options = {
+    settings = {
+      lineLength = 79,
+    },
+  },
+})
+
+vim.lsp.enable("ruff")
+
+-- TODO: elixir lsp: install elixir-ls (or expert) and enable it here
+
+-- format python with ruff on save (replaces the black plugin)
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("python_ruff_format", {}),
+  pattern = "*.py",
+  callback = function()
+    vim.lsp.buf.format({ timeout_ms = 2000 })
+  end,
+})
+
 require("toggleterm").setup{
   shell = "bash -l",
   open_mapping = [[<c-ñ>]],
@@ -61,7 +84,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local opts = { buffer = event.buf }
 
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    -- K (hover) is a native default; so are grn/gra/grr/gri (rename, code action, references, implementation)
     vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
