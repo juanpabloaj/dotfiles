@@ -49,10 +49,7 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
 Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
-Plug 'Shougo/deol.nvim'
 
 "Plug 'github/copilot.vim'
 
@@ -70,9 +67,9 @@ Plug 'junegunn/fzf.vim'
 
 "Plug 'w0rp/ale'
 
-Plug 'majutsushi/tagbar'
-Plug 'vim-syntastic/syntastic'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/tagbar'
+Plug 'preservim/nerdcommenter'
+
 Plug 'luochen1990/rainbow'
 
 Plug 'ap/vim-css-color'
@@ -118,7 +115,6 @@ Plug 'prettier/vim-prettier', {
 " Plug 'ludovicchabant/vim-gutentags'
 
 " colorscheme
-Plug 'sickill/vim-monokai'
 Plug 'joshdick/onedark.vim'
 Plug 'freeo/vim-kalisi'
 Plug 'juanpabloaj/vim-pixelmuerto'
@@ -130,8 +126,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'folke/tokyonight.nvim'
 Plug 'rebelot/kanagawa.nvim'
-Plug 'catppuccin/nvim'
-Plug 'rose-pine/neovim'
 
 call plug#end()
 
@@ -144,7 +138,6 @@ set background=dark
 "colorscheme gruvbox | set background=dark
 "colorscheme kanagawa-dragon
 colorscheme kanagawa-wave
-"colorscheme catppuccin
 
 "autocmd! bufwritepost init.vim source ~/.config/nvim/init.vim
 
@@ -254,28 +247,6 @@ let g:go_metalinter_enabled= ['errcheck', 'misspell', 'gosimple', 'govet', 'stat
 let g:go_metalinter_autosave_enabled=g:go_metalinter_enabled
 let g:go_metalinter_autosave = 1
 
-" unite
-
-nn <silent> <leader>ub :<C-u>Unite buffer<CR>
-nn <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nn <silent> <leader>uF :<C-u>Unite file_rec<CR>
-nn <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
-nn <silent> <leader>um :<C-u>Unite file_mru<CR>
-nn <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
-nn <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_rec file_mru bookmark file<CR>
-nn <silent> <leader>un :<C-u>UniteWithBufferDir file file/new<CR>
-nn <silent> <leader>ug :<C-u>UniteWithCursorWord vimgrep:`expand('%:p:h')`/**:`expand('<cword>')`<CR>
-nn <leader>uG :<C-u>UniteWithCursorWord vimgrep:`expand('%:p:h')`/**:<c-r><c-w>
-
-autocmd FileType unite call s:unite_my_settings()
-fun! s:unite_my_settings()
-	"inoremap <buffer><expr> s unite#do_action('split')
-	nnoremap <buffer><expr> s unite#do_action('split')
-	"inoremap <buffer><expr> v unite#do_action('vsplit')
-	nnoremap <buffer><expr> v unite#do_action('vsplit')
-	"hi whitespaceEOL ctermbg=bg
-endf
-
 " fugitive
 nnoremap <silent><leader>gd :Gvdiff<CR>
 nn <silent><leader>gc :Git commit<CR>
@@ -291,20 +262,6 @@ set diffopt+=iwhiteeol
 
 " rainbow
 let g:rainbow_active = 1
-
-" Syntastic
-let g:syntastic_enable_signs = 1
-let g:syntastic_mode_map = {
-  \ 'mode': 'active', 'active_filetypes': [],
-  \ 'passive_filetypes': ['tex','html']}
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_cpp_cpplint_exec = 'cpplint'
-let g:syntastic_cpp_cpplint_args = '--filter=-whitespace/braces'
-
-let g:syntastic_cpp_checkers = ['cpplint', 'gcc']
-
-let g:syntastic_aggregate_errors = 1
 
 " Tagbar
 nn <silent><Leader>l :TagbarToggle<CR>
