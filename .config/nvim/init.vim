@@ -43,7 +43,6 @@ set spelllang=es,en
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 
 Plug 'lewis6991/gitsigns.nvim'
 
@@ -55,10 +54,6 @@ Plug 'saghen/blink.cmp', { 'branch': 'v1' }
 
 "Plug 'github/copilot.vim'
 
-" I tried neosnippet but I'm not used to the keymap
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
-
 Plug 'rafamadriz/friendly-snippets'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -69,17 +64,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/tagbar'
 Plug 'preservim/nerdcommenter'
 
-Plug 'ap/vim-css-color'
-
-Plug 'lervag/vimtex'
-
-"Plug 'sheerun/vim-polyglot'
-Plug 'johngrib/vim-git-msg-wheel'
-
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'stevearc/oil.nvim'
 
-" On-demand loading
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'nvim-tree/nvim-tree.lua'
 
@@ -89,11 +76,11 @@ Plug 'neovim/nvim-lspconfig'
 
 " elixir
 "Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
+"Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim'
+"Plug 'elixir-tools/elixir-tools.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
-"Plug 'elixir-tools/elixir-tools.nvim'
 
 Plug 'nvim-telescope/telescope.nvim', { 'tag': 'v0.2.2' }
 "Plug 'nvim-telescope/telescope-frecency.nvim'
@@ -112,15 +99,7 @@ Plug 'prettier/vim-prettier', {
 " Plug 'ludovicchabant/vim-gutentags'
 
 " colorscheme
-Plug 'joshdick/onedark.vim'
-Plug 'freeo/vim-kalisi'
 Plug 'juanpabloaj/vim-pixelmuerto'
-Plug 'nanotech/jellybeans.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'sjl/badwolf'
 Plug 'folke/tokyonight.nvim'
 Plug 'rebelot/kanagawa.nvim'
 
@@ -197,13 +176,6 @@ augroup END
 
 " ssh over oil
 " :e oil-ssh://ssh_alias/
-
-" nerdtree
-"nnoremap <silent><leader>n :NERDTreeToggle<CR>
-
-" lspconfig
-" rename a reference over all the project
-" lua vim.lsp.buf.rename()
 
 " fzf
 " fzf-vim-commands
