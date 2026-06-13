@@ -11,6 +11,8 @@ require("nvim-web-devicons").setup()
 require("lualine").setup({
   sections = {
     lualine_c = { { "filename", path = 1 } },
+    -- like airline: percentage and current/total lines instead of 'progress'
+    lualine_y = { "%l/%L %p%%" },
   },
   inactive_sections = {
     lualine_c = { { "filename", path = 1 } },
